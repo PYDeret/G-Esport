@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <link rel="icon" type="image/png" href="/images/icon.png')}}">
+  <link rel="icon" type="image/png" href="/images/icon.png">
 
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
@@ -34,7 +34,7 @@
 <body>
 
   <div class="page-preloader preloader-wrapp">
-    <img src="/images/logo.png') }}" alt="">
+    <img src="/images/logo.png" alt="">
     <div class="preloader"></div>
   </div>
 
