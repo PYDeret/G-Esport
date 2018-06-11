@@ -18,6 +18,11 @@ FROM laradock/php-fpm:2.2-${PHP_VERSION}
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
+RUN apt -yqq update
+RUN apt -yqq install libxml2-dev
+RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install xml
+
 #
 #--------------------------------------------------------------------------
 # Mandatory Software's Installation
