@@ -18,10 +18,6 @@ FROM laradock/php-fpm:2.2-${PHP_VERSION}
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
-RUN apt -yqq update
-RUN apt -yqq install libxml2-dev
-RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install xml
 
 #
 #--------------------------------------------------------------------------
@@ -411,6 +407,9 @@ COPY ./laravel.ini /usr/local/etc/php/conf.d
 COPY ./xlaravel.pool.conf /usr/local/etc/php-fpm.d/
 
 USER root
+
+
+RUN docker-php-ext-install exif
 
 # Clean up
 RUN apt-get clean && \
