@@ -1,0 +1,34 @@
+{
+    "name": "kebab-case",
+    "description": "This is my first hook.",
+    "require": {
+        "larapack/hooks": "^1.0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "StudlyCase\\": "src/"
+        }
+    },
+    "extra": {
+        "hook": {
+            "providers": [
+                "StudlyCase\\StudlyCaseServiceProvider"
+            ],
+            "aliases": {
+                "StudlyCase": "StudlyCase\\StudlyCaseFacade"
+            },
+            "migrations": [
+                "resources/database/migrations"
+            ],
+            "seeders": [
+                "resources/database/seeders"
+            ],
+            "unseeders": [
+                "resources/database/unseeders"
+            ],
+            "assets": {
+                "resources/assets": "public/vendor/kebab-case"
+            }
+        }
+    }
+}

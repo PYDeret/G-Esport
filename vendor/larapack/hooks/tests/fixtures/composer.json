@@ -1,0 +1,34 @@
+{
+    "name": "local-test-hook",
+    "description": "This is my first hook.",
+    "require": {
+        "larapack/hooks": "^1.0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "LocalTestHook\\": "src/"
+        }
+    },
+    "extra": {
+        "hook": {
+            "providers": [
+                "LocalTestHook\\LocalTestHookServiceProvider"
+            ],
+            "aliases": {
+                "LocalTestHook": "LocalTestHook\\LocalTestHookFacade"
+            },
+            "migrations": [
+                "resources/database/migrations"
+            ],
+            "seeders": [
+                "resources/database/seeders"
+            ],
+            "unseeders": [
+                "resources/database/unseeders"
+            ],
+            "assets": {
+                "resources/assets": "public/vendor/local-test-hook"
+            }
+        }
+    }
+}
