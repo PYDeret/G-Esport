@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of PHPUnit.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace PHPUnit\Test;
 
 use PHPUnit\Runner\AfterIncompleteTestHook;
@@ -9,13 +17,26 @@ use PHPUnit\Runner\AfterSuccessfulTestHook;
 use PHPUnit\Runner\AfterTestErrorHook;
 use PHPUnit\Runner\AfterTestFailureHook;
 use PHPUnit\Runner\AfterTestWarningHook;
-use PHPUnit\Runner\BeforeTestHook;
 use PHPUnit\Runner\BeforeFirstTestHook;
+use PHPUnit\Runner\BeforeTestHook;
 
 final class Extension implements BeforeFirstTestHook, BeforeTestHook, AfterSuccessfulTestHook, AfterSkippedTestHook, AfterRiskyTestHook, AfterIncompleteTestHook, AfterTestErrorHook, AfterTestWarningHook, AfterTestFailureHook, AfterLastTestHook
 {
+    private $amountOfInjectedArguments = 0;
+
+    public function __construct()
+    {
+        $this->amountOfInjectedArguments = \count(\func_get_args());
+    }
+
+    public function tellAmountOfInjectedArguments(): void
+    {
+        print __METHOD__ . ': ' . $this->amountOfInjectedArguments . PHP_EOL;
+    }
+
     public function executeBeforeFirstTest(): void
     {
+        $this->tellAmountOfInjectedArguments();
         print __METHOD__ . PHP_EOL;
     }
 

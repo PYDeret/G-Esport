@@ -89,6 +89,14 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+
+                <?php print_r($guzzleClient); ?>
+
+                <br />
+
+                <?php print_r($guzzleResult); ?>
+
             </div>
         </div>
     </body>
