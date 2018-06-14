@@ -15,7 +15,7 @@ Route::get('/', 'GuzzleController@index');
 
 
 Route::get('/new', function () {
-    return view('new');
+	return view('new');
 });
 
 
@@ -25,5 +25,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+	Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
