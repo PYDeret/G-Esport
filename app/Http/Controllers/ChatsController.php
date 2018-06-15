@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Events\MessageSent;
 
-public function __construct()
+class ChatsController extends Controller
 {
-  $this->middleware('auth');
-}
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 /**
  * Show chats
@@ -19,7 +22,7 @@ public function __construct()
  */
 public function index()
 {
-  return view('chat');
+	return view('chat');
 }
 
 /**
@@ -29,7 +32,7 @@ public function index()
  */
 public function fetchMessages()
 {
-  return Message::with('user')->get();
+	return Message::with('user')->get();
 }
 
 /**
@@ -40,13 +43,14 @@ public function fetchMessages()
  */
 public function sendMessage(Request $request)
 {
-  $user = Auth::user();
+	$user = Auth::user();
 
-  $message = $user->messages()->create([
-    'message' => $request->input('message')
-  ]);
+	$message = $user->messages()->create([
+		'message' => $request->input('message')
+	]);
 
-  broadcast(new MessageSent($user, $message))->toOthers();
+	broadcast(new MessageSent($user, $message))->toOthers();
 
-  return ['status' => 'Message Sent!'];
+	return ['status' => 'Message Sent!'];
+}
 }
