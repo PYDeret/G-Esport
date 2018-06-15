@@ -23,6 +23,7 @@ class LeagueController extends Controller{
         $this->client = new \GuzzleHttp\Client();
     }
 
+    /* Récupère le compte avec le nom */
     public function getAccount($summonerName){
 
         
@@ -40,6 +41,7 @@ class LeagueController extends Controller{
         print_r($matches);        
     }
 
+    /* Récupère les games avec l'id de summoner */
     public function getMatches($accountID, $limit = 2){
 
         $this->param = "?endIndex=";
@@ -61,6 +63,7 @@ class LeagueController extends Controller{
         return $contents;
     }
 
+    /* Récupère les champions avec l'id */
     public function getChampion($championId){
 
         $this->param = "?locale=fr_FR";
