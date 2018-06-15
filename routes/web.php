@@ -11,29 +11,49 @@
 |
 */
 
-Route::get('/', 'GuzzleController@index');
-
-
-Route::get('/new', function () {
-	return view('new');
-});
-
+//Route::get('/', 'GuzzleController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return redirect('/home');
+});
 
+Route::get('/home',  'HomeController@index');
 
 Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
 });
 
-Auth::routes();
+//Route::get('/', 'ChatsController@index');
+//Route::get('messages', 'ChatsController@fetchMessages');
+//Route::post('messages', 'ChatsController@sendMessage');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/stream', function (\romanzipp\Twitch\Twitch $twitch){
 
-Auth::routes();
+    $streamName = 'ogaminglol';
 
-Route::get('/', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
+    // Get User by Username
+    $userResult = $twitch->getStreamsByUserName($streamName);
+
+    // Check, if the query was successfull
+    if ($userResult->success()) {
+
+        echo '<iframe
+                src="http://player.twitch.tv/?channel='.$streamName .'"
+                height="720"
+                width="1280"
+                frameborder="0"
+                scrolling="no"
+                allowfullscreen="true">
+            </iframe>';
+
+        echo '<iframe frameborder="0"
+                scrolling="no"
+                id="chat_embed"
+                src="http://www.twitch.tv/embed/'.$streamName.'/chat"
+                height="500"
+                width="350">
+            </iframe>';
+    }
+});

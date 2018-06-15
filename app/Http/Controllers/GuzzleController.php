@@ -18,7 +18,5 @@ class GuzzleController extends Controller
         // 'application/json; charset=utf8'
         echo $res->getBody();
 
-
-        //return view('welcome')->with('guzzleClient', $client)->with('guzzleResult', $result->getBody());
     }
 }
