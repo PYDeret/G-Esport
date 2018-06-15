@@ -56,9 +56,10 @@ class LeagueController extends Controller{
         $contents = $res->getBody()->getContents();
         $contents = json_decode($contents);
 
-        /*foreach($contents->matches as $game){
+        foreach($contents->matches as $game){
             $game->champion = $this->getChampion($game->champion);
-        }*/
+            $game->image = $this->getImage($game->champion);
+        }
 
         return $contents;
     }
@@ -66,19 +67,29 @@ class LeagueController extends Controller{
     /* Récupère les champions avec l'id */
     public function getChampion($championId){
 
-        $this->param = "?locale=fr_FR";
+        $path = storage_path() . "/json/champs.json"; // ie: /var/www/laravel/app/storage/json/filename.json
 
-        $res = $this->client->request('GET', 
-            $this->url.'/lol/static-data/v3/champions/'.
-            $championId.
-            $this->param.
-            '&'.
-            $this->api_key
-        );
-        $contents = $res->getBody()->getContents();
-        $contents = json_decode($contents);
+        $json = json_decode(file_get_contents($path), true);
 
-        return $contents->name;
+        foreach($json['data'] as $champion){
+                
+            if($champion['key'] == $championId){
+                return $champion['name'];
+            }
+        }
+    }
 
+    public function getImage($championId){
+
+        $path = storage_path() . "/json/champs.json"; // ie: /var/www/laravel/app/storage/json/filename.json
+
+        $json = json_decode(file_get_contents($path), true);
+
+        foreach($json['data'] as $champion){
+                
+            if($champion['key'] == $championId){
+                return $champion['image'];
+            }
+        }
     }
 }
