@@ -1,0 +1,40 @@
+{
+    "name": "proveyourskillz/lol-api",
+    "description": "Yet Another LoL API SDK Wrapper",
+    "keywords": ["riot-games", "lol", "api", "wrapper", "lol-api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Orlov",
+            "email": "anton@proveyourskillz.com"
+        }, {
+            "name": "Pavel Dudko",
+            "email": "pavel@proveyourskillz.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "netresearch/jsonmapper": "^1.1"
+    },
+    "autoload": {
+      "psr-4": {
+          "PYS\\LolApi\\": "src/"
+      }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PYS\\LolApi\\Laravel\\ServiceProvider"
+            ],
+            "aliases": {
+                "LolApi": "PYS\\LolApi\\Laravel\\Facade"
+            }
+        }
+    }
+}

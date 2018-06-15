@@ -34,3 +34,5 @@ Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
 
     echo $userOrders;
 });
+
+Route::get('/lol/{summonerName}', 'LeagueController@getAccount');

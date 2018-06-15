@@ -1,0 +1,26 @@
+{
+    "name": "lpphan/riot-api",
+    "type": "library",
+    "description": "A simple wrapper for the League of Legends API.",
+    "version": "0.1.1",
+    "keywords": ["League of legends", "wrap", "api", "facade", "proxy","lol","riot"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lam Phuong Phan",
+            "email": "lamphuong22390@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.4.*"
+    },
+    "autoload": {
+        "psr-4": { 
+        	"Lpphan\\": "src/"
+       	}
+    }
+}
