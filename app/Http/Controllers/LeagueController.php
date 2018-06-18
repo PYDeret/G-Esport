@@ -37,9 +37,9 @@ class LeagueController extends Controller{
         $contents = $res->getBody()->getContents();
         $contents = json_decode($contents);
 
-        $matches = $this->getMatches($contents->accountId);
-
-        print_r($matches);        
+        $matches = $this->getMatches($contents->accountId);    
+        
+        return $matches;
     }
 
     /* Gets games of the summoner in parameter */

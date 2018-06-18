@@ -16,7 +16,10 @@ class UserController extends Controller
     public function edit(User $user)
     {   
         $user = Auth::user();
-        return view('users.edit', compact('user'));
+
+        $leagueData = app('App\Http\Controllers\LeagueController')->getAccount("CNC Skumb");
+
+        return view('users.edit', compact('user', 'leagueData'));
     }
 
     public function update(User $user)
