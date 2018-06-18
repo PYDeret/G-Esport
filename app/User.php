@@ -27,6 +27,7 @@ class User extends \TCG\Voyager\Models\User
         'password', 'remember_token',
     ];
 
+
     /**
     * A user can have many messages
     *
@@ -35,5 +36,7 @@ class User extends \TCG\Voyager\Models\User
     public function messages()
     {
       return $this->hasMany(Message::class);
-  }
+    }
+
+    
 }

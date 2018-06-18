@@ -187,7 +187,7 @@
                             <div class="col-md-12">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se rapeller de moi') }}
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se rappeler de moi') }}
                                     </label>
                                 </div>
                             </div>
@@ -222,6 +222,9 @@
             </a>
             <div class="dropdown-menu">
               <ul role="menu">
+                <li>
+                  <a href="{{ route('users.edit', Auth::user()->id ) }}">Voir mon profil</a>
+                </li>
                 <li>
                   <a href="{{ route('logout') }}"
                       onclick="event.preventDefault();
