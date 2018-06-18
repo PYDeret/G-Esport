@@ -43,14 +43,14 @@ class LeagueController extends Controller{
     }
 
     /* Gets games of the summoner in parameter */
-    public function getMatches($accountID, $limit = 2){
+    public function getMatches($accountID, $limit = 5){
 
         $this->param = "?endIndex=";
 
         $res = $this->client->request('GET', 
             $this->url.'/lol/match/v3/matchlists/by-account/'.
             $accountID.
-            $this->param.
+            $this->param.$limit.
             '&'.
             $this->api_key
         );
@@ -68,7 +68,7 @@ class LeagueController extends Controller{
     /* Returns champion's name with id */
     public function getChampion($championId){
 
-        $path = storage_path() . "/json/champs.json"; // ie: /var/www/laravel/app/storage/json/filename.json
+        $path = storage_path() . "/json/champs.json";
 
         $json = json_decode(file_get_contents($path), true);
 
@@ -83,13 +83,12 @@ class LeagueController extends Controller{
     /* Dynamicly returns the link of the champion's splash */
     public function getImage($championName){
 
-        $path = storage_path() . "/json/champs.json"; // ie: /var/www/laravel/app/storage/json/filename.json
-
+        $path = storage_path() . "/json/champs.json"; 
         $json = json_decode(file_get_contents($path), true);
 
         foreach($json['data'] as $champion){
                 
-            if($champion['id'] == $championName){
+            if($champion['id'] == str_replace(" ", "", $championName)){             
 
                 return "http://ddragon.leagueoflegends.com/cdn/8.12.1/img/champion/".$champion['image']['full'];
             }

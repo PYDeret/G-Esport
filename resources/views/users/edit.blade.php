@@ -64,10 +64,12 @@
         <div class="col-md-9">
           <h2 class="mt-0">Dernières Activités</h2>
 
-          <table>
+          <table style="padding:10px">
             <tr>
                 <th>Dernier champion joué</th>
+                <th>Nom du champion</th>
                 <th>Lane</th>
+                <th>Date</th>
             </tr>
 
           <?php foreach($leagueData->matches as $oneGame): ?>
@@ -76,10 +78,16 @@
                     <img src="<?= $oneGame->image; ?>" style="width:50px; height:50px;"/>
                 </td>
                 <td>
+                    <?= $oneGame->champion; ?>
+                </td>
+                <td>
                     <?php if($oneGame->lane == "NONE"): ?>
                         <?php $oneGame->lane = "JUNGLE"; ?>
                     <?php endif; ?>
                     <?= $oneGame->lane; ?>
+                </td>
+                <td>
+                    <?php echo date('Y/m/d H:i:s', $oneGame->timestamp); ?>
                 </td>
             </tr>
           <?php endforeach; ?>
