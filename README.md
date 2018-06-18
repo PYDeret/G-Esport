@@ -1,17 +1,17 @@
-#G-esport
+# G-esport
 
-##What is G-esport?
+## What is G-esport?
 
 *G-esport* is a community project, which aims to bring together a community of *gamers* around a *competition*.
 It is a platform for administering *videos games tournaments* for a community.
 Indeed, this platform wants to be "*on demand only*", the *administrators* must invite the new members and they will be able to *create teams* and *participate* in the tournaments, the *administrators* must also *create the tournaments* and can also set up a *system of reward*.
 
-##What do I need to install it?
+## What do I need to install it?
 
 *G-esport* is 100% compatible with the three largest OS, *Linux*, *Mac* and even *Windows*!
 Currently you just need *Docker* and access to the *command prompt*.
 
-##How to install it?
+## How to install it?
 
 You can install *G-esport* in only *3 commands*!
 
@@ -29,7 +29,7 @@ Now, still at the *root* of the project, launched the third and last command to 
 
 Congratulations you have just installed G-esport!
 
-##Important information after installation
+## Important information after installation
 
 If you want to access the *application* and have it *installed on your PC*, open your *web browser* and type this *address*:
 	
@@ -52,7 +52,7 @@ Or as an *administrator*:
 
 Of course you can *change these values* in our back office, which we *strongly* recommend!
 
-##Contact
+## Contact
 
 You can contact us through *GitHub*
 
