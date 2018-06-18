@@ -73,6 +73,7 @@
             </tr>
 
           <?php foreach($leagueData->matches as $oneGame): ?>
+          <?php //die(print_r($oneGame));?>
             <tr style="margin-top:10px;">
                 <td>
                     <img src="<?= $oneGame->image; ?>" style="width:50px; height:50px;"/>
@@ -87,7 +88,7 @@
                     <?= $oneGame->lane; ?>
                 </td>
                 <td>
-                    <?php echo date('Y/m/d H:i:s', $oneGame->timestamp); ?>
+                    <?php echo date('d/m/Y H:i:s', substr($oneGame->timestamp, 0, -3)); ?>
                 </td>
             </tr>
           <?php endforeach; ?>
