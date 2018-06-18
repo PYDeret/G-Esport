@@ -1,5 +1,6 @@
 <?php
-
+// Author : PY
+// Project : G-Esport
 namespace App\Http\Controllers;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
@@ -8,7 +9,7 @@ class LeagueController extends Controller{
 
     private $url = "https://euw1.api.riotgames.com";
 
-    private $api_key = 'api_key=RGAPI-d3dcbe47-86d1-4b5b-bff5-b29b82cf2750';
+    private $api_key = 'api_key=RGAPI-41ef05f3-d837-40a9-bf8d-254c6b0d2494';
 
     private $client;
 
@@ -23,7 +24,7 @@ class LeagueController extends Controller{
         $this->client = new \GuzzleHttp\Client();
     }
 
-    /* Récupère le compte avec le nom */
+    /* Gets the summoner's ID with the summoner's name on parameter */
     public function getAccount($summonerName){
 
         
@@ -41,7 +42,7 @@ class LeagueController extends Controller{
         print_r($matches);        
     }
 
-    /* Récupère les games avec l'id de summoner */
+    /* Gets games of the summoner in parameter */
     public function getMatches($accountID, $limit = 2){
 
         $this->param = "?endIndex=";
@@ -64,7 +65,7 @@ class LeagueController extends Controller{
         return $contents;
     }
 
-    /* Récupère les champions avec l'id */
+    /* Returns champion's name with id */
     public function getChampion($championId){
 
         $path = storage_path() . "/json/champs.json"; // ie: /var/www/laravel/app/storage/json/filename.json
@@ -79,7 +80,8 @@ class LeagueController extends Controller{
         }
     }
 
-    public function getImage($championId){
+    /* Dynamicly returns the link of the champion's splash */
+    public function getImage($championName){
 
         $path = storage_path() . "/json/champs.json"; // ie: /var/www/laravel/app/storage/json/filename.json
 
@@ -87,8 +89,9 @@ class LeagueController extends Controller{
 
         foreach($json['data'] as $champion){
                 
-            if($champion['key'] == $championId){
-                return $champion['image'];
+            if($champion['id'] == $championName){
+
+                return "http://ddragon.leagueoflegends.com/cdn/8.12.1/img/champion/".$champion['image']['full'];
             }
         }
     }
