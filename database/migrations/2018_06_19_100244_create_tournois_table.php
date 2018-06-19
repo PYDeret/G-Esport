@@ -15,14 +15,15 @@ class CreateTournoisTable extends Migration
     {
         Schema::create('tournois', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('libelle');
-            $table->string('description');
-            $table->dateTime('DateDebut');
-            $table->dateTime('DateFin');
-            $table->time('HeureDebut');
-            $table->time('HeureFin');
-            $table->string('slug');
-            $table->integer('ResultatId');
+            $table->string('libelle')->nullable();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->dateTime('DateDebut')->nullable();
+            $table->dateTime('DateFin')->nullable();
+            $table->time('HeureDebut')->nullable();
+            $table->time('HeureFin')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('ResultatId')->nullable();
             $table->timestamps();
         });
     }
