@@ -9,7 +9,7 @@ class LeagueController extends Controller{
 
     private $url = "https://euw1.api.riotgames.com";
 
-    private $api_key = 'api_key=RGAPI-41ef05f3-d837-40a9-bf8d-254c6b0d2494';
+    private $api_key = 'api_key=RGAPI-d20dfcab-abd7-4478-8b94-297b2246d0be';
 
     private $client;
 
@@ -88,7 +88,7 @@ class LeagueController extends Controller{
 
         foreach($json['data'] as $champion){
                 
-            if($champion['id'] == str_replace(" ", "", $championName)){             
+            if($champion['id'] == str_replace(" ", "", $championName) || strtolower($champion['id']) == strtolower(str_replace("'", "", $championName))){             
 
                 return "http://ddragon.leagueoflegends.com/cdn/8.12.1/img/champion/".$champion['image']['full'];
             }

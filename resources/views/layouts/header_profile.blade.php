@@ -5,9 +5,9 @@
       <div class="youplay-user-navigation">
         <div class="container">
           <ul>
-            <li class="active"><a href="user-activity.html">Activity</a>
+            <li class="active"><a href="{{ route('users.edit', Auth::user()->id ) }}">Dernières activités</a>
             </li>
-            <li><a href="user-profile.html">Profile</a>
+            <li><a href="{{ route('users.profile', Auth::user()->id ) }}">Profil</a>
             </li>
             <li><a href="user-messages.html">Messages <span class="badge">6</span></a>
             </li>
@@ -20,14 +20,14 @@
       <div class="info" style="max-height: 240px;">
         <div>
           <div class="container youplay-user">
-            <a href="assets/images/user-photo.jpg" class="angled-img image-popup">
+            <a href="{{ asset('images/user-photo.jpg')}}" class="angled-img image-popup">
               <div class="img">
-                <img src="assets/images/user-avatar.jpg" alt="">
+                <img src="{{ asset('images/user-photo.jpg')}}" alt="">
               </div>
               <i class="fa fa-search-plus icon"></i>
             </a>
             <div class="user-data">
-              <h2>John Doe</h2>
+              <h2>{{ Auth::user()->name }}</h2>
               <div class="location"><i class="fa fa-map-marker"></i> Los Angeles</div>
               <div class="activity">
                 <div>

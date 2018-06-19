@@ -30,7 +30,9 @@ Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');*/
 
 Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
-Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+Route::get('users/profile/{user}',  ['as' => 'users.profile', 'uses' => 'UserController@profile']);
+Route::post('users/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+Route::post('users/updateLol',  ['as' => 'users.updateLol', 'uses' => 'UserController@updateLeague']);
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     $userOrders = \App\Http\Controllers\StreamController::getStream('skumbsr', $twitch);
