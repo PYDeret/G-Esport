@@ -5,13 +5,20 @@
       <div class="youplay-user-navigation">
         <div class="container">
           <ul>
-            <li class="active"><a href="{{ route('users.edit', Auth::user()->id ) }}">Dernières activités</a>
+            <li <?php if (strpos(url()->current(), 'profile') == false && strpos(url()->current(), 'messages') == false) {
+                  echo 'class="active"';
+              }?>>
+              <a href="{{ route('users.edit', Auth::user()->id ) }}">Dernières activités</a>
             </li>
-            <li><a href="{{ route('users.profile', Auth::user()->id ) }}">Profil</a>
+            <li <?php if (strpos(url()->current(), 'profile') !== false) {
+                  echo 'class="active"';
+              }?>>
+              <a href="{{ route('users.profile', Auth::user()->id ) }}">Profil</a>
             </li>
-            <li><a href="user-messages.html">Messages <span class="badge">6</span></a>
-            </li>
-            <li><a href="user-settings.html">Settings</a>
+            <li <?php if (strpos(url()->current(), 'messages') !== false) {
+                  echo 'class="active"';
+              }?>>
+              <a href="user-messages.html">Messages <span class="badge">6</span></a>
             </li>
           </ul>
         </div>
