@@ -67,6 +67,20 @@ class UserController extends Controller
         return back();
     }
 
+    public function updateAbout(User $user){
+        $user = Auth::user();
+        
+        $this->validate(request(), [
+            'aboutTxt' => 'required'
+        ]);
+
+        $user->about = request('aboutTxt');
+
+        $user->save();
+
+        return back();
+    }
+
     public function updateLeague()
     { 
         
