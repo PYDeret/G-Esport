@@ -69,12 +69,12 @@ class UserController extends Controller
 
     public function updateAbout(User $user){
         $user = Auth::user();
-        
-        $this->validate(request(), [
-            'aboutTxt' => 'required'
-        ]);
 
         $user->about = request('aboutTxt');
+
+        if(empty($user->about)){
+            $user->about = "";
+        }
 
         $user->save();
 
