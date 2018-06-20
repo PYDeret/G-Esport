@@ -10,51 +10,7 @@
         <div class="col-md-9">
           <h2 class="mt-0">Dernières Activités</h2>
 
-          <table style="padding:10px;text-align:center;">
-            <tr>
-                <th style="width:33%">Champion utilisé</th>
-                <th style="width:33%">Informations de la partie</th>
-                <th style="width:33%">Items achetés</th>
-            </tr>
-
-          <?php foreach($leagueData->matches as $oneGame): ?>
-          <?php //die(print_r($oneGame));?>
-            <tr style="margin-top:10px;padding:10px;border-bottom: 1px solid;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>">
-                <td style="width:33%">
-                    <img src="<?= $oneGame->image; ?>" style="width:150px; height:150px;"/>
-                </td>
-                <td style="width:33%">
-                    <?php if($oneGame->lane == "NONE"): ?>
-                        <?php $oneGame->lane = "JUNGLE"; ?>
-                    <?php endif; ?>
-                    <?= $oneGame->lane; ?>
-                    <br />
-                    <?= $oneGame->data->kills." / ".$oneGame->data->deaths." / ".$oneGame->data->assists." KDA"; ?>
-                    <br />
-                    <?php echo date('d/m/Y H:i:s', substr($oneGame->timestamp, 0, -3)); ?>
-                    <div style="padding:10px">
-                        <img src="<?= $oneGame->data->spellOne ?>" />
-                        <img src="<?= $oneGame->data->spellTwo ?>" />
-                    </div>
-                </td>
-                <td style="width:33%">
-                    <div>
-                      <div style="padding:10px">
-                        <img src="<?= $oneGame->data->item0 ?>" />
-                        <img src="<?= $oneGame->data->item1 ?>" />
-                        <img src="<?= $oneGame->data->item2 ?>" />
-                      </div>
-                      <div style="padding:10px">
-                        <img src="<?= $oneGame->data->item3 ?>" />
-                        <img src="<?= $oneGame->data->item4 ?>" />
-                        <img src="<?= $oneGame->data->item5 ?>" />
-                      </div>
-                    </div>
-                </td>
-            </tr>
-          <?php endforeach; ?>
-
-          </table>
+          
           <!--<div class="youplay-timeline">
             <div class="youplay-timeline-block">
               <div class="youplay-timeline-icon bg-warning">
