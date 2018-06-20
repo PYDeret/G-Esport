@@ -50,6 +50,15 @@ Or as an **administrator**:
 - Username : admin
 - Password : admin
 
+Plus you can access to your **PhpMyAdmin** at this **address**:
+
+	http://localhost:8080
+
+Log with the following credentials:
+
+- Username: root
+- Password: root
+
 Of course you can **change these values** in our back office, which we **strongly** recommend!
 
 ## Contact
