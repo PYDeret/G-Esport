@@ -2,18 +2,18 @@
 <section class="content-wrap">
 
     <section class="youplay-banner banner-top youplay-banner-parallax">
-      <div class="image" style="background-image: url('/images/images/banner-bg.jpg')">
+      <div class="image" style="background-image: url('/images/banner-bg.jpg')">
       </div>
 
       <div class="info">
         <div>
           <div class="container">
-            <h1>Journey</h1>
-            <em>"Featuring stunning visuals, a Grammy-nominated musical score, and innovative online cooperative gameplay,<br>Journey™ delivers an innovative interactive game experience like no other."</em>
+            <h1>G-Esport</h1>
+            <em>G-Esport est une platforme compétitive qui propose des tournois en ligne.<br>Créer ton équipe et participe au prochain tournois !</em>
             <br>
             <br>
             <br>
-            <a class="btn btn-lg" href="#!">Purchase</a>
+            <a class="btn btn-lg" href="actualites">En savoir plus</a>
           </div>
         </div>
       </div>
@@ -22,43 +22,30 @@
     <div class="youplay-carousel" data-autoplay="5000">
       <a class="angled-img" href="store-product-1.html">
         <div class="img">
-          <img src="/images/game-road-no-taken-500x375.jpg" alt="">
+          <!--<img src="/images/game-road-no-taken-500x375.jpg" alt="">-->
+          <img src="/images/lol.jpg" alt="">
         </div>
         <div class="over-info">
           <div>
             <div>
-              <h4>Road Not Taken</h4>
-              <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
+              <h4>League of Legend</h4>
             </div>
           </div>
         </div>
       </a>
       <a class="angled-img" href="#!">
         <div class="img">
-          <img src="/images/game-botanicula-500x375.jpg" alt="">
+          <img src="/images/fornite.jpg" alt="">
         </div>
         <div class="over-info">
           <div>
             <div>
-              <h4>Botanicula</h4>
-              <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-              </div>
+              <h4>Fornite</h4>
             </div>
           </div>
         </div>
       </a>
-      <a class="angled-img" href="#!">
+      <!--<a class="angled-img" href="#!">
         <div class="img">
           <img src="/images/game-flower-500x375.jpg" alt="">
         </div>
@@ -133,7 +120,7 @@
             </div>
           </div>
         </div>
-      </a>
+      </a>-->
     </div>
 
     <div class="h2"></div>
