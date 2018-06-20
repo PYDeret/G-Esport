@@ -38,7 +38,12 @@ class UserController extends Controller
 
         $lolAcc = $this->getLolData($user->id);
 
-        $leagueData = app('App\Http\Controllers\LeagueController')->getAccount($lolAcc);
+        if(!empty($lolAcc)){
+            $leagueData = app('App\Http\Controllers\LeagueController')->getAccount($lolAcc);
+        }
+        else{
+            $leagueData = "";
+        }
 
         return view('users.edit', compact('user', 'leagueData'));
     }
@@ -49,7 +54,14 @@ class UserController extends Controller
 
         $lolAcc = $this->getLolData($user->id);
 
-        return view('users.profile', compact('user', 'lolAcc'));
+        if(!empty($lolAcc)){
+            $leagueData = app('App\Http\Controllers\LeagueController')->getAccount($lolAcc);
+        }
+        else{
+            $leagueData = "";
+        }
+
+        return view('users.profile', compact('user', 'lolAcc', 'leagueData'));
     }
 
     public function update(User $user)
@@ -84,11 +96,14 @@ class UserController extends Controller
     public function updateLeague()
     { 
         
-        $this->validate(request(), [
-            'lolLogin' => 'required'
-        ]);
+        if(empty(request('lolLogin'))){
+            $lolLogin = "";
+        }
+        else{
+            $lolLogin = request('lolLogin');
+        }
 
-        $leagueData = \App\LeagueUser::updateOrCreate(['user' => request('idUsr')], ['name' => request('lolLogin')]);
+        $leagueData = \App\LeagueUser::updateOrCreate(['user' => request('idUsr')], ['name' => $lolLogin]);
 
         $leagueData->save();
 
