@@ -12,18 +12,18 @@
 
           <table style="padding:10px;text-align:center;">
             <tr>
-                <th>Champion</th>
-                <th>Infos</th>
-                <th>Items</th>
+                <th style="width:33%">Champion utilisé</th>
+                <th style="width:33%">Informations de la partie</th>
+                <th style="width:33%">Items achetés</th>
             </tr>
 
           <?php foreach($leagueData->matches as $oneGame): ?>
           <?php //die(print_r($oneGame));?>
-            <tr style="margin-top:10px;padding:10px;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>">
-                <td>
+            <tr style="margin-top:10px;padding:10px;border-bottom: 1px solid;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>">
+                <td style="width:33%">
                     <img src="<?= $oneGame->image; ?>" style="width:50px; height:50px;"/>
                 </td>
-                <td>
+                <td style="width:33%">
                     <?php if($oneGame->lane == "NONE"): ?>
                         <?php $oneGame->lane = "JUNGLE"; ?>
                     <?php endif; ?>
@@ -32,8 +32,12 @@
                     <?= $oneGame->data->kills." / ".$oneGame->data->deaths." / ".$oneGame->data->assists." KDA"; ?>
                     <br />
                     <?php echo date('d/m/Y H:i:s', substr($oneGame->timestamp, 0, -3)); ?>
+                    <div style="padding:10px">
+                        <img src="<?= $oneGame->data->spellOne ?>" />
+                        <img src="<?= $oneGame->data->spellTwo ?>" />
+                    </div>
                 </td>
-                <td>
+                <td style="width:33%">
                     <div>
                       <div style="padding:10px">
                         <img src="<?= $oneGame->data->item0 ?>" />
