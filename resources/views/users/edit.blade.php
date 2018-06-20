@@ -21,7 +21,7 @@
           <?php //die(print_r($oneGame));?>
             <tr style="margin-top:10px;padding:10px;border-bottom: 1px solid;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>">
                 <td style="width:33%">
-                    <img src="<?= $oneGame->image; ?>" style="width:50px; height:50px;"/>
+                    <img src="<?= $oneGame->image; ?>" style="width:150px; height:150px;"/>
                 </td>
                 <td style="width:33%">
                     <?php if($oneGame->lane == "NONE"): ?>
