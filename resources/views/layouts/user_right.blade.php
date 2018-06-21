@@ -19,17 +19,19 @@
                     <?php //die(print_r($oneGame));?>
 
                                 <tr style="margin-top:10px;padding:10px;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>"> 
-                                    <td style="width:50%">
-                                        <img src="<?= $oneGame->image; ?>" style="width:50px; height:50px;"/>
-                                    </td>
-                                    <td style="width:50%">
-                                        <?php if($oneGame->lane == "NONE"): ?>
-                                            <?php $oneGame->lane = "JUNGLE"; ?>
-                                        <?php endif; ?>
-                                        <?= $oneGame->lane; ?>
-                                        <br />
-                                        <?= $oneGame->data->kills." / ".$oneGame->data->deaths." / ".$oneGame->data->assists; ?>
-                                        <br />
+                                    <td>
+                                        <div style="width:50%;display:inline-block">
+                                            <img src="<?= $oneGame->image; ?>" style="width:50px; height:50px;"/>
+                                        </div>
+                                        <div style="width:50%;display:inline-block">
+                                            <?php if($oneGame->lane == "NONE"): ?>
+                                                <?php $oneGame->lane = "JUNGLE"; ?>
+                                            <?php endif; ?>
+                                            <?= $oneGame->lane; ?>
+                                            <br />
+                                            <?= $oneGame->data->kills." / ".$oneGame->data->deaths." / ".$oneGame->data->assists; ?>
+                                            <br />
+                                        </div>
                                         <?php //echo date('d/m/Y H:i:s', substr($oneGame->timestamp, 0, -3)); ?>
                                         <div style="padding:10px">
                                             <img src="<?= $oneGame->data->spellOne ?>" />
@@ -38,14 +40,14 @@
                                     </td>
                                 </tr>
                                 <tr style="padding:10px;margin-top:10px;padding:10px;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>">
-                                    <td style="width:100%">
+                                    <td>
                                         <img src="<?= $oneGame->data->item0 ?>" style="width:40px;height:40px"/>
                                         <img src="<?= $oneGame->data->item1 ?>" style="width:40px;height:40px"/>
                                         <img src="<?= $oneGame->data->item2 ?>" style="width:40px;height:40px"/>
                                     </td>
                                 </tr>
                                 <tr style="padding:10px;margin-top:10px;padding:10px;background-color:<?php if($oneGame->data->win != false): echo '#DEEEFD'; else: echo '#eed8d8'; endif;?>">
-                                    <td style="width:100%">
+                                    <td>
                                         <img src="<?= $oneGame->data->item3 ?>" style="width:40px;height:40px"/>
                                         <img src="<?= $oneGame->data->item4 ?>" style="width:40px;height:40px"/>
                                         <img src="<?= $oneGame->data->item5 ?>" style="width:40px;height:40px"/>
