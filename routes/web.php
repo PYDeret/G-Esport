@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home',  'HomeController@index');
+Route::get('/news',  'NewsController@index');
+Route::get('/news/{news}',  'NewsController@news');
 
 Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
