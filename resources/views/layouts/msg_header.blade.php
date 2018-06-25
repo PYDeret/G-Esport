@@ -1,11 +1,17 @@
 <div class="row">
     <div class="col-md-9">
         <ul class="pagination pagination-sm mt-0">
-        <li class="active">
-            <a href="{{ route('users.messages', Auth::user()->id ) }}">Inbox</a>
+        <li 
+        <?php if (strpos(url()->current(), 'create') == false) {
+                  echo 'class="active"';
+              }?>>
+            <a href="{{ route('users.messages', Auth::user()->id ) }}">Boite de réception</a>
         </li>
-        <li>
-            <a href="{{ route('users.messages.create', Auth::user()->id ) }}">Compose</a>
+        <li 
+        <?php if (strpos(url()->current(), 'create') !== false) {
+                  echo 'class="active"';
+              }?>>
+            <a href="{{ route('users.messages.create', Auth::user()->id ) }}">Écrire</a>
         </li>
         </ul>
     </div>
