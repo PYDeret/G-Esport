@@ -24,6 +24,10 @@ localhost/
 Pour accéder au Back Office aller à l'adresse suivante:
 localhost/admin
 
-commande pour utiliser Xethron :
+commande pour utiliser Xethron generator:
 
 - docker exec -ti g-esport-php-fpm php artisan migrate:generate
+
+commande pour utiliser Iseed OrangeHill:
+ 
+- docker exec -ti g-esport-php-fpm php artisan iseed my_table
