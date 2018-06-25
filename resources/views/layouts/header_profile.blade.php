@@ -18,7 +18,7 @@
             <li <?php if (strpos(url()->current(), 'messages') !== false) {
                   echo 'class="active"';
               }?>>
-              <a href="user-messages.html">Messages <span class="badge">6</span></a>
+              <a href="{{ route('users.messages', Auth::user()->id ) }}">Messages</a>
             </li>
           </ul>
         </div>

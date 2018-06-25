@@ -26,12 +26,20 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+Route::group(['prefix' => 'users'], function () {
+    Route::get('{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+    Route::get('profile/{user}',  ['as' => 'users.profile', 'uses' => 'UserController@profile']);
+    Route::post('update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+    Route::post('updateLol',  ['as' => 'users.updateLol', 'uses' => 'UserController@updateLeague']);
+    Route::post('updateAbout',  ['as' => 'users.updateAbout', 'uses' => 'UserController@updateAbout']);
+    Route::get('messages/{user}', ['as' => 'users.messages', 'uses' => 'MessagesController@index']);
+    Route::get('messages/create/{user}', ['as' => 'users.messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('messages/{user}', ['as' => 'users.messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('messages/{id}', ['as' => 'users.messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('messages/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
+});
 
-Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
-Route::get('users/profile/{user}',  ['as' => 'users.profile', 'uses' => 'UserController@profile']);
-Route::post('users/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
-Route::post('users/updateLol',  ['as' => 'users.updateLol', 'uses' => 'UserController@updateLeague']);
-Route::post('users/updateAbout',  ['as' => 'users.updateAbout', 'uses' => 'UserController@updateAbout']);
+
 
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
@@ -40,12 +48,12 @@ Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     echo $userOrders;
 });
 
-Route::group(['prefix' => 'messages'], function () {
+/*Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
-});
+});*/
 
 //Route::get('/lol/{summonerName}', 'LeagueController@getAccount');

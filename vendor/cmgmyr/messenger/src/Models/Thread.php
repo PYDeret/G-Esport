@@ -165,11 +165,14 @@ class Thread extends Eloquent
     {
         $participantsTable = Models::table('participants');
         $threadsTable = Models::table('threads');
+        $messageTable = Models::table('messages');
 
         return $query->join($participantsTable, $this->getQualifiedKeyName(), '=', $participantsTable . '.thread_id')
+            ->join($messageTable, $this->getQualifiedKeyName(), '=', $messageTable . '.thread_id')
+            ->join("users", $messageTable . '.user_id', '=', 'users.id')
             ->where($participantsTable . '.user_id', $userId)
             ->where($participantsTable . '.deleted_at', null)
-            ->select($threadsTable . '.*');
+            ->select('messages.body', 'threads.subject', 'threads.created_at', 'threads.updated_at', 'users.name');
     }
 
     /**
