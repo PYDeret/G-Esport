@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'users'], function () {
     Route::get('{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+    Route::get('check/{userName}', ['as' => 'users.check', 'uses' => 'UserController@check']);
     Route::get('profile/{user}',  ['as' => 'users.profile', 'uses' => 'UserController@profile']);
     Route::post('update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
     Route::post('updateLol',  ['as' => 'users.updateLol', 'uses' => 'UserController@updateLeague']);

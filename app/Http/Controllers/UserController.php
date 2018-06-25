@@ -16,6 +16,23 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function check($userName){
+
+        $user = DB::table('users')->select('users.name as name_dude', 'about', 'league_users.name as league_name')
+        ->join("league_users", "league_users.user", "=", "users.id", 'left')
+        ->where('users.name', '=', $userName)->get();
+
+        if(!empty($user[0]->league_name)){
+            $leagueData = app('App\Http\Controllers\LeagueController')->getAccount($user[0]->league_name);
+        }
+        else{
+            $leagueData = "";
+        }
+
+        return view('users.edit', compact('user', 'leagueData'));
+        
+    }
+
     public function getLolData($user){
 
         $lolAcc = DB::table('league_users')->where('user', '=', $user)

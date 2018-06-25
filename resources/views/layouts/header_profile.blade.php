@@ -10,6 +10,7 @@
               }?>>
               <a href="{{ route('users.edit', Auth::user()->id ) }}">Dernières activités</a>
             </li>
+            <?php if(strpos(url()->current(), 'check') == false): ?>
             <li <?php if (strpos(url()->current(), 'profile') !== false) {
                   echo 'class="active"';
               }?>>
@@ -20,6 +21,7 @@
               }?>>
               <a href="{{ route('users.messages', Auth::user()->id ) }}">Messages</a>
             </li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>
@@ -34,28 +36,12 @@
               <i class="fa fa-search-plus icon"></i>
             </a>
             <div class="user-data">
-              <h2>{{ Auth::user()->name }}</h2>
-              <div class="location"><i class="fa fa-map-marker"></i> Los Angeles</div>
-              <div class="activity">
-                <div>
-                  <div class="num">69</div>
-                  <div class="title">Posts</div>
-                </div>
-                <div>
-                  <div class="num">12</div>
-                  <div class="title">Games</div>
-                </div>
-                <div>
-                  <div class="num">689</div>
-                  <div class="title">Followers</div>
-                </div>
-              </div>
+              <h2><?php if(!empty($user[0]->name_dude)): echo $user[0]->name_dude; elseif(!empty(Auth::user()->name)): echo Auth::user()->name; endif;?></h2>
             </div>
           </div>
 
           <div class="container mt-20">
-            <a href="#!" class="btn btn-sm btn-default ml-0">Add Friend</a>
-            <a href="#!" class="btn btn-sm btn-default">Private Message</a>
+            <a href="#!" class="btn btn-sm btn-default">Envoyer un message</a>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
     <div class="side-block">
         <h4 class="block-title">À propos de moi</h4>
         <div class="block-content">
-            {{ Auth::user()->about }}
+            <?php if(!empty($user[0]->about)): echo $user[0]->about; elseif(Auth::user()->about): echo Auth::user()->about; endif;?>
         </div>
     </div>
 
