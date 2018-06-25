@@ -172,7 +172,7 @@ class Thread extends Eloquent
             ->join("users", $messageTable . '.user_id', '=', 'users.id')
             ->where($participantsTable . '.user_id', $userId)
             ->where($participantsTable . '.deleted_at', null)
-            ->select('messages.body', 'threads.subject', 'threads.created_at', 'threads.updated_at', 'users.name');
+            ->select('threads.id', 'messages.body', 'threads.subject', 'threads.created_at', 'threads.updated_at', 'users.name');
     }
 
     /**

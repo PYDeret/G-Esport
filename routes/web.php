@@ -35,8 +35,8 @@ Route::group(['prefix' => 'users'], function () {
     Route::get('messages/{user}', ['as' => 'users.messages', 'uses' => 'MessagesController@index']);
     Route::get('messages/create/{user}', ['as' => 'users.messages.create', 'uses' => 'MessagesController@create']);
     Route::post('messages/{user}', ['as' => 'users.messages.store', 'uses' => 'MessagesController@store']);
-    Route::get('messages/{id}', ['as' => 'users.messages.show', 'uses' => 'MessagesController@show']);
-    Route::put('messages/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
+    Route::get('messages/show/{id}', ['as' => 'users.messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('messages/show/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
 });
 
 

@@ -10,8 +10,6 @@
 
           @include('layouts.msg_header')
 
-          <?= $threads; ?>
-
           <table class="youplay-messages table table-hover">
             <tbody>
                 <?php foreach($threads as $key => $thread): ?>
@@ -24,7 +22,7 @@
                             <span class="date"><?= $thread->updated_at; ?></span>
                         </td>
                         <td class="message-description">
-                            <a href="#" class="message-description-name" title="View Message"><?= $thread->subject; ?></a>
+                            <a href="{{ route('users.messages.show', $thread->id ) }}" class="message-description-name" title="View Message"><?= $thread->subject; ?></a>
                             <br>
                             <div class="message-excerpt"><?= $thread->body; ?></div>
                         </td>
