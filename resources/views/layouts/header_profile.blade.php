@@ -40,9 +40,20 @@
             </div>
           </div>
 
+          <?php if (strpos(url()->current(), 'check') !== false) { ?>
+        
           <div class="container mt-20">
-            <a href="#!" class="btn btn-sm btn-default">Envoyer un message</a>
+            <a type="submit" class="btn btn-sm btn-default" onclick="event.preventDefault();
+                                    document.getElementById('msgSendr').submit();"> Envoyer un message </a>
           </div>
+
+          <form method="POST" id="msgSendr" action="{{ route('users.messages.createHasUsr', Auth::user()->id ) }}">
+            <input type='hidden' name="idRecipient" value="<?= $user[0]->id; ?>" />
+            {{ csrf_field() }}
+          </form>
+
+        <?php } ?>
+          
         </div>
       </div>
     </div>

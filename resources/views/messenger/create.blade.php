@@ -18,7 +18,8 @@
                     <div class="checkbox">
                         @foreach($users as $user)
                             <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                                                    value="{{ $user->id }}">{!!$user->name!!}</label>
+                                                                    value="{{ $user->id }}"
+                                                                    <?php if(!empty($recipient) && $recipient == $user->id){ echo "checked"; }?>>{!!$user->name!!}</label>
                         @endforeach
                     </div>
                 @endif

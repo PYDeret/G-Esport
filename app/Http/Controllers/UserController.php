@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function check($userName){
 
-        $user = DB::table('users')->select('users.name as name_dude', 'about', 'league_users.name as league_name')
+        $user = DB::table('users')->select('users.id','users.name as name_dude', 'about', 'league_users.name as league_name')
         ->join("league_users", "league_users.user", "=", "users.id", 'left')
         ->where('users.name', '=', $userName)->get();
 
