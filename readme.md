@@ -35,3 +35,5 @@ commande pour utiliser Iseed OrangeHill:
 commande pour utiliser krlove/eloquent-model-generator:
 
 - docker exec -ti g-esport-php-fpm php artisan krlove:generate:model User --table-name=user
+
+
