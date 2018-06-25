@@ -2,18 +2,18 @@
 <section class="content-wrap">
 
     <section class="youplay-banner banner-top youplay-banner-parallax">
-      <div class="image" style="background-image: url('/images/images/banner-bg.jpg')">
+      <div class="image" style="background-image: url('/images/banner-bg.jpg')">
       </div>
 
       <div class="info">
         <div>
           <div class="container">
-            <h1>Journey</h1>
-            <em>"Featuring stunning visuals, a Grammy-nominated musical score, and innovative online cooperative gameplay,<br>Journey™ delivers an innovative interactive game experience like no other."</em>
+            <h1>G-Esport</h1>
+            <em>G-Esport est une platforme compétitive qui propose des tournois en ligne.<br>Créer ton équipe et participe au prochain tournois !</em>
             <br>
             <br>
             <br>
-            <a class="btn btn-lg" href="#!">Purchase</a>
+            <a class="btn btn-lg" href="actualites">En savoir plus</a>
           </div>
         </div>
       </div>
@@ -22,43 +22,30 @@
     <div class="youplay-carousel" data-autoplay="5000">
       <a class="angled-img" href="store-product-1.html">
         <div class="img">
-          <img src="/images/game-road-no-taken-500x375.jpg" alt="">
+          <!--<img src="/images/game-road-no-taken-500x375.jpg" alt="">-->
+          <img src="/images/lol.jpg" alt="">
         </div>
         <div class="over-info">
           <div>
             <div>
-              <h4>Road Not Taken</h4>
-              <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
+              <h4>League of Legend</h4>
             </div>
           </div>
         </div>
       </a>
       <a class="angled-img" href="#!">
         <div class="img">
-          <img src="/images/game-botanicula-500x375.jpg" alt="">
+          <img src="/images/fornite.jpg" alt="">
         </div>
         <div class="over-info">
           <div>
             <div>
-              <h4>Botanicula</h4>
-              <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-              </div>
+              <h4>Fornite</h4>
             </div>
           </div>
         </div>
       </a>
-      <a class="angled-img" href="#!">
+      <!--<a class="angled-img" href="#!">
         <div class="img">
           <img src="/images/game-flower-500x375.jpg" alt="">
         </div>
@@ -133,7 +120,7 @@
             </div>
           </div>
         </div>
-      </a>
+      </a>-->
     </div>
 
     <div class="h2"></div>
@@ -143,7 +130,7 @@
 
       <div class="info container align-center">
         <div>
-          <h2>Prochain tournoi</h2>
+          <h2>Prochain tournois</h2>
 
           <div class="countdown h2" data-end="2018/10/10"></div>
 
@@ -161,26 +148,18 @@
           <div class="col-md-4">
             <a href="blog-post-1.html" class="angled-img">
               <div class="img">
-                <img src="/images/game-road-no-taken-500x375.jpg" alt="">
-              </div>
-              <div class="youplay-hexagon-rating youplay-hexagon-rating-small" data-max="10" data-back-color="rgba(60,7,50,0.1)" data-front-color="#3C0732" data-size="50" title="6.8 out of 10"><span>6.8</span>
+                <img src="/images/battle.jpg" alt="">
               </div>
             </a>
           </div>
           <div class="col-md-8">
             <div class="clearfix">
-              <h3 class="h2 pull-left m-0"><a href="blog-post-1.html">Lorem Ipsum</a></h3>
-              <span class="date pull-right"><i class="fa fa-calendar"></i> Today</span>
-            </div>
-            <div class="tags">
-              <i class="fa fa-tags"></i><a href="#">Lorem Ipsum</a>, <a href="#">Lorem Ipsum</a>, <a href="#">Lorem Ipsum</a>
+              <h3 class="h2 pull-left m-0"><a href="blog-post-1.html">La bataille des Devs</a></h3>
+              <span class="date pull-right"><i class="fa fa-calendar"></i> 17/07</span>
             </div>
             <div class="description">
               <p>
-                Lorem Ipsum texte.
-              </p>
-              <p>
-                Lorem Ipsum texte.
+                Pour fêter la réussite de G-esports les développeurs qui ont participés à la création de celle-ci l'inaugurons avec le premier tournois.
               </p>
             </div>
             <a href="blog-post-1.html" class="btn read-more pull-left">Voir plus</a>
@@ -189,6 +168,30 @@
       </div>
 
       <div class="news-one">
+        <div class="row vertical-gutter">
+          <div class="col-md-4">
+            <a href="blog-post-1.html" class="angled-img">
+              <div class="img">
+                <img src="/images/celebration.jpg" alt="">
+              </div>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="clearfix">
+              <h3 class="h2 pull-left m-0"><a href="blog-post-1.html">Création de la platforme</a></h3>
+              <span class="date pull-right"><i class="fa fa-calendar"></i> 16/07</span>
+            </div>
+            <div class="description">
+              <p>
+                Après avoir travaillé pendant de nombreux jours, elle est enfin la, la seule et unique, G-esport !
+              </p>
+            </div>
+            <a href="blog-post-1.html" class="btn read-more pull-left">Voir plus</a>
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="news-one">
         <div class="row vertical-gutter">
           <div class="col-md-4">
             <a href="blog-post-1.html" class="angled-img">
@@ -218,53 +221,21 @@
             <a href="blog-post-1.html" class="btn read-more pull-left">Voir plus</a>
           </div>
         </div>
-      </div>
-
-      <div class="news-one">
-        <div class="row vertical-gutter">
-          <div class="col-md-4">
-            <a href="blog-post-1.html" class="angled-img">
-              <div class="img">
-                <img src="/images/game-road-no-taken-500x375.jpg" alt="">
-              </div>
-              <div class="youplay-hexagon-rating youplay-hexagon-rating-small" data-max="10" data-back-color="rgba(60,7,50,0.1)" data-front-color="#3C0732" data-size="50" title="6.8 out of 10"><span>6.8</span>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-8">
-            <div class="clearfix">
-              <h3 class="h2 pull-left m-0"><a href="blog-post-1.html">Lorem Ipsum</a></h3>
-              <span class="date pull-right"><i class="fa fa-calendar"></i> Today</span>
-            </div>
-            <div class="tags">
-              <i class="fa fa-tags"></i><a href="#">Lorem Ipsum</a>, <a href="#">Lorem Ipsum</a>, <a href="#">Lorem Ipsum</a>
-            </div>
-            <div class="description">
-              <p>
-                Lorem Ipsum texte.
-              </p>
-              <p>
-                Lorem Ipsum texte.
-              </p>
-            </div>
-            <a href="blog-post-1.html" class="btn read-more pull-left">Voir plus</a>
-          </div>
-        </div>
-      </div>
+      </div>-->
     </section>
 
     <section class="youplay-banner youplay-banner-parallax small mt-80">
-      <div class="image" style="background-image: url('/images/banner-bg.jpg');">
+      <div class="image" style="background-image: url('/images/partners.jpg');">
       </div>
 
       <div class="info align-center">
         <div>
-          <h2 class="mb-40">Partners</h2>
+          <h2 class="mb-40">Partenaires</h2>
 
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <div class="owl-carousel" data-autoplay="6000">
-                <div class="item">
+                <!--<div class="item">
                   <a href="#">
                     <img src="/images/partner-logo-1.png" alt="">
                   </a>
@@ -283,25 +254,40 @@
                   <a href="#">
                     <img src="/images/partner-logo-4.png" alt="">
                   </a>
-                </div>
+                </div>--->
                 <div class="item">
                   <a href="#">
-                    <img src="/images/partner-logo-5.png" alt="">
+                    <img src="/images/PPA_logo.png" alt="">
                   </a>
                 </div>
                 <div class="item">
                   <a href="#">
-                    <img src="/images/partner-logo-6.png" alt="">
+                    <img src="/images/MBA_PPA_logo.png" alt="">
                   </a>
                 </div>
                 <div class="item">
                   <a href="#">
-                    <img src="/images/partner-logo-7.png" alt="">
+                    <img src="/images/EIML_logo.png" alt="">
                   </a>
                 </div>
                 <div class="item">
                   <a href="#">
-                    <img src="/images/partner-logo-8.png" alt="">
+                    <img src="/images/IPE_logo.png" alt="">
+                  </a>
+                </div>
+                <div class="item">
+                  <a href="#">
+                    <img src="/images/ESGI_logo.png" alt="">
+                  </a>
+                </div>
+                <div class="item">
+                  <a href="#">
+                    <img src="/images/ICAN_logo.png" alt="">
+                  </a>
+                </div>
+                <div class="item">
+                  <a href="#">
+                    <img src="/images/ECITV_logo.png" alt="">
                   </a>
                 </div>
               </div>
