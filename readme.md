@@ -31,3 +31,7 @@ commande pour utiliser Xethron generator:
 commande pour utiliser Iseed OrangeHill:
  
 - docker exec -ti g-esport-php-fpm php artisan iseed my_table
+
+commande pour utiliser krlove/eloquent-model-generator:
+
+- docker exec -ti g-esport-php-fpm php artisan krlove:generate:model User --table-name=user
