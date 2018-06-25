@@ -25,9 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
 });
 
-/*Route::get('/chat', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');*/
+
 
 Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
 Route::get('users/profile/{user}',  ['as' => 'users.profile', 'uses' => 'UserController@profile']);
@@ -42,4 +40,12 @@ Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     echo $userOrders;
 });
 
-Route::get('/lol/{summonerName}', 'LeagueController@getAccount');
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});
+
+//Route::get('/lol/{summonerName}', 'LeagueController@getAccount');

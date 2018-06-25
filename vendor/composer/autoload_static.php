@@ -140,6 +140,7 @@ class ComposerStaticInitb4de5a468f4b0ee41ff73be04abbe2c7
             'Composer\\Semver\\' => 16,
             'Composer\\CaBundle\\' => 18,
             'Composer\\' => 9,
+            'Cmgmyr\\Messenger\\' => 17,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -408,6 +409,10 @@ class ComposerStaticInitb4de5a468f4b0ee41ff73be04abbe2c7
         array (
             0 => __DIR__ . '/..' . '/composer/composer/src/Composer',
         ),
+        'Cmgmyr\\Messenger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmgmyr/messenger/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -486,12 +491,14 @@ class ComposerStaticInitb4de5a468f4b0ee41ff73be04abbe2c7
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LeagueController' => __DIR__ . '/../..' . '/app/Http/Controllers/LeagueController.php',
         'App\\Http\\Controllers\\StreamController' => __DIR__ . '/../..' . '/app/Http/Controllers/StreamController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\LeagueUser' => __DIR__ . '/../..' . '/app/LeagueUser.php',
         'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -522,6 +529,12 @@ class ComposerStaticInitb4de5a468f4b0ee41ff73be04abbe2c7
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'CategoriesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoriesTableSeeder.php',
+        'Cmgmyr\\Messenger\\MessengerServiceProvider' => __DIR__ . '/..' . '/cmgmyr/messenger/src/MessengerServiceProvider.php',
+        'Cmgmyr\\Messenger\\Models\\Message' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Message.php',
+        'Cmgmyr\\Messenger\\Models\\Models' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Models.php',
+        'Cmgmyr\\Messenger\\Models\\Participant' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Participant.php',
+        'Cmgmyr\\Messenger\\Models\\Thread' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Thread.php',
+        'Cmgmyr\\Messenger\\Traits\\Messagable' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Traits/Messagable.php',
         'Composer\\Autoload\\AutoloadGenerator' => __DIR__ . '/..' . '/composer/composer/src/Composer/Autoload/AutoloadGenerator.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/composer/src/Composer/Autoload/ClassLoader.php',
         'Composer\\Autoload\\ClassMapGenerator' => __DIR__ . '/..' . '/composer/composer/src/Composer/Autoload/ClassMapGenerator.php',

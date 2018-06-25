@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
+    use Messagable;
 
     /**
      * The attributes that are mass assignable.
