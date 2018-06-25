@@ -19,10 +19,6 @@
 </head>
 
 <body>
-  <!--<div class="page-preloader preloader-wrapp">
-    <img src="/images/logo.png" alt="">
-    <div class="preloader"></div>
-  </div>-->
 
   <nav class="navbar-youplay navbar navbar-default navbar-fixed-top ">
     <div class="container">
@@ -39,11 +35,11 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="actualites">Actualités</a>
+          <li><a href="/news">Actualités</a>
           </li>
-          <li><a href="tournois">Tournois</a>
+          <li><a href="/tournois">Tournois</a>
           </li>
-          <li><a href="videos">Vidéos</a>
+          <li><a href="/videos">Vidéos</a>
           </li>
         </ul>
 
