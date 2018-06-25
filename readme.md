@@ -22,5 +22,8 @@ Pour accéder à la page d'accueil aller à l'adresse suivante:
 localhost/
 
 Pour accéder au Back Office aller à l'adresse suivante:
-localhost/back
+localhost/admin
 
+commande pour utiliser Xethron :
+
+- docker exec -ti g-esport-php-fpm php artisan migrate:generate

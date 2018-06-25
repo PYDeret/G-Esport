@@ -42,6 +42,15 @@ Route::get('tournoi/{slug}', function($slug){
     return view('tournoi', compact('tournoi'));
 });
 
+Route::get('/equipes', function () {
+    $equipes = App\Equipe::all();
+    return view('equipes', compact('equipes'));
+});
+Route::get('equipe/{slug}', function($slug){
+    $equipe = App\Equipe::where('slug', '=', $slug)->firstOrFail();
+    return view('equipe', compact('equipe'));
+});
+
 Auth::routes();
 
 Route::get('/', function () {
