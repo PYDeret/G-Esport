@@ -2,7 +2,7 @@
 
 G-esport est un site regroupant une communauté de "Gamers" autour de tournois.
 
-#Comment l'installé ? 
+#Comment l'installer ? 
 
 Tout d'abord il faut cloner le projet
 
