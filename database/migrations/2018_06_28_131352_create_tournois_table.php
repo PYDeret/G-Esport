@@ -23,9 +23,8 @@ class CreateTournoisTable extends Migration {
 			$table->time('HeureDebut')->nullable();
 			$table->time('HeureFin')->nullable();
 			$table->string('slug')->nullable();
-			$table->integer('ResultatId')->nullable();
+			$table->integer('ResultatId')->unsigned()->nullable()->index('FK_tournois_resultats');
 			$table->timestamps();
-			$table->integer('EquipeId')->nullable();
 		});
 	}
 

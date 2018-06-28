@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateJeusTable extends Migration {
+class CreateLeagueUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,11 @@ class CreateJeusTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('jeus', function(Blueprint $table)
+		Schema::create('league_users', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('libelle');
-			$table->string('description');
-			$table->string('slug');
-			$table->integer('TypeJeuId');
+			$table->string('name', 100)->nullable();
+			$table->integer('user')->unsigned()->nullable()->index();
 			$table->timestamps();
 		});
 	}
@@ -31,7 +29,7 @@ class CreateJeusTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('jeus');
+		Schema::drop('league_users');
 	}
 
 }

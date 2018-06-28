@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateParticipantsTable extends Migration {
+class CreateStatistiquesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,12 @@ class CreateParticipantsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('participants', function(Blueprint $table)
+		Schema::create('statistiques', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('libelle');
-			$table->string('description');
-			$table->string('slug');
-			$table->integer('userId');
+			$table->integer('nbgame')->nullable();
 			$table->timestamps();
+			$table->integer('id_user')->unsigned()->nullable()->index('FK_statistiques_user');
 		});
 	}
 
@@ -31,7 +29,7 @@ class CreateParticipantsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('participants');
+		Schema::drop('statistiques');
 	}
 
 }
