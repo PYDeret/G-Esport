@@ -2,7 +2,7 @@
 
 G-esport est un site regroupant une communauté de "Gamers" autour de tournois.
 
-#Comment l'installer ? 
+#Comment l'installé ? 
 
 Tout d'abord il faut cloner le projet
 
@@ -22,18 +22,5 @@ Pour accéder à la page d'accueil aller à l'adresse suivante:
 localhost/
 
 Pour accéder au Back Office aller à l'adresse suivante:
-localhost/admin
-
-commande pour utiliser Xethron generator:
-
-- docker exec -ti g-esport-php-fpm php artisan migrate:generate
-
-commande pour utiliser Iseed OrangeHill:
- 
-- docker exec -ti g-esport-php-fpm php artisan iseed my_table
-
-commande pour utiliser krlove/eloquent-model-generator:
-
-- docker exec -ti g-esport-php-fpm php artisan krlove:generate:model User --table-name=user
-
+localhost/back
 
