@@ -1,7 +1,12 @@
 ###############################################################################
 #                          Generated on phpdocker.io                          #
 ###############################################################################
-version: "3.1"
+version: "3.2"
+
+volumes:
+  mysql:
+    driver: local
+
 services:
 
     redis:
@@ -16,6 +21,9 @@ services:
         - MYSQL_DATABASE=g-esport
       ports:
         - "3306:3306"
+      volumes:
+        - ~/.data/mysql:/var/lib/mysql
+        - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 
     webserver:
       image: nginx:alpine
