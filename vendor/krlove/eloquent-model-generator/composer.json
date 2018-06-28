@@ -1,0 +1,16 @@
+{
+  "name": "krlove/eloquent-model-generator",
+  "description": "Eloquent Model Generator",
+  "version": "1.2.6",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Krlove\\EloquentModelGenerator\\": "src/"
+    }
+  },
+  "require": {
+    "laravel/framework": "^5.0",
+    "doctrine/dbal": "^2.5",
+    "krlove/code-generator": "^1.0"
+  }
+}

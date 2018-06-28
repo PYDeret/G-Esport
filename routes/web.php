@@ -13,6 +13,44 @@
 
 //Route::get('/', 'GuzzleController@index');
 
+
+Route::get('/', function () {
+    return view('new');
+});
+Route::get('/posts', function () {
+    $posts = App\Post::all();
+    return view('posts', compact('posts'));
+});
+Route::get('post/{slug}', function($slug){
+    $post = App\Post::where('slug', '=', $slug)->firstOrFail();
+    return view('post', compact('post'));
+});
+Route::get('/pages', function () {
+    $pages = App\Page::all();
+    return view('pages', compact('pages'));
+});
+Route::get('page/{slug}', function($slug){
+    $page = App\Page::where('slug', '=', $slug)->firstOrFail();
+    return view('page', compact('page'));
+});
+Route::get('/tournois', function () {
+    $tournois = App\Tournoi::all();
+    return view('tournois', compact('tournois'));
+});
+Route::get('tournoi/{slug}', function($slug){
+    $tournoi = App\Tournoi::where('slug', '=', $slug)->firstOrFail();
+    return view('tournoi', compact('tournoi'));
+});
+
+Route::get('/equipes', function () {
+    $equipes = App\Equipe::all();
+    return view('equipes', compact('equipes'));
+});
+Route::get('equipe/{slug}', function($slug){
+    $equipe = App\Equipe::where('slug', '=', $slug)->firstOrFail();
+    return view('equipe', compact('equipe'));
+});
+
 Auth::routes();
 
 Route::get('/', function () {
