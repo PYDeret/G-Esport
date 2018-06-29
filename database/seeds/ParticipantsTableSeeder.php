@@ -14,7 +14,7 @@ class ParticipantsTableSeeder extends Seeder
     {
         
 
-        \DB::table('participants')->delete();
+        /*\DB::table('participants')->delete();
         
         \DB::table('participants')->insert(array (
             0 => 
@@ -26,7 +26,7 @@ class ParticipantsTableSeeder extends Seeder
                 'created_at' => '2018-06-25 16:47:11',
                 'updated_at' => '2018-06-25 16:47:11',
             ),
-        ));
+        ));*/
         
         
     }
