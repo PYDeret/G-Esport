@@ -23,7 +23,6 @@ class ParticipantsTableSeeder extends Seeder
                 'libelle' => 'Paul N',
                 'description' => '<p>Je suis un admin qui test&nbsp;</p>',
                 'slug' => 'participant_paul',
-                'userId' => 1,
                 'created_at' => '2018-06-25 16:47:11',
                 'updated_at' => '2018-06-25 16:47:11',
             ),

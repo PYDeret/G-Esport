@@ -7,29 +7,33 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateParticipantsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create(Models::table('participants'), function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('thread_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->timestamp('last_read')->nullable();
-            $table->timestamps();
-        });
-    }
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('participants', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('libelle');
+			$table->string('description');
+			$table->string('slug');
+			$table->timestamps();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists(Models::table('participants'));
-    }
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('participants');
+	}
+
 }
+
