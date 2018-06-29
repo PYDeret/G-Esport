@@ -12,11 +12,11 @@ class AddForeignKeysToParticipantsUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('participants_users', function(Blueprint $table)
+		/*Schema::table('participants_users', function(Blueprint $table)
 		{
 			$table->foreign('id_participants', 'FK_participants_users_participants')->references('id')->on('participants')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('id_users', 'FK_participants_users_users')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-		});
+		});*/
 	}
 
 

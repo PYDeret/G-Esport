@@ -12,12 +12,12 @@ class CreateEquipesParticipantsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('equipes_participants', function(Blueprint $table)
+		/*Schema::create('equipes_participants', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->integer('id_equipe')->unsigned()->index('id_equipe');
 			$table->integer('id_participant')->unsigned()->index('id_participant');
-		});
+		});*/
 	}
 
 

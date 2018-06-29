@@ -12,12 +12,12 @@ class CreateParticipantsUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('participants_users', function(Blueprint $table)
+		/*Schema::create('participants_users', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->integer('id_participants')->unsigned()->index('id_participants');
 			$table->integer('id_users')->unsigned()->index('id_users');
-		});
+		});*/
 	}
 
 
