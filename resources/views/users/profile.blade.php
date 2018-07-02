@@ -103,6 +103,43 @@
           <a type="submit" class="btn btn-sm btn-default" onclick="event.preventDefault();
                                     document.getElementById('aboutChange').submit();"> Modifier </a>
 
+
+        <h3 class="mt-40 mb-20">Double authentification</h3>
+        <form method="POST" id="doubleAuth" action="{{ route('users.updateAuth') }}">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>
+                  <p>Activer la double authentification ?</p>
+                </td>
+                <td>
+                  <div class="ondisplay">
+                    <section title=".slideThree">
+                      <div class="slideThree">  
+                        <input type="checkbox" value="Activated" id="slideThree" name="check" <?php if(!empty(Auth::user()->doubleAuth)): echo "checked"; endif; ?>/>
+                        <label for="slideThree"></label>
+                      </div>
+                    </section> 
+                  </div>
+                        {{ csrf_field() }}
+                </td>
+              </tr>
+              <tr>
+                    <td>
+                    <p>Ajouter mon numéro de téléphone</p>
+                    </td>
+                    <td>
+                    <p>
+                        <input type="text" value="<?php if(!empty(Auth::user()->numTel)): echo Auth::user()->numTel; endif; ?>" name="numTel"/>
+                    </p>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </form>
+          <a type="submit" class="btn btn-sm btn-default" onclick="event.preventDefault();
+                                    document.getElementById('doubleAuth').submit();"> Modifier </a>
+
         </div>
         @include('layouts.user_right')
       </div>

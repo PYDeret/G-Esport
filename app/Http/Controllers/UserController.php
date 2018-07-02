@@ -110,6 +110,22 @@ class UserController extends Controller
         return back();
     }
 
+    public function updateAuth(User $user){
+        $user = Auth::user();
+
+        $user->doubleAuth = request('check');
+        $user->numTel = request('numTel');
+
+        if($user->doubleAuth == "off"){
+            $user->doubleAuth = "";
+            $user->numTel = "";
+        }
+
+        $user->save();
+
+        return back();
+    }
+
     public function updateLeague()
     { 
         
@@ -126,4 +142,6 @@ class UserController extends Controller
 
         return back();
     }
+
+    
 }

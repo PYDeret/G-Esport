@@ -72,6 +72,7 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
     Route::post('updateLol',  ['as' => 'users.updateLol', 'uses' => 'UserController@updateLeague']);
     Route::post('updateAbout',  ['as' => 'users.updateAbout', 'uses' => 'UserController@updateAbout']);
+    Route::post('updateAuth',  ['as' => 'users.updateAuth', 'uses' => 'UserController@updateAuth']);
     Route::get('messages/{user}', ['as' => 'users.messages', 'uses' => 'MessagesController@index']);
     Route::get('messages/create/{user}', ['as' => 'users.messages.create', 'uses' => 'MessagesController@create']);
     Route::post('messages/create/{user}', ['as' => 'users.messages.createHasUsr', 'uses' => 'MessagesController@createHasUsr']);
