@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration {
 			$table->text('about', 65535);
 			$table->string('doubleAuth')->nullable();
 			$table->string('numTel')->nullable();
+			$table->string('doubleToken')->nullable();
 			$table->timestamps();
 		});
 	}

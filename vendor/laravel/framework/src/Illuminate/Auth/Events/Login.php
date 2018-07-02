@@ -3,6 +3,7 @@
 namespace Illuminate\Auth\Events;
 
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class Login
 {
@@ -33,5 +34,6 @@ class Login
     {
         $this->user = $user;
         $this->remember = $remember;
+
     }
 }

@@ -57,6 +57,9 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::get('/doubleauth',  'UserController@doubleauth');
+Route::post('/verifDoubleAuth',  ['as' => 'users.doubleauthcheck', 'uses' => 'UserController@doubleauthCheck']);
+
 Route::get('/home',  'HomeController@index');
 Route::get('/news',  'NewsController@index');
 Route::get('/news/{news}',  'NewsController@news');

@@ -143,5 +143,20 @@ class UserController extends Controller
         return back();
     }
 
+    public function doubleauth(User $user){
+        return view('test');
+    }
+
+    public function doubleauthCheck(User $user){
+        
+        if(request('token') != request('sms')){
+            $error = true;
+            return view('test', compact('error'));
+        }
+        else{
+            return redirect('/home');
+        }
+    }
+
     
 }
