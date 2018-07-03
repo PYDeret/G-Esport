@@ -84,6 +84,8 @@ Route::group(['prefix' => 'users'], function () {
     Route::put('messages/show/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
 });
 
+Route::get('/getMessages', ['as' => 'users.ajaxGet', 'uses' => 'MessagesController@ajaxGet']);
+
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     $userOrders = \App\Http\Controllers\StreamController::getStream('skumbsr', $twitch);
 

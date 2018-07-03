@@ -44,3 +44,53 @@
       </div>
     </div>
 @include('layouts.footer')
+<script>
+function loadMsg(){
+
+    var arrayBodies = new Array();
+
+    $('.message-excerpt').each(function(){
+        arrayBodies.push($(this).text());
+    });
+
+    $.ajax({ 
+        type: "GET", 
+        url: "/getMessages", 
+        data: "", 
+        dataType: "json", 
+        success: function (response) { 
+            $.each(response, function(){
+
+
+                if(! arrayBodies.includes($(this)[0].body) ){
+
+                    var id = "/users/messages/show/"+$(this)[0].id;
+                    
+                    $( "tbody" ).prepend( '<tr class="message-unread">'+
+                        '<td class="message-from">'+
+
+                            '<a href="#" class="message-from-name">'+$(this)[0].name+'</a>'+
+                            '<br>'+
+                            '<span class="date">'+$(this)[0].updated_at+'</span>'+
+                        '</td>'+
+                        '<td class="message-description">'+
+                            '<a href="<?php echo url('/') ?>'+id+'" class="message-description-name" title="View Message">'+$(this)[0].subject+'</a>'+
+                            '<br>'+
+                            '<div class="message-excerpt">'+$(this)[0].body+'</div>'+
+                        '</td>'+
+                        '<td class="message-action">'+
+                            '<a class="message-delete" href="#"><i class="fa fa-times"></i></a>'+
+                        '</td>'+
+                    '</tr>');
+                }
+            });
+        } 
+   }); 
+}
+
+$(document).ready(function(){
+    window.setInterval(function(){
+        loadMsg();
+}, 3000);
+})
+</script>

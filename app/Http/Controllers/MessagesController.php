@@ -28,6 +28,12 @@ class MessagesController extends Controller
         // $threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
         return view('messenger.index', compact('threads'));
     }
+
+    public function ajaxGet(){
+
+        $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
+        return response()->json($threads);
+    }
     /**
      * Shows a message thread.
      *
