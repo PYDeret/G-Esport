@@ -1,3 +1,5 @@
+@include('layouts.header')
+
 @extends('layouts.app')
 
 @section('content')
@@ -17,3 +19,5 @@
     </div>
 
 @endsection
+
+@include('layouts.footer')
