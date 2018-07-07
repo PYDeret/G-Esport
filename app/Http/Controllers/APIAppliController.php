@@ -55,8 +55,6 @@ class APIAppliController extends Controller
 
     public function sendMessage(Request $request){
 
-        $input = Input::all();
-
         $thread = Thread::create([
             'subject' => $request->input('subject'),
         ]);
