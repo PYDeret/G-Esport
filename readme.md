@@ -13,7 +13,7 @@ Currently you just need **Docker** and an access to the **command prompt**.
 
 ## How to install it ?
 
-You can install **G-esport** in only **3 commands**!
+You can install **G-esport** in only **4 commands**!
 
 The first is to **clone the projet** : 
 
@@ -23,9 +23,13 @@ Go to the **root** of the project and launch the second command to launch the **
 
 	docker-compose up -d
 
-Now, still at the **root** of the project, launched the third and last command to add the **database** to the project.
+Now, still at the **root** of the project, launched the third to add the **database** to the project.
 
 	docker exec -ti g-esport-php-fpm php artisan migrate
+
+Then all you have to do is fill in the database.
+
+	docker exec -ti g-esport-php-fpm php artisan db:seed
 
 Congratulations you have just installed G-esport!
 
