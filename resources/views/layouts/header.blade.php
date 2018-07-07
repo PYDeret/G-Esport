@@ -41,6 +41,19 @@
           </li>
           <li><a href="/videos">Vidéos</a>
           </li>
+          <li class="dropdown dropdown-hover">
+            <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              Jeux
+            </a>
+            <div class="dropdown-menu">
+              <ul role="menu">
+                <li><a href="/league-of-legends">League of Legends</a>
+                </li>
+                <li><a href="/fortnite">Fornite</a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -55,103 +68,103 @@
               <ul role="menu">
                 <li>
                   <form method="POST" action="{{ route('login') }}" style="padding:15px">
-                        @csrf
+                    @csrf
 
-                        <div class="form-group row mb-0">
-                            <label for="email" class="col-sm-8 col-form-label text-md-right">{{ __('Adresse E-mail') }}</label>
+                    <div class="form-group row mb-0">
+                      <label for="email" class="col-sm-8 col-form-label text-md-right">{{ __('Adresse E-mail') }}</label>
 
-                            <div class="col-md-12">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                      <div class="col-md-12">
+                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                        @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+                          <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                        @endif
+                      </div>
+                    </div>
 
-                        <div class="form-group row mb-0">
-                            <label for="password" class="col-md-8 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
+                    <div class="form-group row mb-0">
+                      <label for="password" class="col-md-8 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
-                            <div class="col-md-12">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                      <div class="col-md-12">
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se rappeler de moi') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        @if ($errors->has('password'))
+                        <span class="invalid-feedback">
+                          <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                        @endif
                       </div>
                     </div>
 
                     <div class="form-group row mb-0">
                       <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">
-                          {{ __('Se connecter') }}
-                        </button>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Se rappeler de moi') }}
+                          </label>
+                        </div>
                       </div>
                     </div>
+                  </div>
+                </div>
 
-                    <div class="form-group row mb-0" style="margin-top:15px">
-                      <div class="col-md-12">
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                          {{ __('Mot de passe oublié') }}
-                        </a>
-                      </div>
-                    </div>
-                  </form>
-                </li>
-              </ul>
-            </div>
-          </li>
+                <div class="form-group row mb-0">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">
+                      {{ __('Se connecter') }}
+                    </button>
+                  </div>
+                </div>
 
-          @else
+                <div class="form-group row mb-0" style="margin-top:15px">
+                  <div class="col-md-12">
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                      {{ __('Mot de passe oublié') }}
+                    </a>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </li>
 
-          <li class="dropdown dropdown-hover">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              {{ Auth::user()->name }}
+      @else
+
+      <li class="dropdown dropdown-hover">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          {{ Auth::user()->name }}
+        </a>
+        <div class="dropdown-menu">
+          <ul role="menu">
+            <li>
+              <a href="{{ route('users.edit', Auth::user()->id ) }}">Voir mon profil</a>
+            </li>
+            <li>
+              <a href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              {{ __('Se déconnecter') }}
             </a>
-            <div class="dropdown-menu">
-              <ul role="menu">
-                <li>
-                  <a href="{{ route('users.edit', Auth::user()->id ) }}">Voir mon profil</a>
-                </li>
-                <li>
-                  <a href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                  {{ __('Se déconnecter') }}
-                </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                </form>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          </li>
+        </ul>
+      </div>
+    </li>
 
-        @endguest
+    @endguest
 
-        <li>
-          <a class="search-toggle" href="search.html">
-            <i class="fa fa-search"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+    <li>
+      <a class="search-toggle" href="search.html">
+        <i class="fa fa-search"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
 </nav>

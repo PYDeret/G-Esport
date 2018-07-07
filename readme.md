@@ -46,12 +46,12 @@ So if you want to access to the **back office**, go to this **address**:
 
 On the other hand you can log into the **platform** as a **user** with the following credentials:
 
-- Username : user
+- Email : user@user.com
 - Password : user
 
 Or as an **administrator**:
 
-- Username : admin
+- Email : admin@admin.com
 - Password : admin
 
 Plus you can access to your **PhpMyAdmin** at this **address**:

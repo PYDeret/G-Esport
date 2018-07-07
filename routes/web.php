@@ -51,6 +51,16 @@ Route::get('equipe/{slug}', function($slug){
     return view('equipe', compact('equipe'));
 });
 
+Route::get('/league-of-legends', function () {
+    $jeu = App\Jeu::where('slug', '=', 'leagueoflegends')->firstOrFail();
+    return view('league-of-legends', compact('jeu'));
+});
+Route::get('/fortnite', function () {
+    $jeu = App\Jeu::where('slug', '=', 'fortnite')->firstOrFail();
+    return view('fortnite', compact('jeu'));
+});
+
+
 Auth::routes();
 
 Route::get('/', function () {
