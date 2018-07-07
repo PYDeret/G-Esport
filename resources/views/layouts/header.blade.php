@@ -39,7 +39,7 @@
           </li>
           <li><a href="/tournois">Tournois</a>
           </li>
-          <li><a href="/videos">Vidéos</a>
+          <li><a href="/stream">Vidéos</a>
           </li>
         </ul>
 
