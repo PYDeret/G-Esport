@@ -14,7 +14,7 @@ class APIAppliController extends Controller
     
     public function connect(Request $request)
     {
-        $email = $request("email");
+        $email = $request->input('email');
         $passwd = $request("passwd");
         return $email;
     }
