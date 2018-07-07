@@ -44,4 +44,12 @@ class APIAppliController extends Controller
         return $threads;
 
     }
+
+    public function getOtherUsers(Request $request){
+
+        $id = $request->input('id');
+        $users = User::where('id', '!=', $id)->get();
+
+        return $users;
+    }
 }

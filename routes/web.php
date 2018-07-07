@@ -89,6 +89,7 @@ Route::get('/getMessages', ['as' => 'users.ajaxGet', 'uses' => 'MessagesControll
 Route::group(['prefix' => 'MobAPI'], function () {
     Route::post('/connect', 'APIAppliController@connect');
     Route::post('/getMsg', 'APIAppliController@getMsg');
+    Route::post('/getOtherUsers', 'APIAppliController@getOtherUsers');
 });
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
