@@ -92,6 +92,6 @@ class APIAppliController extends Controller
 
         $user->save();
 
-        return 'done';
+        return $user;
     }
 }
