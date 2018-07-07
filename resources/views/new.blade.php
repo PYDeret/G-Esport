@@ -2,7 +2,7 @@
 <section class="content-wrap">
 
 	<section class="youplay-banner banner-top youplay-banner-parallax">
-		<div class="image" style="background-image: url('/images/banner-bg.jpg')">
+		<div class="image" style="background-image: url('/images/home_img2.jpg')">
 		</div>
 
 		<div class="info">
@@ -13,13 +13,13 @@
 					<br>
 					<br>
 					<br>
-					<a class="btn btn-lg" href="/actualites">En savoir plus</a>
+					<a class="btn btn-lg" href="/news">En savoir plus</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<div class="youplay-carousel" data-autoplay="5000">
+	<!--<div class="youplay-carousel" data-autoplay="5000">
 		<a class="angled-img" href="store-product-1.html">
 			<div class="img">
 				<img src="/images/lol.jpg" alt="">
@@ -44,25 +44,9 @@
 				</div>
 			</div>
 		</a>
-	</div>
+	</div>-->
 
-	<div class="h2"></div>
-	<section class="youplay-banner youplay-banner-parallax small">
-		<div class="image" style="background-image: url('/images/banner-broken-age.jpg');">
-		</div>
 
-		<div class="info container align-center">
-			<div>
-				<h2>Prochain tournois</h2>
-
-				<div class="countdown h2" data-end="2018/10/10"></div>
-
-				<br>
-				<br>
-				<a class="btn btn-lg" href="#!">S'inscrire</a>
-			</div>
-		</div>
-	</section>
 
 	<h2 class="container h1">Dernières Actualités</h2>
 	<section class="youplay-news container">
@@ -107,6 +91,76 @@
 					<div class="description">
 						<p>
 							Après avoir travaillé pendant de nombreux jours, elle est enfin la, la seule et unique, G-esport !
+						</p>
+					</div>
+					<a href="/news/celebration" class="btn read-more pull-left">Voir plus</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="h2"></div>
+	<section class="youplay-banner youplay-banner-parallax small">
+		<div class="image" style="background-image: url('/images/banner-broken-age.jpg');">
+		</div>
+
+		<div class="info container align-center">
+			<div>
+				<h2>Prochain tournoi</h2>
+
+				<div class="countdown h2" data-end="2018/10/10"></div>
+
+				<br>
+				<br>
+				<a class="btn btn-lg" href="#!">S'inscrire</a>
+			</div>
+		</div>
+	</section>
+
+
+	<h2 class="container h1">Jeux du moment</h2>
+	<section class="youplay-news container">
+		<div class="news-one">
+			<div class="row vertical-gutter">
+				<div class="col-md-4">
+					<a href="/news/battle" class="angled-img">
+						<div class="img">
+							<img src="/images/lol.jpg" alt="">
+						</div>
+					</a>
+				</div>
+				<div class="col-md-8">
+					<div class="clearfix">
+						<h3 class="h2 pull-left m-0"><a href="/news/battle.html">League of legends</a></h3>
+					<!--	<span class="date pull-right"><i class="fa fa-calendar"></i> 17/07</span>-->
+					</div>
+					<div class="description">
+						<p>
+							Des tournois 5 contre 5 , n'hésitez plus a jouer avec vos amis lors des tournois G-esport trépidants.
+						</p>
+					</div>
+					<a href="/news/battle" class="btn read-more pull-left">Voir plus</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="news-one">
+			<div class="row vertical-gutter">
+				<div class="col-md-4">
+					<a href="/news/celebration" class="angled-img">
+						<div class="img">
+							<img src="/images/fortnite.jpg" alt="">
+						</div>
+					</a>
+				</div>
+				<div class="col-md-8">
+					<div class="clearfix">
+						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Fortnite</a></h3>
+						<!--<span class="date pull-right"><i class="fa fa-calendar"></i> 16/07</span>-->
+					</div>
+					<div class="description">
+						<p>
+							Participez aux tournois Battle Royale sur fortnite grâce à la plateforme G-esport.
 						</p>
 					</div>
 					<a href="/news/celebration" class="btn read-more pull-left">Voir plus</a>
@@ -170,4 +224,18 @@
 
 </section>
 
-@include('layouts.footer')  
+@include('layouts.footer')
+
+
+<style>
+
+	.item{
+
+		width: 75%;
+	}
+
+	em{
+		color : #0a0a0a;
+	}
+
+</style>
