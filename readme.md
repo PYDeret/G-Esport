@@ -27,7 +27,7 @@ Now, still at the **root** of the project, launched the third to add the **datab
 
 	docker exec -ti g-esport-php-fpm php artisan migrate
 
-Then all you have to do is fill in the database.
+Then all you have to do is **fill in** the **database**.
 
 	docker exec -ti g-esport-php-fpm php artisan db:seed
 
