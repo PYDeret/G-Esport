@@ -86,6 +86,10 @@ Route::group(['prefix' => 'users'], function () {
 
 Route::get('/getMessages', ['as' => 'users.ajaxGet', 'uses' => 'MessagesController@ajaxGet']);
 
+Route::group(['prefix' => 'MobAPI'], function () {
+    Route::post('/connect', 'APIAppliController@connect');
+});
+
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     $userOrders = \App\Http\Controllers\StreamController::getStream('skumbsr', $twitch);
 
