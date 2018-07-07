@@ -17,7 +17,6 @@ class APIAppliController extends Controller
     public function connect(Request $request)
     {
 
-
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
