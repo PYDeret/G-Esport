@@ -175,6 +175,22 @@ class Thread extends Eloquent
             ->select('threads.id', 'messages.body', 'threads.subject', 'threads.created_at', 'threads.updated_at', 'users.name');
     }
 
+
+    public function scopeForUserLimited(Builder $query, $userId)
+    {
+        $participantsTable = Models::table('participants');
+        $threadsTable = Models::table('threads');
+        $messageTable = Models::table('messages');
+
+        return $query->join($participantsTable, $this->getQualifiedKeyName(), '=', $participantsTable . '.thread_id')
+            ->join($messageTable, $this->getQualifiedKeyName(), '=', $messageTable . '.thread_id')
+            ->join("users", $messageTable . '.user_id', '=', 'users.id')
+            ->where($participantsTable . '.user_id', $userId)
+            ->where($participantsTable . '.deleted_at', null)
+            ->limit(3)
+            ->select('threads.id', 'messages.body', 'threads.subject', 'threads.created_at', 'threads.updated_at', 'users.name');
+    }
+
     /**
      * Returns threads with new messages that the user is associated with.
      *
