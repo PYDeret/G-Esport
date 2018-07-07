@@ -67,7 +67,9 @@ Of course you can **change these values** in our back office, which we **strongl
 
 ## Contact
 
-You can contact us through **GitHub**
+You can contact us through **GitHub** or with this **Email** :
+
+gesportcontact@gmail.com
 
 Have fun with or our platform and let the competition ignite the community!
 
