@@ -9,7 +9,7 @@
 			<div>
 				<h1>Whoopsy, page 404</h1>
 				<br>
-				<h2>Ba alors on a perdu ?</h2>
+				<h2>Alors on a perdu ?</h2>
 				<br>
 				<br>
 				<a class="btn btn-lg" href="/">Retour à l'accueil</a>
