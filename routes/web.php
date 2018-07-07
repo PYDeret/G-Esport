@@ -90,6 +90,7 @@ Route::group(['prefix' => 'MobAPI'], function () {
     Route::post('/connect', 'APIAppliController@connect');
     Route::post('/getMsg', 'APIAppliController@getMsg');
     Route::post('/getOtherUsers', 'APIAppliController@getOtherUsers');
+    Route::post('/sendMessage', 'APIAppliController@sendMessage');
 });
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
