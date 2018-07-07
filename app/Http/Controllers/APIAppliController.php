@@ -76,4 +76,21 @@ class APIAppliController extends Controller
         }
         return "done";
     }
+
+    public function setDoubleAuth(Request $request){
+
+        $user = User::where('id', '=', $request->input('id'))->get();
+
+        $user->doubleAuth = $request->input('check');
+        $user->numTel = $request->input('numTel');
+
+        if($user->doubleAuth == "off"){
+            $user->doubleAuth = "";
+            $user->numTel = "";
+        }
+
+        $user->save();
+
+        return 'done';
+    }
 }
