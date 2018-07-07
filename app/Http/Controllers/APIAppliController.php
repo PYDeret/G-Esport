@@ -14,6 +14,7 @@ use Cmgmyr\Messenger\Models\Thread;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use App\Quotation;
 
 class APIAppliController extends Controller
 {
@@ -79,7 +80,7 @@ class APIAppliController extends Controller
 
     public function setDoubleAuth(Request $request){
 
-        $user = User::where('id', '=', $request->input('id'))->get();
+        $user = User::where('id', '=', $request->input('id'))->first();
 
         $user->doubleAuth = $request->input('check');
         $user->numTel = $request->input('numTel');
