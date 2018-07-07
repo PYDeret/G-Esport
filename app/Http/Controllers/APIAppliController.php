@@ -52,4 +52,30 @@ class APIAppliController extends Controller
 
         return $users;
     }
+
+    public function sendMessage(Request $request){
+
+        $input = Input::all();
+
+        $thread = Thread::create([
+            'subject' => $request->input('subject'),
+        ]);
+        // Message
+        Message::create([
+            'thread_id' => $thread->id,
+            'user_id' => $request->input('id'),
+            'body' => $request->input('message'),
+        ]);
+        // Sender
+        Participant::create([
+            'thread_id' => $thread->id,
+            'user_id' => $request->input('id'),
+            'last_read' => new Carbon,
+        ]);
+        // Recipients
+        if (Input::has('recipients')) {
+            $thread->addParticipant($request->input('otherid'));
+        }
+        return "done";
+    }
 }
