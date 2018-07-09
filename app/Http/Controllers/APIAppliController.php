@@ -26,13 +26,13 @@ class APIAppliController extends Controller
     public function connect(Request $request)
     {
 
-        $credentials = $request->only('email', 'password');
+        $credentials = json_decode($request->only('email', 'password'));
 
         if (Auth::attempt($credentials)) {
             return Auth::id();
         }
         else{
-            return $request;
+            return $credentials;
         }
     }
 
