@@ -32,7 +32,7 @@ class APIAppliController extends Controller
             return Auth::id();
         }
         else{
-            return "none";
+            return $request;
         }
     }
 
