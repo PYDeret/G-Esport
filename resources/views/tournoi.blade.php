@@ -69,18 +69,29 @@
 
                     @foreach($tournoi_equipe as $tournoi_equip)
 
-
                         @foreach($equipes as $equipe)
+                            <?php
+
+                            if ($tournoi_equip->TournoiId == $tournoi->id){
 
 
-                            <p>{{ $equipe->where('id','=' ,substr($tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"]), 13,1 ))->get(["libelle"])}}</p>
+                            if ( $tournoi_equip->EquipeId == $equipe->id) {
+                            ?>
 
+                            <li> {{$equipe->libelle}}</li>
+                        <?php
 
-
-                        @endforeach
-
-
+                        }
+                        }
+                        ?>
                     @endforeach
+                @endforeach
+
+                           <!--<p>    /* $equipe->where('id','=' ,substr($tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"]), 13,1 ))->get(["libelle"])   }}</p>
+
+                    <p>$tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"])}}</p>*/
+
+-->
 
 
                 </div>
