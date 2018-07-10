@@ -23,10 +23,7 @@ class APIAppliController extends Controller
 	{
     }
     
-    public function connect(Request $request)
-    {
-
-        $credentials = $request->only('email', 'password');
+    public function connect(Request $request){
 
         $data = file_get_contents("php://input");
         if($data) {
@@ -34,10 +31,7 @@ class APIAppliController extends Controller
         }
 
         if (Auth::attempt($data)) {
-            return Auth::id();
-        }
-        else{
-            return $data;
+            return "id=".Auth::id()."&name".Auth::name();
         }
     }
 
