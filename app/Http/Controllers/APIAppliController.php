@@ -53,7 +53,12 @@ class APIAppliController extends Controller
 
         $id = $request->input('id');
 
-        $threads = Thread::ForUserLimited($id)->latest('updated_at')->get();
+        $data = file_get_contents("php://input");
+        if($data) {
+            $data = $this->manage_post($data);
+        }
+
+        $threads = Thread::ForUserLimited($data['id'])->latest('updated_at')->get();
 
         return $threads;
 
