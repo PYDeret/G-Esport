@@ -28,11 +28,13 @@ class APIAppliController extends Controller
 
         $credentials = $request->only('email', 'password');
 
+        $data = file_get_contents("php://input");
+
         if (Auth::attempt($credentials)) {
             return Auth::id();
         }
         else{
-            return "none";
+            return $data;
         }
     }
 
