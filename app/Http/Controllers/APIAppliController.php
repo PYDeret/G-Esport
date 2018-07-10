@@ -35,6 +35,18 @@ class APIAppliController extends Controller
         }
     }
 
+    public function getName(){
+
+        $data = file_get_contents("php://input");
+        if($data) {
+            $data = $this->manage_post($data);
+        }
+
+        $data = User::where('id', '=', $data['id'])->first();
+
+        return $data->name;
+    }
+
     public function getMsg(Request $request){
 
         $id = $request->input('id');

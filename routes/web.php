@@ -88,6 +88,7 @@ Route::get('/getMessages', ['as' => 'users.ajaxGet', 'uses' => 'MessagesControll
 
 Route::group(['prefix' => 'MobAPI', 'middleware' => ['api', 'cors'],], function () {
     Route::post('/connect', 'APIAppliController@connect');
+    Route::post('/getName', 'APIAppliController@getName');
     Route::post('/getMsg', 'APIAppliController@getMsg');
     Route::post('/getOtherUsers', 'APIAppliController@getOtherUsers');
     Route::post('/sendMessage', 'APIAppliController@sendMessage');
