@@ -30,8 +30,13 @@ class APIAppliController extends Controller
             $data = $this->manage_post($data);
         }
 
+
         if (Auth::attempt($data)) {
-            return Auth::user();
+            $data = array(
+                Auth::id(),
+                Auth::name()
+            );
+            return json_encode($data);
         }
     }
 
