@@ -44,7 +44,7 @@ class APIAppliController extends Controller
 
         $data = User::where('id', '=', $data['id'])->first();
 
-        return $data->name;
+        return $data;
     }
 
     public function getMsg(Request $request){
