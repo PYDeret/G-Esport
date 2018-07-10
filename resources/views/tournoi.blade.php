@@ -60,33 +60,47 @@
                         <span id="arrow" class="date pull-left"><i class="fa fa-arrow-right"></i></span>
                         <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $tournoi->DateFin }} à  {{ $tournoi->HeureFin  }}</span>
                     <br><br>
+
+                    <h4>Présentation :</h4>
                     <p>
                     {!! $tournoi->description !!}
                     <p>
 
 
-                    <h5>Equipes inscrites : </h5>
+
+                    <h4>Equipes inscrites : </h4>
 
                     @foreach($tournoi_equipe as $tournoi_equip)
 
                         @foreach($equipes as $equipe)
                             <?php
 
-                            if ($tournoi_equip->TournoiId == $tournoi->id){
 
 
-                            if ( $tournoi_equip->EquipeId == $equipe->id) {
+                            if ($tournoi_equip->TournoiId == $tournoi->id && $tournoi_equip->EquipeId == $equipe->id){
                             ?>
 
                             <li> {{$equipe->libelle}}</li>
+
+
                         <?php
 
-                        }
+                                $noequipe= false;
+                        }else{
+
+                                $noequipe = true;
                         }
                         ?>
                     @endforeach
                 @endforeach
 
+                    <?php if($noequipe){
+
+                        ?>
+                        <p>Aucune équipes inscrites pour le moment</p>
+                        <?php
+                    }
+                        ?>
                            <!--<p>    /* $equipe->where('id','=' ,substr($tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"]), 13,1 ))->get(["libelle"])   }}</p>
 
                     <p>$tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"])}}</p>*/
