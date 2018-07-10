@@ -38,11 +38,11 @@ class APIAppliController extends Controller
     public function getName(){
 
         $data = file_get_contents("php://input");
-        if($data) {
+        /*if($data) {
             $data = $this->manage_post($data);
         }
 
-        $data = User::where('id', '=', $data['id'])->first();
+        $data = User::where('id', '=', $data['id'])->first();*/
 
         return $data;
     }
