@@ -74,34 +74,44 @@ class APIAppliController extends Controller
 
     public function sendMessage(Request $request){
 
+        $data = file_get_contents("php://input");
+        if($data) {
+            $data = $this->manage_post($data);
+        }
+
         $thread = Thread::create([
-            'subject' => $request->input('subject'),
+            'subject' => $data['subject'],
         ]);
         // Message
         Message::create([
             'thread_id' => $thread->id,
-            'user_id' => $request->input('id'),
-            'body' => $request->input('message'),
+            'user_id' => $data['id'],
+            'body' => $data['message'],
         ]);
         // Sender
         Participant::create([
             'thread_id' => $thread->id,
-            'user_id' => $request->input('id'),
+            'user_id' => $data['id'],
             'last_read' => new Carbon,
         ]);
         // Recipients
         if (Input::has('recipients')) {
-            $thread->addParticipant($request->input('otherid'));
+            $thread->addParticipant($data['otherid']);
         }
         return "done";
     }
 
     public function setDoubleAuth(Request $request){
 
-        $user = User::where('id', '=', $request->input('id'))->first();
+        $data = file_get_contents("php://input");
+        if($data) {
+            $data = $this->manage_post($data);
+        }
 
-        $user->doubleAuth = $request->input('check');
-        $user->numTel = $request->input('numTel');
+        $user = User::where('id', '=', $data['id'])->first();
+
+        $user->doubleAuth = $data['check'];
+        $user->numTel = $data['numTel'];
 
         if($user->doubleAuth == "off"){
             $user->doubleAuth = "";
