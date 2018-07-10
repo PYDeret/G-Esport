@@ -20,17 +20,29 @@
 <section class="content-wrap">
 
     <div class="youplay-banner banner-top youplay-banner-parallax small">
-        <div class="image" style="background-image: url('/images/banner-battle.jpg')">
-        </div>
 
+        <?php
+
+        if ($tournoi->JeuId == 1 ){
+            $wall = "lolwall";
+        }
+        elseif($tournoi->JeuId == 2 ){
+            $wall = "fortnitewall";
+        }
+        ?>
+
+            <div class="image" style="background-image: url('/images/<?= $wall ?>.jpg')">
+
+            </div>
         <div class="info">
             <div>
                 <div class="container">
-                    <h1>{{ $tournoi->Libelle }}</h1>
+                    <h1>{{ $tournoi->libelle }}</h1>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="container youplay-news youplay-post">
 
@@ -43,15 +55,34 @@
                             <img src="{{ Voyager::image( $tournoi->image ) }}" style="width:100%" alt="">
                         </div>
                     </div>
+
+                        <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $tournoi->DateDebut  }}  à {{ $tournoi->HeureDebut  }}</span>
+                        <span id="arrow" class="date pull-left"><i class="fa fa-arrow-right"></i></span>
+                        <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $tournoi->DateFin }} à  {{ $tournoi->HeureFin  }}</span>
+                    <br><br>
                     <p>
                     {!! $tournoi->description !!}
                     <p>
-                        {{ $tournoi->DateDebut  }}  qui commence à {{ $tournoi->HeureDebut  }}
-                    </p>
 
-                    <p>
-                        {{ $tournoi->DateFin }}   qui fini à {{ $tournoi->HeureFin  }}
-                    </p>
+
+                    <h5>Equipes inscrites : </h5>
+
+                    @foreach($tournoi_equipe as $tournoi_equip)
+
+
+                        @foreach($equipes as $equipe)
+
+
+                            <p>{{ $equipe->where('id','=' ,substr($tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"]), 13,1 ))->get(["libelle"])}}</p>
+
+
+
+                        @endforeach
+
+
+                    @endforeach
+
+
                 </div>
 
             </article>
@@ -62,6 +93,13 @@
 
 
 
+<style>
 
+#arrow{
+
+    margin-left: 5%;
+}
+
+</style>
 
 @include('layouts.footer')

@@ -39,7 +39,9 @@ Route::get('/tournois', function () {
 });
 Route::get('tournoi/{slug}', function($slug){
     $tournoi = App\Tournoi::where('slug', '=', $slug)->firstOrFail();
-    return view('tournoi', compact('tournoi'));
+    $tournoi_equipe = App\TournoisEquipe::all();
+    $equipes = App\Equipe::all();
+    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe') );
 });
 
 Route::get('/equipes', function () {

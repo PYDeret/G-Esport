@@ -88,7 +88,7 @@
                         <div class="bottom-info">
                             <h4>{{ $tournoi->libelle }}</h4>
                             <div class="row">
-                                {{ substr($tournoi->description, 3, -4) }}
+                                {!! $tournoi->description !!}
                             </div>
                         </div>
                     </a>
