@@ -113,9 +113,12 @@ class APIAppliController extends Controller
         $user->doubleAuth = $data['check'];
         $user->numTel = $data['numTel'];
 
-        if($user->doubleAuth == "off"){
+        if($user->doubleAuth == "off" || empty($user->numTel)){
             $user->doubleAuth = "";
             $user->numTel = "";
+        }
+        else if($user->doubleAuth == "on"){
+            $user->doubleAuth = "Activated";
         }
 
         $user->save();
