@@ -30,7 +30,7 @@ class APIAppliController extends Controller
 
         $data = file_get_contents("php://input");
         if($data) {
-            $array = $this->manage_post($data);
+            $data = $this->manage_post($data);
         }
 
         if (Auth::attempt($credentials)) {
