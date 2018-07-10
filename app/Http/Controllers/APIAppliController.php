@@ -31,7 +31,7 @@ class APIAppliController extends Controller
         }
 
         if (Auth::attempt($data)) {
-            return Auth::id();
+            return Auth::user();
         }
     }
 
