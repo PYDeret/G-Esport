@@ -36,7 +36,7 @@ class APIAppliController extends Controller
                 Auth::id(),
                 Auth::name()
             );
-            return json_encode($data);
+            return $data;
         }
     }
 
