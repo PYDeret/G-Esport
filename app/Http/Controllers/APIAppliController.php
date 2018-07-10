@@ -33,7 +33,7 @@ class APIAppliController extends Controller
             $data = $this->manage_post($data);
         }
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($data)) {
             return Auth::id();
         }
         else{
