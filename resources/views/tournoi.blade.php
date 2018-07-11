@@ -87,28 +87,23 @@
 
                         }
 
-                        print_r($equipe);
 
                         ?>
                         @endforeach
 
+                        <?php if(empty($tournoi_equipe)){ ?>
+
+                            
+                        <?php } ?>
+
                     @endforeach
 
-                    <?php if(empty($tournoi_equipe)){
-
-                        ?>
-                        <p>Aucune équipe inscrite pour le moment</p>
-                        <?php
-                    }?>
+                    
                            <!--<p>    /* $equipe->where('id','=' ,substr($tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"]), 13,1 ))->get(["libelle"])   }}</p>
 
                     <p>$tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"])}}</p>*/
-
 -->
-
-
                 </div>
-
             </article>
         </div>
     </div>
