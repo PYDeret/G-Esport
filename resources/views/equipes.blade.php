@@ -32,7 +32,6 @@
             <br><br>
 
 
-
             <div class="modal fade" id="favoritesModal"
                  tabindex="-1" role="dialog"
                  aria-labelledby="favoritesModalLabel">
@@ -79,6 +78,7 @@
 
                     <div class="item col-lg-4 col-md-6 col-xs-12">
                         @foreach($equipes as $equipe)
+
                             <a href="/equipe/{{ $equipe->slug }}" class="angled-img">
                             <div class="img img-offset">
                                 <img src="/images/teamq.png" alt="" style="width: 20%;">
@@ -87,11 +87,32 @@
                             <div class="bottom-info">
                                 <h4>{{ $equipe->libelle }}</h4>
                                 <div class="row">
+                                    <p> Membres :</p>
+                                    @foreach($equipes_users as $equipes_user)
+
+                                    @foreach($users as $user)
+                                            <?php
+
+                                            if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id == $user->id)
+                                            {
+                                                ?>
+                                            <li>
+                                                {{ $user->name }}
+                                            </li>
+
+                                                <?php
+                                            }
+                                                ?>
+
+                                    @endforeach
+                                    @endforeach
+                                </div>
+                                <div class="row">
                                     {!! $equipe->description !!}
                                 </div>
                             </div>
                             </a>
-                            @endforeach
+                        @endforeach
 
                     </div>
             </div>
