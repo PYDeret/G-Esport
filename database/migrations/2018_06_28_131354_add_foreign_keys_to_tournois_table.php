@@ -15,6 +15,7 @@ class AddForeignKeysToTournoisTable extends Migration {
 		Schema::table('tournois', function(Blueprint $table)
 		{
 			$table->foreign('ResultatId', 'FK_tournois_resultats')->references('id')->on('resultats')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('JeuId', 'FK_tournois_jeu')->references('id')->on('jeus')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 

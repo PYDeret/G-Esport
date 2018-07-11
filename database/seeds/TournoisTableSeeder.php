@@ -29,6 +29,7 @@ class TournoisTableSeeder extends Seeder
                 'HeureFin' => '22:00:00',
                 'slug' => 'grandvaltournament',
                 'ResultatId' => 1,
+                'JeuId' => 1,
                 'created_at' => '2018-06-19 14:59:47',
                 'updated_at' => '2018-06-19 14:59:47',
             ),
