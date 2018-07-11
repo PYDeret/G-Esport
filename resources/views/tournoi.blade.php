@@ -77,30 +77,27 @@
 
 
 
-                            if ($tournoi_equip->TournoiId == $tournoi->id && $tournoi_equip->EquipeId == $equipe->id){
-                            ?>
+                        if ($tournoi_equip->TournoiId == $tournoi->id && $tournoi_equip->EquipeId == $equipe->id){
+                        ?>
 
                             <li> {{$equipe->libelle}}</li>
 
 
                         <?php
 
-                                $noequipe= false;
-                        }else{
-
-                                $noequipe = true;
                         }
+
                         ?>
                     @endforeach
+
                 @endforeach
 
-                    <?php if($noequipe){
+                <?php if(empty($tournoi_equipe)){
 
-                        ?>
-                        <p>Aucune équipes inscrites pour le moment</p>
-                        <?php
-                    }
-                        ?>
+                    ?>
+                    <p>Aucune équipe inscrite pour le moment</p>
+                    <?php
+                }?>
                            <!--<p>    /* $equipe->where('id','=' ,substr($tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"]), 13,1 ))->get(["libelle"])   }}</p>
 
                     <p>$tournoi_equip->where('TournoiId', '=', $tournoi->id)->get(["EquipeId"])}}</p>*/
