@@ -79,10 +79,9 @@
 
                             if ($tournoi_equip->TournoiId == $tournoi->id && $tournoi_equip->EquipeId == $equipe->id){
                             ?>
-
-                            <li> {{$equipe->libelle}}</li>
-
-
+                            <ul>
+                            <li> {{$equipe->libelle}} - {!!$equipe->description!!} </li>
+                            </ul>
                         <?php
 
                                 $noequipe= false;
