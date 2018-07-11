@@ -48,20 +48,47 @@
             </ul>
             <!-- /Sort Categories -->
 
+
+
             <div class="isotope-list row vertical-gutter">
 
                 @foreach($tournois as $tournoi)
+                    <?php
 
-                <div class="item col-lg-4 col-md-6 col-xs-12" data-filters="lol">
-                    <a href="{{ $tournoi->slug }}" class="angled-img">
+                        if ($tournoi->JeuId == 1 ){
+                            $switch = "lol";
+                        }
+                        elseif($tournoi->JeuId == 2 ){
+                            $switch = "fortnite";
+                        }
+
+
+                       if ($tournoi->DateFin < date("Y-m-d")){
+
+                            $date = "Terminé";
+                        } if($tournoi->DateFin > date("Y-m-d") ){
+
+
+                            $date = "A venir";
+                        }if($tournoi->DateFin == date("Y-m-d")){
+                            $date = "En cours";
+
+                       }
+
+                    ?>
+
+
+                <div class="item col-lg-4 col-md-6 col-xs-12" data-filters="<?= $switch ?>">
+
+                    <a href="/tournoi/{{ $tournoi->slug }}" class="angled-img">
                         <div class="img img-offset">
                             <img src="{{ Voyager::image( $tournoi->image ) }}" alt="">
-                            <div class="badge show bg-default">1/3</div>
+                            <div class="badge show bg-default"><?= $date ?></div>
                         </div>
                         <div class="bottom-info">
                             <h4>{{ $tournoi->libelle }}</h4>
                             <div class="row">
-                                {{ substr($tournoi->description, 3, -4) }}
+                                {!! $tournoi->description !!}
                             </div>
                         </div>
                     </a>
@@ -83,3 +110,27 @@
 
 
 @include('layouts.footer')
+}
+<!--
+<script>
+        $("#all").on("click", function () {
+            $(".passe").show();
+            $(".futur").show();
+
+        })
+        $("#passe").on("click", function () {
+
+
+            $(".passe").show();
+            $(".futur").hide();
+
+
+        })
+        $("#futur").on("click", function () {
+
+
+            $(".passe").hide();
+            $(".futur").show();
+
+        })
+</script>-->
