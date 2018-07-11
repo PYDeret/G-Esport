@@ -4,7 +4,7 @@
 
 
     <div class="youplay-banner banner-top youplay-banner-parallax small">
-        <div class="image" style="background-image: url('/images/banner-news.jpg')">
+        <div class="image" style="background-image: url('/images/halo.jpg')">
         </div>
 
         <div class="info">
