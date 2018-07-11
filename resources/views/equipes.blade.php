@@ -47,13 +47,16 @@
                             <h4 class="modal-title"
                                 id="favoritesModalLabel">Création d'une equipe :</h4>
                         </div>
-
                         <div class="modal-body">
-                            <p>
-                                Please confirm you would like to add
-                                <b><span id="fav-title">The Sun Also Rises</span></b>
-                                to your favorites list.
-                            </p>
+
+                                @foreach($users as $user)
+                                    <p>
+
+                                {{$user->name}}
+                                <!--$user->where('id','=', $participant->user_id)->get(['name']) foreach participant ou non ?-->
+                                    </p>
+                                  @endforeach
+
 
 
                         </div>
@@ -70,8 +73,6 @@
                     </div>
                 </div>
             </div>
-            
-
 
 
             <div class="isotope-list row vertical-gutter">

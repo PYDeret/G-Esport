@@ -46,7 +46,9 @@ Route::get('tournoi/{slug}', function($slug){
 
 Route::get('/equipes', function () {
     $equipes = App\Equipe::all();
-    return view('equipes', compact('equipes'));
+    $participants =App\Participant::all();
+    $users = App\User::all();
+    return view('equipes', compact('equipes','participants','users'));
 });
 Route::get('equipe/{slug}', function($slug){
     $equipe = App\Equipe::where('slug', '=', $slug)->firstOrFail();
