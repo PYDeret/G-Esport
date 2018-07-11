@@ -86,7 +86,7 @@
 
                         @endforeach
 
-                        <?php if(empty($tournoi_equipe)){ ?>
+                        <?php if(empty($equipes)){ ?>
                         
                             <p>Aucune équipe inscrite pour le moment</p>
                         <?php } ?>
