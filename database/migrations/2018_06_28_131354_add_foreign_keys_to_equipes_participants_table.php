@@ -27,11 +27,11 @@ class AddForeignKeysToEquipesParticipantsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('equipes_participants', function(Blueprint $table)
+		/*Schema::table('equipes_participants', function(Blueprint $table)
 		{
 			$table->dropForeign('FK_equipes_participants_equipe');
 			$table->dropForeign('FK_equipes_participants_participant');
-		});
+		});*/
 	}
 
 }
