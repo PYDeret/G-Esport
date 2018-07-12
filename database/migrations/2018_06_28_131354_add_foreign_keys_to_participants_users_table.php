@@ -27,11 +27,11 @@ class AddForeignKeysToParticipantsUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('participants_users', function(Blueprint $table)
+		/*Schema::table('participants_users', function(Blueprint $table)
 		{
 			$table->dropForeign('FK_participants_users_participants');
 			$table->dropForeign('FK_participants_users_users');
-		});
+		});*/
 	}
 
 }
