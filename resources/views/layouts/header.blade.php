@@ -39,8 +39,11 @@
           </li>
           <li><a href="/tournois">Tournois</a>
           </li>
+            <li><a href="/equipes">Equipes</a>
+            </li>
           <li><a href="/stream">Vidéos</a>
           </li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

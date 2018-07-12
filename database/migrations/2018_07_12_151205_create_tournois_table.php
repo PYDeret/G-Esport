@@ -18,8 +18,8 @@ class CreateTournoisTable extends Migration {
 			$table->string('libelle')->nullable();
 			$table->string('description')->nullable();
 			$table->string('image')->nullable();
-			$table->dateTime('DateDebut')->nullable();
-			$table->dateTime('DateFin')->nullable();
+			$table->date('DateDebut')->nullable();
+			$table->date('DateFin')->nullable();
 			$table->time('HeureDebut')->nullable();
 			$table->time('HeureFin')->nullable();
 			$table->string('slug')->nullable();

@@ -29,7 +29,8 @@ class AddForeignKeysToTournoisTable extends Migration {
 	{
 		Schema::table('tournois', function(Blueprint $table)
 		{
-			$table->dropForeign('FK_tournois_resultats');
+			$table->dropForeign('FK_JeuId');
+			$table->dropForeign('FK_ResultatId');
 		});
 	}
 

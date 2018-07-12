@@ -515,7 +515,9 @@ class ComposerStaticInitb4de5a468f4b0ee41ff73be04abbe2c7
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Equipe' => __DIR__ . '/../..' . '/app/Equipe.php',
+        'App\\EquipesUsers' => __DIR__ . '/../..' . '/app/EquipesUsers.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\APIAppliController' => __DIR__ . '/../..' . '/app/Http/Controllers/APIAppliController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -1312,6 +1314,7 @@ class ComposerStaticInitb4de5a468f4b0ee41ff73be04abbe2c7
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
         'EquipesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EquipesTableSeeder.php',
+        'EquipesUsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EquipesUsersTableSeeder.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Inn.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
