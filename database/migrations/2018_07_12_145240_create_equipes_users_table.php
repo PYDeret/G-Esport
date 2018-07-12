@@ -20,7 +20,6 @@ class CreateEquipesUsersTable extends Migration {
 		});
 	}
 
-
 	/**
 	 * Reverse the migrations.
 	 *

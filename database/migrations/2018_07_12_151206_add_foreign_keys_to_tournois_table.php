@@ -14,7 +14,8 @@ class AddForeignKeysToTournoisTable extends Migration {
 	{
 		Schema::table('tournois', function(Blueprint $table)
 		{
-			$table->foreign('ResultatId', 'FK_tournois_resultats')->references('id')->on('resultats')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('JeuId', 'FK_JeuId')->references('id')->on('jeus')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('ResultatId', 'FK_ResultatId')->references('id')->on('resultats')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -28,7 +29,8 @@ class AddForeignKeysToTournoisTable extends Migration {
 	{
 		Schema::table('tournois', function(Blueprint $table)
 		{
-			$table->dropForeign('FK_tournois_resultats');
+			$table->dropForeign('FK_JeuId');
+			$table->dropForeign('FK_ResultatId');
 		});
 	}
 
