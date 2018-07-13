@@ -159,14 +159,14 @@ class UserController extends Controller
        // $stats->messageget = $this->getMessageget($user->id);
        // $stats->datedinscription = $this->getdatedinscription($user->id);
 
-        return view('users.statistiques', compact('stats'));
+        return view('users.statistiques', compact('stats','user'));
 
     }
 
 
     public function getTournois($id){
 
-        $tournois = DB::table('tournois')->select('tournois.libelle','tournois.description','tournois.image', 'tournois.EquipeWin_id','tournois.DateDebut','tournois.DateFin','tournois.created_at','tournois.updated_at')
+        $tournois = DB::table('tournois')->select('tournois.libelle','tournois.description','tournois.image', 'tournois.EquipeWin_id','tournois.DateDebut','tournois.DateFin','tournois.HeureDebut','tournois.HeureFin','tournois.created_at','tournois.updated_at')
             ->join("tournois_equipes", "tournois_equipes.TournoiId", "=", "tournois.id", 'left')
             ->join("equipes_users", "equipes_users.equipe_id", "=", "tournois_equipes.EquipeId", 'left')
             ->join("users", "users.id", "=", "equipes_users.user_id", 'left')
@@ -180,13 +180,17 @@ class UserController extends Controller
 
 
 
-    public function getcreateTeam($id){
+  /*  public function getcreateTeam($id){
 
+        $equipecreate = DB::table('equipes')->select('equipes.id','equipes.libelle','equipes.description','equipes.userId','equipes.created_at','equipes.updated_at')
+            ->where('equipes.userId', '=', $id)
+            ->get();
 
-    }
+        return $equipecreate;
+    }*/
     public function getInteam($id){
 
-        $equipes = DB::table('equipes')->select('equipes.id','equipes.libelle','equipes.description','equipes.created_at','equipes.updated_at')
+        $equipes = DB::table('equipes')->select('equipes.id','equipes.libelle','equipes.description','equipes.userId','equipes.created_at','equipes.updated_at')
             ->join("equipes_users", "equipes_users.equipe_id", "=", "equipes.id", 'left')
             ->join("users", "users.id", "=", "equipes_users.user_id", 'left')
             ->where('users.id', '=', $id)

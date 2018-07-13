@@ -14,6 +14,9 @@
                 @foreach ($stats->tournoisplay as $key => $value)
 
                  <p> {{ $value->libelle }} - {{ $value->description }}</p>
+                    <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} - {{ $value->HeureDebut  }}</span>
+                    <span id="arrow" class="date pull-center"><i class="fa fa-arrow-right"></i></span>
+                    <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à  {{ $value->HeureFin  }}</span>
 
                 @endforeach
 
@@ -28,11 +31,12 @@
 
                          @if( $value->EquipeWin_id == $values->id )
 
-                            <p> {{ $value->libelle }} - {{ $value->description }}</p>
-
+                            <p> {{ $value->libelle }} - {{ $value->description }} </p>
+                            <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
+                            <span id="arrow" class="date pull-center"><i class="fa fa-arrow-right"></i></span>
+                            <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à  {{ $value->HeureFin  }}</span>
                             <?php $i++; ?>
                         @endif
-
 
 
                      @endforeach
@@ -44,9 +48,23 @@
 
                 @foreach ($stats->inteam as $key => $value)
 
-                    <p> {{ $value->libelle }} - {{ $value->description }}</p>
+                    <p> {{ $value->libelle }} - {{ $value->description }}
+
+                        @if($value->userId == $user->id)
+
+                            <span class="badge badge-pill" style="background-color:#d91d1f; ">Chef d'équipe</span>
+
+                        @endif
+                    </p>
+                    <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->created_at  }} </span>
+                    <span id="arrow" class="date pull-center"><i class="fa fa-arrow-right"></i></span>
+                    <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->created_at }} </span>
 
                 @endforeach
+                
+
+
+
         </div>
     </div>
     </div>
