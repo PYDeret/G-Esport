@@ -62,6 +62,11 @@ Route::get('/news', function(){
     return view('news', compact('news'));
 });
 
+Route::get('/home', function(){
+    $news = App\News::all();
+    return view('new', compact('news'));
+});
+
 Route::get('news_in/{slug}', function($slug){
     $news = App\News::where('slug', '=', $slug)->firstOrFail();
     return view('news_in', compact('news'));
@@ -75,8 +80,6 @@ Route::get('/', function () {
 
 Route::get('/doubleauth',  'UserController@doubleauth');
 Route::post('/verifDoubleAuth',  ['as' => 'users.doubleauthcheck', 'uses' => 'UserController@doubleauthCheck']);
-
-Route::get('/home',  'HomeController@index');
 
 Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
