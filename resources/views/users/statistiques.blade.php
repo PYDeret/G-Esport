@@ -8,9 +8,11 @@
         <div class="row">
 
             <div class="col-md-9">
+
                 <h3>Date d'inscription :</h3>
                 <table class="table table-bordered">
                 <tbody>
+
                 <tr>
                     <td>
                         <p>  {{ $stats->datedinscription->created_at }}</p>
@@ -22,6 +24,17 @@
                 <h3><?php echo count($stats->tournoisplay);?> Tournois participés :</h3>
                 <table class="table table-bordered">
                     <tbody>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Horaires
+                        </th>
+                    </tr>
                 @foreach ($stats->tournoisplay as $key => $value)
                     <tr>
                         <td id="libstats">
@@ -45,6 +58,17 @@
                 <h3><span id="counter"></span> Tournois remportés :</h3>
                 <table class="table table-bordered">
                     <tbody>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Horaires
+                        </th>
+                    </tr>
 
                     <?php $i=0;?>
 
@@ -86,9 +110,23 @@
                 <h3>Mes equipes (<?php echo count($stats->inteam);?>):</h3>
                 <table class="table table-bordered">
                     <tbody>
-
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Autres membres
+                        </th>
+                        <th>
+                            Horaires
+                        </th>
+                    </tr>
                     @foreach ($stats->inteam as $key => $value)
                     <tr>
+
                       <td id="libstats">
                           <p> {{ $value->libelle }}</p>
                           @if($value->userId == $user->id)
@@ -100,10 +138,30 @@
                             <p>{!! $value->description !!}</p>
 
                         </td>
+
+                        <td>
+                            <?php
+                            $users = App\User::all();
+                            $equipes_users =App\EquipesUsers::all();
+
+
+                            ?>
+                                @foreach($equipes_users as $equipes_user)
+                                    @foreach($users as $user)
+<?php
+                                        if ($equipes_user->equipe_id == $value->id && $equipes_user->user_id == $user->id && $equipes_user->user_id != Auth::user()->id)
+{
+?>
+                                        <p>{{$user->name}}</p>
+
+                                        <?php } ?>
+                                    @endforeach
+                                  @endforeach
+
+                        </td>
                         <td>
                             <p><span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->created_at  }} </span>
-
-
+                            
                         </td>
                     </tr>
 

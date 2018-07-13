@@ -56,6 +56,14 @@ Route::get('equipe/{slug}', function($slug){
     return view('equipe', compact('equipe'));
 });
 
+Route::get('equipe/{slug}', function($slug){
+    $equipe = App\Equipe::where('slug', '=', $slug)->firstOrFail();
+    return view('equipe', compact('equipe'));
+});
+
+
+
+
 Auth::routes();
 
 Route::get('/', function () {
