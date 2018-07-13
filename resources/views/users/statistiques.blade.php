@@ -35,17 +35,14 @@
                             Description
                         </th>
                         <th>
+                            Equipes
+                        </th>
+                        <th>
                             Horaires
                         </th>
                     </tr>
+        @foreach ($stats->tournoisplay as $key => $value)
 
-
-
-
-                 
-
-
-                @foreach ($stats->tournoisplay as $key => $value)
                     <tr>
                         <td id="libstats">
                             <p> {{ $value->libelle }} </p>
@@ -58,6 +55,25 @@
                         <td id="descstats">
                             <p> {!! $value->description !!} </p>
                         </td>
+                        <td>
+                        <?php
+                        $equipes = App\Equipe::all();
+                        $tournois_equipes = App\TournoisEquipe::all();
+                        ?>
+                        @foreach($tournois_equipes as $tournois_equipe)
+                            @foreach($equipes as $equipe)
+                                <?php
+                                if ($tournois_equipe->EquipeId == $equipe->id && $tournois_equipe->TournoiId == $value->id)
+                                {
+                                ?>
+
+                                <p> {{$equipe->libelle}}  </p>
+
+                                <?php } ?>
+
+                            @endforeach
+                        @endforeach
+                        </td>
                    <td id="date">
                     <span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
                        <p><span id="arrow" class="date pull-center"><i class="fa fa-arrow-down"></i></span></p>
@@ -65,7 +81,7 @@
                    </td>
                     </tr>
 
-                @endforeach
+       @endforeach
                     </tbody>
                 </table>
 
@@ -82,6 +98,9 @@
                         </th>
                         <th>
                             Description
+                        </th>
+                        <th>
+                            Equipes
                         </th>
                         <th>
                             Horaires
@@ -111,6 +130,27 @@
                                     <td id="descstats">
                                         <p> {!! $value->description !!} </p>
                                     </td>
+                                    <td>
+                                        
+                                        <?php
+                                        $equipes = App\Equipe::all();
+                                        $tournois_equipes = App\TournoisEquipe::all();
+                                        ?>
+                                        @foreach($tournois_equipes as $tournois_equipe)
+                                            @foreach($equipes as $equipe)
+                                                <?php
+                                                if ($tournois_equipe->EquipeId == $equipe->id && $tournois_equipe->TournoiId == $value->id)
+                                                {
+                                                ?>
+
+                                                <p> {{$equipe->libelle}}  </p>
+
+                                                <?php } ?>
+
+                                            @endforeach
+                                        @endforeach
+                                    </td>
+
                         <td id="date">
                             <p>
                                 <span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
