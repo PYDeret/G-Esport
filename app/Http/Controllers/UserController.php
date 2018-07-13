@@ -152,12 +152,9 @@ class UserController extends Controller
         $stats = new \stdClass();
 
         $stats->tournoisplay = $this->getTournois($user->id);
-       // $stats->tournoiswin = $this->getTournoisWin($user->id);
        // $stats->createteam = $this->getcreateTeam($user->id);
         $stats->inteam = $this->getInteam($user->id);
-       // $stats->messagesend = $this->getMessagesend($user->id);
-       // $stats->messageget = $this->getMessageget($user->id);
-       // $stats->datedinscription = $this->getdatedinscription($user->id);
+        $stats->datedinscription = $this->getdatedinscription($user->id);
 
         return view('users.statistiques', compact('stats','user'));
 
@@ -200,18 +197,15 @@ class UserController extends Controller
         return $equipes;
 
     }
-    public function getMessagesend($id){
-
-
-    }
-    public function getMessageget($id){
-
-
-    }
 
     public function getdatedinscription($id){
 
 
+        $user = DB::table('users')->select('users.id','users.created_at')
+            ->where('users.id', '=', $id)
+            ->first();
+
+        return $user;
     }
 
 

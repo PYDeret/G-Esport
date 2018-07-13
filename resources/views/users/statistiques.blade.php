@@ -9,11 +9,16 @@
 
             <div class="col-md-9">
 
+                <h4>Date d'inscription :</h4>
+
+                <p>  {{ $stats->datedinscription->created_at }}</p>
+
+
                 <h4><?php echo count($stats->tournoisplay);?> Tournois participés :</h4>
 
                 @foreach ($stats->tournoisplay as $key => $value)
 
-                 <p> {{ $value->libelle }} - {{ $value->description }}</p>
+                 <p> {{ $value->libelle }} - {!! $value->description !!} </p>
                     <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} - {{ $value->HeureDebut  }}</span>
                     <span id="arrow" class="date pull-center"><i class="fa fa-arrow-right"></i></span>
                     <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à  {{ $value->HeureFin  }}</span>
@@ -31,7 +36,7 @@
 
                          @if( $value->EquipeWin_id == $values->id )
 
-                            <p> {{ $value->libelle }} - {{ $value->description }} </p>
+                            <p> {{ $value->libelle }} - {!! $value->description !!} </p>
                             <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
                             <span id="arrow" class="date pull-center"><i class="fa fa-arrow-right"></i></span>
                             <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à  {{ $value->HeureFin  }}</span>
@@ -48,7 +53,7 @@
 
                 @foreach ($stats->inteam as $key => $value)
 
-                    <p> {{ $value->libelle }} - {{ $value->description }}
+                    <p> {{ $value->libelle }} - {!! $value->description !!}
 
                         @if($value->userId == $user->id)
 
@@ -61,7 +66,6 @@
                     <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->created_at }} </span>
 
                 @endforeach
-                
 
 
 
