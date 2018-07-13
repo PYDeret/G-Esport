@@ -30,6 +30,10 @@
 
 			</article>
 		</div>
+		<div class="col-md-2">
+			<p>Vous pouvez retrouver plus d'infos en cliquant sur le bouton suivant !</p>
+				<a href="{!! $jeux->link !!}" class="btn read-more pull-right" style="margin-top:30px;">Site officiel</a>
+		</div>
 	</div>
 	
 </section>

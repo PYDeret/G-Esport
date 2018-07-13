@@ -19,6 +19,7 @@ class CreateJeusTable extends Migration {
 			$table->text('description', 65535)->nullable();
 			$table->string('slug');
 			$table->integer('TypeJeuId')->unsigned()->index('TypeJeuId');
+			$table->text('link', 65535)->nullable();
 			$table->timestamps();
 			$table->text('img', 65535)->nullable();
 		});
