@@ -9,7 +9,7 @@
 			<div>
 				<div class="container">
 					<h1>G-Esport</h1>
-					<em>G-Esport est une platforme compétitive qui propose des tournois en ligne.<br>Créer ton équipe et participe au prochain tournois !</em>
+					<em>G-Esport est une platforme compétitive qui propose des tournois en ligne.<br>Créer ton équipe et participe au prochain tournoi !</em>
 					<br>
 					<br>
 					<br>
@@ -18,35 +18,6 @@
 			</div>
 		</div>
 	</section>
-
-	<!--<div class="youplay-carousel" data-autoplay="5000">
-		<a class="angled-img" href="store-product-1.html">
-			<div class="img">
-				<img src="/images/lol.jpg" alt="">
-			</div>
-			<div class="over-info">
-				<div>
-					<div>
-						<h4>League of Legends</h4>
-					</div>
-				</div>
-			</div>
-		</a>
-		<a class="angled-img" href="#!">
-			<div class="img">
-				<img src="/images/fortnite.jpg" alt="">
-			</div>
-			<div class="over-info">
-				<div>
-					<div>
-						<h4>Fortnite</h4>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>-->
-
-
 
 	<h2 class="container h1">Dernières Actualités</h2>
 	<section class="youplay-news container">
@@ -132,7 +103,6 @@
 				<div class="col-md-8">
 					<div class="clearfix">
 						<h3 class="h2 pull-left m-0"><a href="/news/battle.html">League of legends</a></h3>
-					<!--	<span class="date pull-right"><i class="fa fa-calendar"></i> 17/07</span>-->
 					</div>
 					<div class="description">
 						<p>
@@ -156,7 +126,6 @@
 				<div class="col-md-8">
 					<div class="clearfix">
 						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Fortnite</a></h3>
-						<!--<span class="date pull-right"><i class="fa fa-calendar"></i> 16/07</span>-->
 					</div>
 					<div class="description">
 						<p>

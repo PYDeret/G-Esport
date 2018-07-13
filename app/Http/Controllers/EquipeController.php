@@ -38,6 +38,9 @@ class EquipeController extends Controller
         $slug = str_replace("ê", "e", $slug);
         $slug = str_replace("â", "a", $slug);
         $slug = str_replace("ù", "u", $slug);
+        $slug = str_replace("'", "_", $slug);
+        $slug = str_replace("ç", "c", $slug);
+        $slug = str_replace("\"", "_", $slug);
 
         $tim = DB::table('equipes')->insertGetId(
             ['libelle' => $nom,
@@ -57,5 +60,11 @@ class EquipeController extends Controller
                 ]
             );
         }
+
+        $equipes = \App\Equipe::all();
+        $participants = \App\Participant::all();
+        $users = \App\User::where('id', '!=', Auth::id())->get();
+        $equipes_users = \App\EquipesUsers::all();
+        return view('equipes', compact('equipes','participants','users','equipes_users'));
     }
 }
