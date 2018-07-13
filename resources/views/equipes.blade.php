@@ -20,13 +20,18 @@
         <!-- Games List -->
         <div class="col-md-12 isotope">
 
-            <button
-                    type="button"
-                    class="btn btn-primary btn-lg"
-                    data-toggle="modal"
-                    data-target="#favoritesModal">
-                Créer une équipe
-            </button>
+
+            <?php if(! Auth::guest()){ ?>
+
+                <button
+                        type="button"
+                        class="btn btn-primary btn-lg"
+                        data-toggle="modal"
+                        data-target="#favoritesModal">
+                    Créer une équipe
+                </button>
+
+            <?php } ?>
 
             <br><br>
 
