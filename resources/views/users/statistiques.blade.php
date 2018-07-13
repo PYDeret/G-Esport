@@ -35,7 +35,7 @@
                             Description
                         </th>
                         <th>
-                            Equipes
+                            Equipes inscrites
                         </th>
                         <th>
                             Horaires
@@ -100,7 +100,7 @@
                             Description
                         </th>
                         <th>
-                            Equipes
+                            Equipes inscrites
                         </th>
                         <th>
                             Horaires
@@ -145,7 +145,9 @@
 
                                                 <p> {{$equipe->libelle}}  </p>
 
-                                                <?php } ?>
+                                                <?php }
+
+                                                    ?>
 
                                             @endforeach
                                         @endforeach
@@ -184,6 +186,9 @@
                         </th>
                         <th>
                             Autres membres
+                        </th>
+                        <th>
+                            Tournois joués
                         </th>
                         <th>
                             Horaires
@@ -234,6 +239,26 @@
                                         <?php } ?>
                                     @endforeach
                                   @endforeach
+                        </td>
+                        <td>
+                            <?php
+                            $tournois = App\Tournoi::all();
+                            $tournois_equipes =App\TournoisEquipe::all();
+
+                            ?>
+                                @foreach($tournois_equipes as $tournois_equipe)
+                                @foreach($tournois as $tournoi)
+                                    <?php
+                                    if ($tournois_equipe->EquipeId == $value->id && $tournois_equipe->TournoiId == $tournoi->id)
+                                    {
+                                    ?>
+                                    <p><img src="{{ Voyager::image( $tournoi->image ) }}" id="avataruser" alt="avatar"> {{$tournoi->libelle}}  </p>
+                                    
+                                    <?php } ?>
+                                @endforeach
+                            @endforeach
+
+
                         </td>
                         <td id="date">
                             <p><span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->created_at  }} </span>
