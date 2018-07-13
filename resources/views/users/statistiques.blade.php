@@ -131,7 +131,7 @@
                                         <p> {!! $value->description !!} </p>
                                     </td>
                                     <td>
-                                        
+
                                         <?php
                                         $equipes = App\Equipe::all();
                                         $tournois_equipes = App\TournoisEquipe::all();
@@ -189,14 +189,23 @@
                             Horaires
                         </th>
                     </tr>
+                    <?php
+                    $users = App\User::all();
+                    ?>
                     @foreach ($stats->inteam as $key => $value)
+
                     <tr>
 
                       <td id="libstats">
                           <p> {{ $value->libelle }}</p>
-                          @if($value->userId == $user->id)
+                            <?php
+
+                          if($value->userId == Auth::user()->id){
+                          ?>
                               <span class="badge badge-pill" style="background-color:#d91d1f; ">Chef d'équipe</span>
-                          @endif
+                         <?php
+                          }
+                          ?>
                       </td>
 
                         <td id="descstats">
