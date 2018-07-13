@@ -71,51 +71,33 @@
 
 	<h2 class="container h1">Jeux du moment</h2>
 	<section class="youplay-news container">
-		<div class="news-one">
-			<div class="row vertical-gutter">
-				<div class="col-md-4">
-					<a href="/news/battle" class="angled-img">
-						<div class="img">
-							<img src="/images/lol.jpg" alt="">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-8">
-					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/battle.html">League of legends</a></h3>
-					</div>
-					<div class="description">
-						<p>
-							Des tournois 5 contre 5 , n'hésitez plus a jouer avec vos amis lors des tournois G-esport trépidants.
-						</p>
-					</div>
-					<a href="/news/battle" class="btn read-more pull-left">Voir plus</a>
-				</div>
-			</div>
-		</div>
+			@foreach($jeux as $unJeu)
 
-		<div class="news-one">
-			<div class="row vertical-gutter">
-				<div class="col-md-4">
-					<a href="/news/celebration" class="angled-img">
-						<div class="img">
-							<img src="/images/fortnite.jpg" alt="">
+			<div class="news-one">
+				<div class="row vertical-gutter">
+					<div class="col-md-4">
+						<a href="/news_in/{{ $unJeu->slug }}" class="angled-img">
+							<div class="img">
+								<img src="{{ Voyager::image( $unJeu->img ) }}" alt="">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-8">
+						<div class="clearfix">
+							<h3 class="h2 pull-left m-0"><a href="/news_in/{{ $unJeu->slug }}">{!! $unJeu->libelle !!}</a></h3>
+							<span class="date pull-right"><i class="fa fa-calendar"></i>{!! $unJeu->created_at !!}</span>
 						</div>
-					</a>
-				</div>
-				<div class="col-md-8">
-					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Fortnite</a></h3>
+						<div class="description">
+							<p>
+								{!! $unJeu->description !!}
+							</p>
+						</div>
+						<a href="/news_in/{{ $unJeu->slug }}" class="btn read-more pull-left">Voir plus</a>
 					</div>
-					<div class="description">
-						<p>
-							Participez aux tournois Battle Royale sur fortnite grâce à la plateforme G-esport.
-						</p>
-					</div>
-					<a href="/news/celebration" class="btn read-more pull-left">Voir plus</a>
 				</div>
 			</div>
-		</div>
+
+		@endforeach
 	</section>
 
 	<section class="youplay-banner youplay-banner-parallax small mt-80">

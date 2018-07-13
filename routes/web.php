@@ -62,14 +62,25 @@ Route::get('/news', function(){
     return view('news', compact('news'));
 });
 
-Route::get('/home', function(){
-    $news = App\News::all();
-    return view('new', compact('news'));
-});
-
 Route::get('news_in/{slug}', function($slug){
     $news = App\News::where('slug', '=', $slug)->firstOrFail();
     return view('news_in', compact('news'));
+});
+
+Route::get('/jeux', function(){
+    $jeux = App\Jeu::all();
+    return view('jeux', compact('jeux'));
+});
+
+Route::get('jeux_in/{slug}', function($slug){
+    $jeux = App\Jeu::where('slug', '=', $slug)->firstOrFail();
+    return view('jeux_in', compact('jeux'));
+});
+
+Route::get('/home', function(){
+    $news = App\News::all();
+    $jeux = App\Jeu::all();
+    return view('new', compact('news', 'jeux'));
 });
 
 Auth::routes();

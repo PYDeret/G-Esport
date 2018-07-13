@@ -18,6 +18,7 @@ class CreateJeusTable extends Migration {
 			$table->string('libelle');
 			$table->string('description');
 			$table->string('slug');
+			$table->text('img', 65535)->nullable();
 			$table->integer('TypeJeuId')->unsigned()->index('TypeJeuId');
 			$table->timestamps();
 		});
