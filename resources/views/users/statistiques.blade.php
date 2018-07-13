@@ -31,9 +31,9 @@
                             <p> {!! $value->description !!} </p>
                         </td>
                    <td>
-                    <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} - {{ $value->HeureDebut  }}</span>
+                    <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
                        <span id="arrow" class="date pull-left"><i class="fa fa-arrow-right"></i></span>
-                    <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à  {{ $value->HeureFin  }}</span>
+                    <span class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à {{ $value->HeureFin  }}</span>
                    </td>
                     </tr>
 
@@ -102,8 +102,8 @@
                         </td>
                         <td>
                             <p><span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->created_at  }} </span>
-                                <span id="arrow" class="date pull-left"><i class="fa fa-arrow-right"></i></span>
-                                <span class="date pull-right"><i class="fa fa-calendar"></i>{{ $value->created_at }} </span></p>
+
+
                         </td>
                     </tr>
 
@@ -129,12 +129,14 @@
 <style>
 
     #libstats{
-        width: 21%;
+        min-width: 21%;
     }
     #descstats{
-        width: 38%;
+        min-width: 38%;
 
     }
+
+
 
 
 </style>
