@@ -60,3 +60,67 @@
 	left: 43px;
 }
   
+
+
+.title {
+	font-size: 30px;
+	margin: 5px auto;
+	text-align:center;
+  }
+  
+  .answer {
+	margin-top: 30px;
+  }
+  
+  input[type="checkbox"]{
+	display: none;
+  } 
+  
+  input[type="checkbox" i]{
+	margin: 3px 0.5ex;
+  }
+  input[type="checkbox"] + label{
+	text-align: center;
+  }
+  input[type="checkbox"]:checked + label{
+	color: #FFF;
+	background-color: #2B6AD9;
+	border: 1px solid #2B6AD9;
+  }
+  
+   .check-item {
+	font-family: "Helvetica Neue";
+	height: 45px;
+	vertical-align: middle;
+	font-size: 18px;
+	font-weight: 400;
+	/*text-transform: uppercase;*/
+	letter-spacing: 1px;
+	color: #777;
+	border: 1px solid rgba(0, 0, 0, .1);
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+	-moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+	-o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+	-ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+	transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+  }
+
+  .inpout_tim{
+	height: 40px;
+	width: 50%;
+	margin: 0 auto;
+    display: block;
+  }

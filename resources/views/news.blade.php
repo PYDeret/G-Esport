@@ -32,7 +32,7 @@
 					</div>
 					<div class="description">
 						<p>
-							Pour fêter la réussite de G-esports les développeurs qui ont participés à la création de celle-ci l'inaugurons avec le premier tournois.
+							Pour fêter la réussite de G-esport les développeurs qui ont participés à la création de celle-ci l'inaugurons avec le premier tournois.
 						</p>
 					</div>
 					<a href="/news/battle" class="btn read-more pull-left">Voir plus</a>
@@ -51,7 +51,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Création de la platforme</a></h3>
+						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Création de la plateforme</a></h3>
 						<span class="date pull-right"><i class="fa fa-calendar"></i> 16/07</span>
 					</div>
 					<div class="description">

@@ -23,7 +23,7 @@ class EquipesTableSeeder extends Seeder
                 'libelle' => 'Equipe Paul',
                 'description' => '<p>Test &eacute;quipe Paul</p>',
                 'slug' => 'equipe-paul',
-                'ParticipantId' => 1,
+                'userId' => 1,
                 'created_at' => '2018-06-19 15:05:20',
                 'updated_at' => '2018-06-19 15:05:20',
             ),

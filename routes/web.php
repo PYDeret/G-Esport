@@ -41,13 +41,14 @@ Route::get('tournoi/{slug}', function($slug){
     $tournoi = App\Tournoi::where('slug', '=', $slug)->firstOrFail();
     $tournoi_equipe = App\TournoisEquipe::all();
     $equipes = App\Equipe::all();
+
     return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe') );
 });
 
 Route::get('/equipes', function () {
     $equipes = App\Equipe::all();
     $participants =App\Participant::all();
-    $users = App\User::all();
+    $users = App\User::where('id', '!=', Auth::id())->get();
     $equipes_users =App\EquipesUsers::all();
     return view('equipes', compact('equipes','participants','users','equipes_users'));
 });
@@ -99,6 +100,9 @@ Route::group(['prefix' => 'MobAPI', 'middleware' => ['api', 'cors'],], function 
     Route::post('/sendMessage', 'APIAppliController@sendMessage');
     Route::post('/setDoubleAuth', 'APIAppliController@setDoubleAuth');
 });
+
+Route::post('equipe/create',  ['as' => 'equipe.create', 'uses' => 'EquipeController@create']);
+
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     $userOrders = \App\Http\Controllers\StreamController::getStream('skumbsr', $twitch);

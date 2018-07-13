@@ -2,7 +2,6 @@
 
 <section class="content-wrap">
 
-
     <div class="youplay-banner banner-top youplay-banner-parallax small">
         <div class="image" style="background-image: url('/images/halo.jpg')">
         </div>
@@ -19,7 +18,7 @@
     <div class="container youplay-store store-grid">
 
         <!-- Games List -->
-        <div class="col-md-9 isotope">
+        <div class="col-md-12 isotope">
 
             <button
                     type="button"
@@ -47,27 +46,46 @@
                                 id="favoritesModalLabel">Création d'une equipe :</h4>
                         </div>
                         <div class="modal-body">
-
-                                @foreach($users as $user)
-                                    <p>
-
-                                {{$user->name}}
-                                <!--$user->where('id','=', $participant->user_id)->get(['name']) foreach participant ou non ?-->
-                                    </p>
-                                  @endforeach
+                            <form method="POST" id="createTim" action="{{ route('equipe.create') }}">
+                                <div class="container" style="width: 100%;">
+                                    <span class="col-md-12 col-xs-12 title">Choisissez jusqu'à 4 joueurs pour créer votre équipe</span>
+                                    <span class='col-md-12 col-xs-12 answer'>
 
 
+                                        @foreach($users as $user)
 
+                                                <input id="{{ $user->id }}" type="checkbox" name="team[]" value="{{ $user->id }}">
+                                                <label for="{{ $user->id }}" class='col-md-6 col-md-offset-3 col-xs-offset-2 col-xs-8 check-item'>{{ $user->name }}</label>
+
+                                                
+                                        @endforeach
+
+                                    </span>
+                                </div>
+                                {{ csrf_field() }}
+
+                                <p>
+                                    <span class="col-md-12 col-xs-12 title">Choisissez un nom : </span>
+                                    <input type="text" name="nom" class="inpout_tim"/>
+                                </p>
+                                
+                                <p>
+                                    <span class="col-md-12 col-xs-12 title">Choisissez une description : </span>
+                                    <input type="text" name="desc" class="inpout_tim"/>
+                                </p>
+
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button"
                                     class="btn btn-default"
                                     data-dismiss="modal">Quitter</button>
                             <span class="pull-right">
-          <button type="button" class="btn btn-primary">
-            Créer
-          </button>
-        </span>
+                                <button type="button" class="btn btn-primary" onclick="event.preventDefault();
+                                    document.getElementById('createTim').submit();">
+                                    Créer
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -76,8 +94,10 @@
 
             <div class="isotope-list row vertical-gutter">
 
-                    <div class="item col-lg-4 col-md-6 col-xs-12">
+                    <div class="item col-lg-12 col-md-12 col-xs-12">
                         @foreach($equipes as $equipe)
+
+                        <div class="col-lg-4 col-md-4" >
 
                             <a href="/equipe/{{ $equipe->slug }}" class="angled-img">
                             <div class="img img-offset">
@@ -112,6 +132,8 @@
                                 </div>
                             </div>
                             </a>
+
+                        </div>
                         @endforeach
 
                     </div>
