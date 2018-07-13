@@ -87,6 +87,8 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('messages/{user}', ['as' => 'users.messages.store', 'uses' => 'MessagesController@store']);
     Route::get('messages/show/{id}', ['as' => 'users.messages.show', 'uses' => 'MessagesController@show']);
     Route::put('messages/show/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
+    Route::get('statistiques/{user}', ['as' => 'users.statistiques', 'uses' => 'UserController@statistiques']);
+
 });
 
 Route::get('/getMessages', ['as' => 'users.ajaxGet', 'uses' => 'MessagesController@ajaxGet']);

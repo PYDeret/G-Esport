@@ -21,6 +21,14 @@
               }?>>
               <a href="{{ route('users.messages', Auth::user()->id ) }}">Messages</a>
             </li>
+            <li <?php if (strpos(url()->current(), 'statistiques') !== false) {
+                echo 'class="active"';
+            }?>>
+              <a href="{{ route('users.statistiques', Auth::user()->id ) }}">Statistiques</a>
+            </li>
+
+
+
             <?php endif; ?>
           </ul>
         </div>

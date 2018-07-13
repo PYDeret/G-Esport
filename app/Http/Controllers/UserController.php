@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
-
+use Illuminate\Support\Facades\App;
 class UserController extends Controller
 {
 
@@ -142,6 +142,76 @@ class UserController extends Controller
 
         return back();
     }
+
+
+    public function statistiques(User $user){
+
+        $user = Auth::user();
+
+
+        $stats = new \stdClass();
+
+        $stats->tournoisplay = $this->getTournois($user->id);
+       // $stats->tournoiswin = $this->getTournoisWin($user->id);
+       // $stats->createteam = $this->getcreateTeam($user->id);
+        $stats->inteam = $this->getInteam($user->id);
+       // $stats->messagesend = $this->getMessagesend($user->id);
+       // $stats->messageget = $this->getMessageget($user->id);
+       // $stats->datedinscription = $this->getdatedinscription($user->id);
+
+        return view('users.statistiques', compact('stats'));
+
+    }
+
+
+    public function getTournois($id){
+
+        $tournois = DB::table('tournois')->select('tournois.libelle','tournois.description','tournois.image', 'tournois.EquipeWin_id','tournois.DateDebut','tournois.DateFin','tournois.created_at','tournois.updated_at')
+            ->join("tournois_equipes", "tournois_equipes.TournoiId", "=", "tournois.id", 'left')
+            ->join("equipes_users", "equipes_users.equipe_id", "=", "tournois_equipes.EquipeId", 'left')
+            ->join("users", "users.id", "=", "equipes_users.user_id", 'left')
+            ->where('users.id', '=', $id)
+            ->get();
+
+
+        return $tournois;
+
+    }
+
+
+
+    public function getcreateTeam($id){
+
+
+    }
+    public function getInteam($id){
+
+        $equipes = DB::table('equipes')->select('equipes.id','equipes.libelle','equipes.description','equipes.created_at','equipes.updated_at')
+            ->join("equipes_users", "equipes_users.equipe_id", "=", "equipes.id", 'left')
+            ->join("users", "users.id", "=", "equipes_users.user_id", 'left')
+            ->where('users.id', '=', $id)
+            ->get();
+
+
+        return $equipes;
+
+    }
+    public function getMessagesend($id){
+
+
+    }
+    public function getMessageget($id){
+
+
+    }
+
+    public function getdatedinscription($id){
+
+
+    }
+
+
+
 
     public function doubleauth(User $user){
         return view('test');
