@@ -253,7 +253,7 @@
                                     {
                                     ?>
                                     <p><img src="{{ Voyager::image( $tournoi->image ) }}" id="avataruser" alt="avatar"> {{$tournoi->libelle}}  </p>
-                                    
+
                                     <?php } ?>
                                 @endforeach
                             @endforeach
