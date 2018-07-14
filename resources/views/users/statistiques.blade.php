@@ -8,9 +8,11 @@
         <div class="row">
 
             <div class="col-md-9">
+
                 <h3>Date d'inscription :</h3>
                 <table class="table table-bordered">
                 <tbody>
+
                 <tr>
                     <td>
                         <p>  {{ $stats->datedinscription->created_at }}</p>
@@ -22,22 +24,64 @@
                 <h3><?php echo count($stats->tournoisplay);?> Tournois participés :</h3>
                 <table class="table table-bordered">
                     <tbody>
-                @foreach ($stats->tournoisplay as $key => $value)
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Avatar
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Equipes inscrites
+                        </th>
+                        <th>
+                            Horaires
+                        </th>
+                    </tr>
+        @foreach ($stats->tournoisplay as $key => $value)
+
                     <tr>
                         <td id="libstats">
                             <p> {{ $value->libelle }} </p>
                         </td>
+                        <td>
+                            <div class="img">
+                                <img src="{{ Voyager::image( $value->image ) }}" id="avatar" alt="avatar">
+                            </div>
+                        </td>
                         <td id="descstats">
                             <p> {!! $value->description !!} </p>
                         </td>
-                   <td>
-                    <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
-                       <span id="arrow" class="date pull-left"><i class="fa fa-arrow-right"></i></span>
-                    <span class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à {{ $value->HeureFin  }}</span>
+                        <td>
+                        <?php
+                        $equipes = App\Equipe::all();
+                        $tournois_equipes = App\TournoisEquipe::all();
+                        ?>
+                        @foreach($tournois_equipes as $tournois_equipe)
+                            @foreach($equipes as $equipe)
+                                <?php
+                                if ($tournois_equipe->EquipeId == $equipe->id && $tournois_equipe->TournoiId == $value->id)
+                                {
+                                ?>
+
+                                <p> {{$equipe->libelle}}  </p>
+
+                                <?php } ?>
+
+                            @endforeach
+                        @endforeach
+                        </td>
+                   <td id="date">
+                    <span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
+                       <p><span id="arrow" class="date pull-center"><i class="fa fa-arrow-down"></i></span></p>
+                    <span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à {{ $value->HeureFin  }}</span>
                    </td>
                     </tr>
 
-                @endforeach
+       @endforeach
                     </tbody>
                 </table>
 
@@ -45,6 +89,23 @@
                 <h3><span id="counter"></span> Tournois remportés :</h3>
                 <table class="table table-bordered">
                     <tbody>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Avatar
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Equipes inscrites
+                        </th>
+                        <th>
+                            Horaires
+                        </th>
+                    </tr>
 
                     <?php $i=0;?>
 
@@ -59,14 +120,44 @@
                         <td id="libstats">
                             <p> {{ $value->libelle }} </p>
                         </td>
+                                    <td id="libstats">
+
+                                        <div class="img">
+                                            <img src="{{ Voyager::image( $value->image ) }}" id="avatar" alt="avatar">
+                                        </div>
+
+                                    </td>
                                     <td id="descstats">
                                         <p> {!! $value->description !!} </p>
                                     </td>
-                        <td>
+                                    <td>
+
+                                        <?php
+                                        $equipes = App\Equipe::all();
+                                        $tournois_equipes = App\TournoisEquipe::all();
+                                        ?>
+                                        @foreach($tournois_equipes as $tournois_equipe)
+                                            @foreach($equipes as $equipe)
+                                                <?php
+                                                if ($tournois_equipe->EquipeId == $equipe->id && $tournois_equipe->TournoiId == $value->id)
+                                                {
+                                                ?>
+
+                                                <p> {{$equipe->libelle}}  </p>
+
+                                                <?php }
+
+                                                    ?>
+
+                                            @endforeach
+                                        @endforeach
+                                    </td>
+
+                        <td id="date">
                             <p>
-                                <span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
-                                <span id="arrow" class="date pull-left"><i class="fa fa-arrow-right"></i></span>
-                                <span class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à {{ $value->HeureFin  }}</span>
+                                <span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateDebut  }} à {{ $value->HeureDebut  }}</span>
+                                <span id="arrow" class="date pull-left"><i class="fa fa-arrow-down"></i></span>
+                                <span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->DateFin }} à {{ $value->HeureFin  }}</span>
                             </p>
                         </td>
                     </tr>
@@ -86,27 +177,94 @@
                 <h3>Mes equipes (<?php echo count($stats->inteam);?>):</h3>
                 <table class="table table-bordered">
                     <tbody>
-
-                    @foreach ($stats->inteam as $key => $value)
                     <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Autres membres
+                        </th>
+                        <th>
+                            Tournois joués
+                        </th>
+                        <th>
+                            Horaires
+                        </th>
+                    </tr>
+                    <?php
+                    $users = App\User::all();
+                    ?>
+                    @foreach ($stats->inteam as $key => $value)
+
+                    <tr>
+
                       <td id="libstats">
                           <p> {{ $value->libelle }}</p>
-                          @if($value->userId == $user->id)
+                            <?php
+
+                          if($value->userId == Auth::user()->id){
+                          ?>
                               <span class="badge badge-pill" style="background-color:#d91d1f; ">Chef d'équipe</span>
-                          @endif
+                         <?php
+                          }
+                          ?>
                       </td>
 
                         <td id="descstats">
                             <p>{!! $value->description !!}</p>
 
                         </td>
+
                         <td>
-                            <p><span  class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->created_at  }} </span>
+                            <?php
+                            $users = App\User::all();
+                            $equipes_users =App\EquipesUsers::all();
+
+                            ?>
+                                @foreach($equipes_users as $equipes_user)
+                                    @foreach($users as $user)
+                                        <?php
+                                        if ($equipes_user->equipe_id == $value->id && $equipes_user->user_id == $user->id && $equipes_user->user_id != Auth::user()->id)
+                                            {
+                                            ?>
+
+
+                                            <p><img src="{{ Voyager::image( $user->avatar ) }}" id="avataruser" alt="avatar"> {{$user->name}}  </p>
+
+
+
+                                        <?php } ?>
+                                    @endforeach
+                                  @endforeach
+                        </td>
+                        <td>
+                            <?php
+                            $tournois = App\Tournoi::all();
+                            $tournois_equipes =App\TournoisEquipe::all();
+
+                            ?>
+                                @foreach($tournois_equipes as $tournois_equipe)
+                                @foreach($tournois as $tournoi)
+                                    <?php
+                                    if ($tournois_equipe->EquipeId == $value->id && $tournois_equipe->TournoiId == $tournoi->id)
+                                    {
+                                    ?>
+                                    <p><img src="{{ Voyager::image( $tournoi->image ) }}" id="avataruser" alt="avatar"> {{$tournoi->libelle}}  </p>
+
+                                    <?php } ?>
+                                @endforeach
+                            @endforeach
 
 
                         </td>
-                    </tr>
+                        <td id="date">
+                            <p><span id="customdate" class="date pull-left"><i class="fa fa-calendar"></i>{{ $value->created_at  }} </span>
 
+                        </td>
+                    </tr>
                 @endforeach
                     </tbody>
                 </table>
@@ -136,6 +294,28 @@
 
     }
 
+    #date{
+
+        width: 25%;
+    }
+    #avatar{
+
+        max-width: 70px;
+    }
+    #avataruser{
+
+        max-width: 40px;
+        padding: 5px;
+    }
+
+    #arrow{
+
+        margin-left: 50%;
+    }
+    #customdate{
+
+        margin-left: 10%;
+    }
 
 
 

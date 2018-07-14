@@ -114,7 +114,6 @@
                                 <div class="row">
                                     <p> Membres :</p>
                                     @foreach($equipes_users as $equipes_user)
-
                                     @foreach($users as $user)
                                             <?php
 
