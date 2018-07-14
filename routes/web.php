@@ -41,15 +41,17 @@ Route::get('tournoi/{slug}', function($slug){
     $tournoi = App\Tournoi::where('slug', '=', $slug)->firstOrFail();
     $tournoi_equipe = App\TournoisEquipe::all();
     $equipes = App\Equipe::all();
+    $users = App\User::where('id', '!=', Auth::id())->get();
+    $equipes_users = App\EquipesUsers::all();
 
-    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe') );
+    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users') );
 });
 
 Route::get('/equipes', function () {
     $equipes = App\Equipe::all();
-    $participants =App\Participant::all();
+    $participants = App\Participant::all();
     $users = App\User::where('id', '!=', Auth::id())->get();
-    $equipes_users =App\EquipesUsers::all();
+    $equipes_users = App\EquipesUsers::all();
     return view('equipes', compact('equipes','participants','users','equipes_users'));
 });
 Route::get('equipe/{slug}', function($slug){

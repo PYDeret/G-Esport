@@ -1,23 +1,6 @@
 @include('layouts.header')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/tournois.css')}}" />
 
-
-<!--
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-
-                <h1>{{ $tournoi->Libelle }}</h1>
-                <img src="{{ Voyager::image( $tournoi->image ) }}" style="width:100%">
-                <p>{!! $tournoi->description !!}</p>
-                <p>{{ $tournoi->DateDebut  }}  qui commence à {{ $tournoi->HeureDebut  }}</p>
-                <p>{{ $tournoi->DateFin }}   qui fini à {{ $tournoi->HeureFin  }}</p>
-
-
-            </div>
-        </div>
-    </div>-->
-
 <section class="content-wrap">
 
     <div class="youplay-banner banner-top youplay-banner-parallax small">
@@ -100,9 +83,81 @@
             </article>
         </div>
     </div>
+
+    <div class="container youplay-store store-grid">
+
+            <!-- Games List -->
+            <div class="col-md-12 isotope">
+    
+    
+                <?php if(! Auth::guest()){ ?>
+    
+                    <button
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                            data-toggle="modal"
+                            data-target="#favoritesModal">
+                        S'inscrire a un tournoi
+                    </button>
+    
+                <?php } ?>
+    
+                <br><br>
+    
+    
+                <div class="modal fade" id="favoritesModal"
+                     tabindex="-1" role="dialog"
+                     aria-labelledby="favoritesModalLabel">
+    
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title"
+                                    id="favoritesModalLabel">Inscription a un tournoi :</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" id="createEq" action="{{ route('equipe.create') }}">
+                                    <div class="container" style="width: 100%;">
+                                        <span class="col-md-12 col-xs-12 title">Choisissez votre équipe</span>
+                                        <span class="col-md-12 col-xs-12 title" style="font-size: 11px;font-style: italic;">Si votre équipe est grisée, cela indique qu'un joueur de l'équipe est déjà inscrit dans le tournoi avec une autre équipe</span>
+                                        <span class='col-md-12 col-xs-12 answer'>
+
+
+                                            @foreach($equipes as $equipe)
+                                                <input id="{{ $equipe->id }}" type="checkbox" name="team[]" value="{{ $equipe->id }}">
+                                                <label for="{{ $equipe->id }}" class='col-md-6 col-md-offset-3 col-xs-offset-2 col-xs-8 check-item'>{{ $equipe->libelle }}</label>                       
+                                            @endforeach
+    
+    
+                                        </span>
+                                    </div>
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="id_tournoi" value="<?= $tournoi->id ?>">
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button"
+                                        class="btn btn-default"
+                                        data-dismiss="modal">Quitter</button>
+                                <span class="pull-right">
+                                    <button type="button" class="btn btn-primary" onclick="event.preventDefault();
+                                        document.getElementById('createEq').submit();">
+                                        M'inscrire
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
         <section id="bracket">
-        <div class="container">
+        <div class="container_tournoi">
         <div class="split split-one">
             <div class="round round-one current">
                 <div class="round-details">Round 1<br/><span class="date">March 16</span></div>
