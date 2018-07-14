@@ -184,7 +184,7 @@ class UserController extends Controller
 
     }
 
-    
+
 
     public function statistiques(User $user){
 

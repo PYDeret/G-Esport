@@ -107,7 +107,7 @@
                         </th>
                     </tr>
 
-                    <?php $i=0;?>
+                    <?php $i=0; ?>
 
                     @foreach ($stats->tournoisplay as $key => $value)
 
@@ -115,8 +115,7 @@
 
 
                             @if( $value->EquipeWin_id == $values->id )
-
-                                <tr>
+                         <tr>
                         <td id="libstats">
                             <p> {{ $value->libelle }} </p>
                         </td>
@@ -162,15 +161,15 @@
                         </td>
                     </tr>
 
+                         <?php $i++; ?>
+                            @endif
+
+
+                        @endforeach
+                    @endforeach
+
                     </tbody>
                 </table>
-
-                            <?php $i++; ?>
-                        @endif
-
-
-                     @endforeach
-                @endforeach
 
                 <input type="hidden" id="count" value="<?= $i; ?>"/>
 
@@ -189,6 +188,9 @@
                         </th>
                         <th>
                             Tournois joués
+                        </th>
+                        <th>
+                            Tournois remportés
                         </th>
                         <th style="text-align: center">
                             Horaires
@@ -258,6 +260,19 @@
                                 @endforeach
                             @endforeach
 
+
+                        </td>
+
+                        <td>
+                            @foreach ($stats->tournoisplay as $key => $values)
+                            @if( $values->EquipeWin_id == $value->id )
+
+
+                                    <p><img src="{{ Voyager::image( $values->image ) }}" id="avataruser" alt="avatar"> {{$values->libelle}}
+
+
+                                @endif
+                                @endforeach
 
                         </td>
                         <td id="date">
