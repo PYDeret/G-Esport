@@ -173,16 +173,11 @@ class UserController extends Controller
 
         $user = Auth::user();
 
-
         $mesEquipes = new \stdClass();
-
 
         $mesEquipes->myteams = $this->getMyteams($user->id);
 
-
         return view('users.gestion_equipes', compact('mesEquipes','user'));
-
-
     }
 
 
