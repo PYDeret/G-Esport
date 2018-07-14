@@ -1,12 +1,13 @@
-$("input[name=team]").change(function() {
-    var checked = $('input[name=team]:checked');
+$("input[name='team[]']").change(function() {
+    console.log('I N');
+    var checked = $('input[name="team[]"]:checked');
 
     if(checked){
         if(checked.length == 4){
 
             if($(this).is(':checked')){
-                $('input[name=team]:not(:checked)').css('pointer-events','none');
-                $('input[name=team]:not(:checked)').each(function(){
+                $('input[name="team[]"]:not(:checked)').css('pointer-events','none');
+                $('input[name="team[]"]:not(:checked)').each(function(){
                     $('label[for="'+$(this).prop('id')+'"]').hide(1000);
                 });
             }   
@@ -15,7 +16,7 @@ $("input[name=team]").change(function() {
         if(checked.length == 3){
 
             if(!$(this).is(':checked')){
-                $('input[name=team]:not(:checked)').each(function(){
+                $('input[name="team[]"]:not(:checked)').each(function(){
                     $('label[for="'+$(this).prop('id')+'"]').show(1000);
                 });
             }  

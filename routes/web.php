@@ -128,6 +128,7 @@ Route::group(['prefix' => 'MobAPI', 'middleware' => ['api', 'cors'],], function 
 });
 
 Route::post('equipe/create',  ['as' => 'equipe.create', 'uses' => 'EquipeController@create']);
+Route::post('tournoi/join',  ['as' => 'tournoi.join', 'uses' => 'TournoiController@join']);
 
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){

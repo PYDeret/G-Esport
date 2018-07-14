@@ -61,6 +61,12 @@ class EquipeController extends Controller
             );
         }
 
+        DB::table('equipes_users')->insert(
+            ['equipe_id' => $tim,
+             'user_id' => $user->id
+            ]
+        );
+
         $equipes = \App\Equipe::all();
         $participants = \App\Participant::all();
         $users = \App\User::where('id', '!=', Auth::id())->get();

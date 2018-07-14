@@ -63,6 +63,7 @@
 <script type="text/javascript" src="{{ asset('bower_components/isotope/dist/isotope.pkgd.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('youplay/js/youplay.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/equipes.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/tournois.js') }}"></script>
 
 <script>
   if(typeof youplay !== 'undefined') {
