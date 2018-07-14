@@ -10,7 +10,7 @@
             <div class="col-md-9">
 
                 <h3>Date d'inscription :</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped">
                 <tbody>
 
                 <tr>
@@ -22,7 +22,7 @@
                 </table>
 
                 <h3><?php echo count($stats->tournoisplay);?> Tournois participés :</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped ">
                     <tbody>
                     <tr>
                         <th>
@@ -37,7 +37,7 @@
                         <th>
                             Equipes inscrites
                         </th>
-                        <th>
+                        <th style="text-align: center">
                             Horaires
                         </th>
                     </tr>
@@ -87,7 +87,7 @@
 
 
                 <h3><span id="counter"></span> Tournois remportés :</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                     <tr>
                         <th>
@@ -101,8 +101,8 @@
                         </th>
                         <th>
                             Equipes inscrites
-                        </th>
-                        <th>
+                        </th >
+                        <th style="text-align: center">
                             Horaires
                         </th>
                     </tr>
@@ -175,7 +175,7 @@
                 <input type="hidden" id="count" value="<?= $i; ?>"/>
 
                 <h3>Mes equipes (<?php echo count($stats->inteam);?>):</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                     <tr>
                         <th>
@@ -190,7 +190,7 @@
                         <th>
                             Tournois joués
                         </th>
-                        <th>
+                        <th style="text-align: center">
                             Horaires
                         </th>
                     </tr>

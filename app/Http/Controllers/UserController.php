@@ -144,6 +144,25 @@ class UserController extends Controller
     }
 
 
+    public function mesEquipes(User $user){
+
+        $user = Auth::user();
+
+
+        $mesEquipes = new \stdClass();
+
+
+        $mesEquipes->myteams = $this->getMyteams($user->id);
+
+
+        return view('users.gestion_equipes', compact('mesEquipes','user'));
+
+    }
+
+
+
+
+
     public function statistiques(User $user){
 
         $user = Auth::user();
@@ -157,6 +176,20 @@ class UserController extends Controller
         $stats->datedinscription = $this->getdatedinscription($user->id);
 
         return view('users.statistiques', compact('stats','user'));
+
+    }
+
+
+
+    public function getMyteams($id){
+
+        $myteams = DB::table('equipes')->select('equipes.id','equipes.libelle','equipes.description','equipes.userId','equipes.created_at','equipes.updated_at')
+            ->join("equipes_users", "equipes_users.equipe_id", "=", "equipes.id", 'left')
+            ->join("users", "users.id", "=", "equipes_users.user_id", 'left')
+            ->where('equipes.userId', '=', $id)
+            ->get();
+
+        return $myteams;
 
     }
 
