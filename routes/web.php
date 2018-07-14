@@ -114,6 +114,8 @@ Route::group(['prefix' => 'users'], function () {
     Route::put('messages/show/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
     Route::get('statistiques/{user}', ['as' => 'users.statistiques', 'uses' => 'UserController@statistiques']);
     Route::get('gestion_equipes/{user}', ['as' => 'users.gestion_equipes', 'uses' => 'UserController@mesEquipes']);
+    Route::post('gestion_equipes', ['as' => 'users.deleteEquipe', 'uses' => 'UserController@DeleteEquipe']);
+
 
 });
 

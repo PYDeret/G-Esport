@@ -103,13 +103,18 @@
 
                             </td>
                             <td>
-                                 <form>
-                                     
-                                     <submit>
+
+                                <form method="POST" id="deleteEquipe" action="{{ route('users.deleteEquipe') }}">
 
 
-                                     </submit>
-                                 </form>
+                                    {{ csrf_field() }}
+
+                                    <input type="hidden" name="id" class="form-control" value="{{$value->id}}">
+
+                                </form>
+                                <a type=“submit” class="btn btn-sm btn-default" onclick="event.preventDefault();
+                                   document.getElementById('deleteEquipe').submit();"> Supprimer </a>
+
                             </td>
                         </tr>
                     @endforeach
