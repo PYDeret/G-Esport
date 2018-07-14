@@ -44,18 +44,15 @@ Route::get('tournoi/{slug}', function($slug){
     $users = App\User::where('id', '!=', Auth::id())->get();
     $equipes_users = App\EquipesUsers::all();
 
-
     $checker = App::call('App\Http\Controllers\TournoiController@getUsr', ['tid' => $tournoi]);
-
     $pos1 = App::call('App\Http\Controllers\TournoiController@getPositionTeam1', ['tid' => $tournoi]);
-
     $pos2 = App::call('App\Http\Controllers\TournoiController@getPositionTeam2', ['tid' => $tournoi]);
-
     $pos3 = App::call('App\Http\Controllers\TournoiController@getPositionTeam3', ['tid' => $tournoi]);
-
     $pos4 = App::call('App\Http\Controllers\TournoiController@getPositionTeam4', ['tid' => $tournoi]);
 
-    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4') );
+    $mesTeam = App\EquipesUsers::where('user_id', '=', Auth::id())->get();
+
+    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4', 'mesTeam') );
 });
 
 Route::get('/equipes', function () {
@@ -143,6 +140,7 @@ Route::group(['prefix' => 'MobAPI', 'middleware' => ['api', 'cors'],], function 
 
 Route::post('equipe/create',  ['as' => 'equipe.create', 'uses' => 'EquipeController@create']);
 Route::post('tournoi/join',  ['as' => 'tournoi.join', 'uses' => 'TournoiController@join']);
+Route::post('tournoi/avance',  ['as' => 'tournoi.avance', 'uses' => 'TournoiController@avance']);
 
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){

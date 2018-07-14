@@ -45,10 +45,19 @@ class TournoiController extends Controller
         $equipes = \App\Equipe::all();
         $users = \App\User::where('id', '!=', Auth::id())->get();
         $equipes_users = \App\EquipesUsers::all();
+        $mesTeam = \App\EquipesUsers::where('user_id', '=', Auth::id())->get();
 
         $checker = $this->getUsr($tournoi);
 
-        return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker') );
+        $pos1 = $this->getPositionTeam1($tournoi);
+
+        $pos2 = $this->getPositionTeam2($tournoi);
+
+        $pos3 = $this->getPositionTeam3($tournoi);
+
+        $pos4 = $this->getPositionTeam4($tournoi);
+
+        return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4', 'mesTeam') );
     }
 
     public function getUsr($idTournoi){
@@ -126,6 +135,54 @@ class TournoiController extends Controller
                         ['tournois_equipes.EtapeId','=', 4]])->get();
 
         return $teams;
+
+    }
+
+
+    public function avance(Request $request){
+        
+        $monEquipe = $request->input('myteam');
+
+        $autreEquipe = $request->input("otherteam");
+
+        $numTournoi = $request->input("numTournoi");
+
+        $myTeamQuery = DB::table('tournois_equipes')->select('EtapeId', 'id')
+                ->where([['TournoiId', '=', $numTournoi],
+                        ['EquipeId','=', $monEquipe]])->first();
+
+        $otherTeamQuery = DB::table('tournois_equipes')->select('EtapeId', 'id')
+                ->where([['TournoiId', '=', $numTournoi],
+                        ['EquipeId','=', $autreEquipe]])->first();
+
+        DB::table('tournois_equipes')
+            ->where('id', $myTeamQuery->id)
+            ->update(['EtapeId' => $myTeamQuery->EtapeId + 1]); 
+
+        DB::table('tournois_equipes')
+            ->where('id', $otherTeamQuery->id)
+            ->update(['EtapeId' => 5]); 
+
+
+
+        $tournoi = \App\Tournoi::where('slug', '=', $slug)->firstOrFail();
+        $tournoi_equipe = \App\TournoisEquipe::all();
+        $equipes = \App\Equipe::all();
+        $users = \App\User::where('id', '!=', Auth::id())->get();
+        $equipes_users = \App\EquipesUsers::all();
+        $mesTeam = \App\EquipesUsers::where('user_id', '=', Auth::id())->get();
+
+        $checker = $this->getUsr($tournoi);
+
+        $pos1 = $this->getPositionTeam1($tournoi);
+
+        $pos2 = $this->getPositionTeam2($tournoi);
+
+        $pos3 = $this->getPositionTeam3($tournoi);
+
+        $pos4 = $this->getPositionTeam4($tournoi);
+
+        return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4', 'mesTeam') );
 
     }
 }

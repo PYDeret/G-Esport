@@ -96,7 +96,6 @@
             <!-- Games List -->
             <div class="col-md-12 isotope">
     
-    
                 <?php if(! Auth::guest() && $checker != "false"){ ?>
     
                     <button
@@ -108,7 +107,33 @@
                     </button>
     
                 <?php } ?>
+
+
+                    <form id="manche_res" method="POST" action="{{ route('tournoi.avance') }}">
+
+                        <input type="hidden" name="myteam" value="" />
+
+                        <input type="hidden" name="otherteam" value="" />
+
+                        <input type="hidden" name="numTournoi" value="<?= $tournoi->id; ?>" />
+
+                        {{ csrf_field() }}
+                        
+                    </form>
+
+                    <button
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                            id="btn_certif">
+                        Je certifie avoir gagné la manche
+                    </button>
     
+                    <?php $arrayTeams = array(); ?>
+
+                    @foreach($mesTeam as $uneTeam)
+                        <?php array_push($arrayTeams, $uneTeam->equipe_id); ?>
+                    @endforeach  
+                    
                 <br><br>
     
     
@@ -135,8 +160,12 @@
 
 
                                             @foreach($equipes as $equipe)
-                                                <input id="{{ $equipe->id }}" type="checkbox" name="equipe[]" value="{{ $equipe->id }}">
-                                                <label for="{{ $equipe->id }}" class='col-md-6 col-md-offset-3 col-xs-offset-2 col-xs-8 check-item'>{{ $equipe->libelle }}</label>                       
+
+                                                @if($equipe->userId == Auth::id())
+                                                    <input id="{{ $equipe->id }}" type="checkbox" name="equipe[]" value="{{ $equipe->id }}">
+                                                    <label for="{{ $equipe->id }}" class='col-md-6 col-md-offset-3 col-xs-offset-2 col-xs-8 check-item'>{{ $equipe->libelle }}</label>                       
+                                                @endif
+
                                             @endforeach
     
     
@@ -173,15 +202,17 @@
                                     @if($key < 16)
                                         @if(($key+1) % 2 != 0)
                                             <ul class="matchup">
-                                                <li class="team team-top">
+                                                <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
                                                     <?= $equipe->libelle ?>
+                                                    <input type="hidden" value="<?= $equipe->id ?>" />
                                                 </li>
                                         @endif
 
                                         @if(($key+1) % 2 == 0)
 
-                                                <li class="team team-bottom">
+                                                <li class="team team-bottom" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
                                                     <?= $equipe->libelle ?>
+                                                    <input type="hidden" value="<?= $equipe->id ?>" />
                                                 </li>
                                             </ul>   
                                         @endif
@@ -196,15 +227,17 @@
                                     @if($key < 8)
                                         @if(($key+1) % 2 != 0)
                                             <ul class="matchup">
-                                                <li class="team team-top">
+                                                <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
                                                     <?= $equipe->libelle ?>
+                                                    <input type="hidden" value="<?= $equipe->id ?>" />
                                                 </li>
                                         @endif
 
                                         @if(($key+1) % 2 == 0)
 
-                                                <li class="team team-bottom">
+                                                <li class="team team-bottom" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
                                                     <?= $equipe->libelle ?>
+                                                    <input type="hidden" value="<?= $equipe->id ?>" />
                                                 </li>
                                             </ul>   
                                         @endif
@@ -219,15 +252,17 @@
                                 @if($key < 4)
                                     @if(($key+1) % 2 != 0)
                                         <ul class="matchup">
-                                            <li class="team team-top">
+                                            <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
                                                 <?= $equipe->libelle ?>
+                                                <input type="hidden" value="<?= $equipe->id ?>" />
                                             </li>
                                     @endif
 
                                     @if(($key+1) % 2 == 0)
 
-                                            <li class="team team-bottom">
+                                            <li class="team team-bottom" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
                                                 <?= $equipe->libelle ?>
+                                                <input type="hidden" value="<?= $equipe->id ?>" />
                                             </li>
                                         </ul>   
                                     @endif
@@ -240,27 +275,29 @@
                             <div class="final">
                                 <i class="fa fa-trophy"></i>
                                 <ul class="matchup championship">
+     
+                                    @foreach($pos4 as $key => $equipe)
 
-                                        
-                                        @foreach($pos4 as $key => $equipe)
+                                        @if($key < 2)
+                                            @if(($key+1) % 2 != 0)
+                                                <ul class="matchup">
+                                                    <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
+                                                        <?= $equipe->libelle ?>
+                                                        <input type="hidden" value="<?= $equipe->id ?>" />
+                                                    </li>
+                                            @endif
 
-                                            @if($key < 2)
-                                                @if(($key+1) % 2 != 0)
-                                                    <ul class="matchup">
-                                                        <li class="team team-top">
-                                                            <?= $equipe->libelle ?>
-                                                        </li>
-                                                @endif
+                                            @if(($key+1) % 2 == 0)
 
-                                                @if(($key+1) % 2 == 0)
+                                                    <li class="team team-bottom" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
+                                                        <?= $equipe->libelle ?>
+                                                        <input type="hidden" value="<?= $equipe->id ?>" />
+                                                    </li>
+                                                </ul>   
+                                            @endif
+                                        @endif           
+                                    @endforeach 
 
-                                                        <li class="team team-bottom">
-                                                            <?= $equipe->libelle ?>
-                                                        </li>
-                                                    </ul>   
-                                                @endif
-                                            @endif           
-                                        @endforeach 
                                 </ul>
                             </div>	
                         </div>

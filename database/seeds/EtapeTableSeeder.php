@@ -36,6 +36,11 @@ class EtapeTableSeeder extends Seeder
             array (
                 'id' => 4,
                 'name' => "Finale",
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'name' => "Out",
             )
         ));
         

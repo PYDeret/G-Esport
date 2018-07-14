@@ -23,3 +23,16 @@ $("input[name='equipe[]']").change(function() {
         }  
     }
 });
+
+
+$('#btn_certif').on('click', function(){
+    event.preventDefault();
+                                        
+    var myteam = $('li[style*="background-color:cornflowerblue"]').children('input').val();
+    var otherteam = $('li[style*="background-color:cornflowerblue"]').parent().children('li:not([style*="background-color:cornflowerblue"])').children('input').val();
+    
+    $('input[name=myteam]').val(myteam);
+    $('input[name=otherteam]').val(otherteam);
+
+    document.getElementById('manche_res').submit();
+})
