@@ -115,18 +115,22 @@
 
                         <input type="hidden" name="otherteam" value="" />
 
+                        <input type="hidden" name="slug" value="<?= $slug ?>">
+
                         <input type="hidden" name="numTournoi" value="<?= $tournoi->id; ?>" />
 
                         {{ csrf_field() }}
                         
                     </form>
 
-                    <button
-                            type="button"
-                            class="btn btn-primary btn-lg"
-                            id="btn_certif">
-                        Je certifie avoir gagné la manche
-                    </button>
+                    <?php if(empty($tournoi->EquipeWin_id)): ?>
+                        <button
+                                type="button"
+                                class="btn btn-primary btn-lg"
+                                id="btn_certif">
+                            Je certifie avoir gagné la manche
+                        </button>
+                    <?php endif; ?>
     
                     <?php $arrayTeams = array(); ?>
 
@@ -199,7 +203,6 @@
 
                         <div class="round round-one current">
                                 @foreach($pos1 as $key => $equipe)
-                                    @if($key < 16)
                                         @if(($key+1) % 2 != 0)
                                             <ul class="matchup">
                                                 <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
@@ -216,7 +219,6 @@
                                                 </li>
                                             </ul>   
                                         @endif
-                                    @endif
                                 @endforeach  									
                         </div>
 
@@ -224,7 +226,6 @@
                         <div class="round round-two">
 
                                 @foreach($pos2 as $key => $equipe)
-                                    @if($key < 8)
                                         @if(($key+1) % 2 != 0)
                                             <ul class="matchup">
                                                 <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
@@ -241,7 +242,6 @@
                                                 </li>
                                             </ul>   
                                         @endif
-                                    @endif
                                 @endforeach 
 
                         </div>
@@ -249,7 +249,6 @@
                     
                         <div class="round round-three">		
                             @foreach($pos3 as $key => $equipe)
-                                @if($key < 4)
                                     @if(($key+1) % 2 != 0)
                                         <ul class="matchup">
                                             <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
@@ -266,7 +265,6 @@
                                             </li>
                                         </ul>   
                                     @endif
-                                @endif
                             @endforeach 	
                         </div>	
                     </div> 
@@ -278,7 +276,6 @@
      
                                     @foreach($pos4 as $key => $equipe)
 
-                                        @if($key < 2)
                                             @if(($key+1) % 2 != 0)
                                                 <ul class="matchup">
                                                     <li class="team team-top" <?php if(in_array($equipe->id, $arrayTeams)): echo "style='background-color:cornflowerblue'"; endif; ?>>
@@ -294,8 +291,7 @@
                                                         <input type="hidden" value="<?= $equipe->id ?>" />
                                                     </li>
                                                 </ul>   
-                                            @endif
-                                        @endif           
+                                            @endif         
                                     @endforeach 
 
                                 </ul>

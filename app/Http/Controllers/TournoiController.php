@@ -147,6 +147,8 @@ class TournoiController extends Controller
 
         $numTournoi = $request->input("numTournoi");
 
+        $slug = $request->input('slug');
+
         $myTeamQuery = DB::table('tournois_equipes')->select('EtapeId', 'id')
                 ->where([['TournoiId', '=', $numTournoi],
                         ['EquipeId','=', $monEquipe]])->first();
@@ -154,16 +156,6 @@ class TournoiController extends Controller
         $otherTeamQuery = DB::table('tournois_equipes')->select('EtapeId', 'id')
                 ->where([['TournoiId', '=', $numTournoi],
                         ['EquipeId','=', $autreEquipe]])->first();
-
-        DB::table('tournois_equipes')
-            ->where('id', $myTeamQuery->id)
-            ->update(['EtapeId' => $myTeamQuery->EtapeId + 1]); 
-
-        DB::table('tournois_equipes')
-            ->where('id', $otherTeamQuery->id)
-            ->update(['EtapeId' => 5]); 
-
-
 
         $tournoi = \App\Tournoi::where('slug', '=', $slug)->firstOrFail();
         $tournoi_equipe = \App\TournoisEquipe::all();
@@ -175,12 +167,28 @@ class TournoiController extends Controller
         $checker = $this->getUsr($tournoi);
 
         $pos1 = $this->getPositionTeam1($tournoi);
-
         $pos2 = $this->getPositionTeam2($tournoi);
-
         $pos3 = $this->getPositionTeam3($tournoi);
-
         $pos4 = $this->getPositionTeam4($tournoi);
+
+        if(count($pos1) < 3){
+            DB::table('tournois_equipes')
+            ->where('id', $myTeamQuery->id)
+            ->update(['EtapeId' => 5]); 
+        }
+        else{
+            DB::table('tournois_equipes')
+            ->where('id', $myTeamQuery->id)
+            ->update(['EtapeId' => $myTeamQuery->EtapeId + 1]); 
+        }
+
+        $idcheker = $myTeamQuery->EtapeId + 1;
+
+        if($idcheker == 5){
+            DB::table('tournois')
+            ->where('id', $numTournoi)
+            ->update(['EquipeWin_id' => $myTeamQuery->id]); 
+        }
 
         return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4', 'mesTeam') );
 
