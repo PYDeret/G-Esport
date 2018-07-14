@@ -125,7 +125,7 @@
                                 <form method="POST" id="createEq" action="{{ route('tournoi.join') }}">
                                     <div class="container" style="width: 100%;">
                                         <span class="col-md-12 col-xs-12 title">Choisissez votre équipe</span>
-                                        <span class="col-md-12 col-xs-12 title" style="font-size: 11px;font-style: italic;">Si votre équipe est grisée, cela indique qu'un joueur de l'équipe est déjà inscrit dans le tournoi avec une autre équipe</span>
+                                        <span class="col-md-12 col-xs-12 title" style="font-size: 11px;font-style: italic;">Si votre équipe n'est pas présente, cela indique qu'un joueur de l'équipe est déjà inscrit dans le tournoi avec une autre équipe</span>
                                         <span class='col-md-12 col-xs-12 answer'>
 
 
