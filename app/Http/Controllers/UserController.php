@@ -154,6 +154,7 @@ class UserController extends Controller
 
 
         $mesEquipes->myteams = $this->getMyteams($user->id);
+        $mesEquipes->tournoisplay = $this->getTournois($user->id);
 
 
         return view('users.gestion_equipes', compact('mesEquipes','user'));

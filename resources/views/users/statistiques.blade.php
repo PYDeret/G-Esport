@@ -161,15 +161,16 @@
                         </td>
                     </tr>
 
+
                          <?php $i++; ?>
                             @endif
 
 
                         @endforeach
                     @endforeach
-
                     </tbody>
                 </table>
+
 
                 <input type="hidden" id="count" value="<?= $i; ?>"/>
 

@@ -25,6 +25,9 @@
                         <th>
                             Tournois joués
                         </th>
+                        <th>
+                            Tournois remportés
+                        </th>
                         <th style="text-align: center">
                             Horaires
                         </th>
@@ -96,6 +99,18 @@
                                     @endforeach
                                 @endforeach
 
+
+                            </td>
+                            <td>
+                                @foreach ($mesEquipes->tournoisplay as $key => $values)
+                                    @if( $values->EquipeWin_id == $value->id )
+
+
+                                        <p><img src="{{ Voyager::image( $values->image ) }}" id="avataruser" alt="avatar"> {{$values->libelle}}
+
+
+                                    @endif
+                                @endforeach
 
                             </td>
                             <td id="date">
