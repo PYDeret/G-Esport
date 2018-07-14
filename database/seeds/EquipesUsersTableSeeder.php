@@ -29,13 +29,13 @@ class EquipesUsersTableSeeder extends Seeder
                 'equipe_id' => 1,
                 'user_id' => 2,
             ),
-            1 => 
+            2 => 
             array (
                 'id' => 3,
                 'equipe_id' => 1,
                 'user_id' => 3,
             ),
-            1 => 
+            3 => 
             array (
                 'id' => 4,
                 'equipe_id' => 2,

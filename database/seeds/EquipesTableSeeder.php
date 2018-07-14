@@ -35,7 +35,7 @@ class EquipesTableSeeder extends Seeder
                 'id' => 2,
                 'libelle' => 'Équipe PY',
                 'description' => 'L\'équipe de PY pour jouer à Fortnite bien sur',
-                'slug' => 'equipe-paul',
+                'slug' => 'equipe-py',
                 'userId' => 1,
                 'created_at' => '2018-06-19 15:05:20',
                 'updated_at' => '2018-06-19 15:05:20',
