@@ -34,6 +34,7 @@ class TournoiController extends Controller
         DB::table('tournois_equipes')->insert(
             ['TournoiId' => $tournoi,
              'EquipeId' => $joueurs[0],
+             'EtapeId' => 1,
              'created_at' => date('Y-m-d H:i:s'),
              'updated_at' => date('Y-m-d H:i:s')
             ]
@@ -78,5 +79,53 @@ class TournoiController extends Controller
         //die(print_r($lstId));
 
         return $value;
+    }
+
+    public function getPositionTeam1($idTournoi){
+
+
+        $teams = DB::table('equipes')->select('equipes.libelle', 'equipes.id', 'equipes.slug')
+                ->join("tournois_equipes", "tournois_equipes.EquipeId", "=", "equipes.id", 'inner')
+                ->where([['tournois_equipes.TournoiId', '=', $idTournoi->id],
+                        ['tournois_equipes.EtapeId','=', 1]])->get();
+
+        return $teams;
+
+    }
+
+    public function getPositionTeam2($idTournoi){
+
+
+        $teams = DB::table('equipes')->select('equipes.libelle', 'equipes.id', 'equipes.slug')
+                ->join("tournois_equipes", "tournois_equipes.EquipeId", "=", "equipes.id", 'inner')
+                ->where([['tournois_equipes.TournoiId', '=', $idTournoi->id],
+                        ['tournois_equipes.EtapeId','=', 2]])->get();
+
+        return $teams;
+
+    }
+
+    public function getPositionTeam3($idTournoi){
+
+
+        $teams = DB::table('equipes')->select('equipes.libelle', 'equipes.id', 'equipes.slug')
+                ->join("tournois_equipes", "tournois_equipes.EquipeId", "=", "equipes.id", 'inner')
+                ->where([['tournois_equipes.TournoiId', '=', $idTournoi->id],
+                        ['tournois_equipes.EtapeId','=', 3]])->get();
+
+        return $teams;
+
+    }
+
+    public function getPositionTeam4($idTournoi){
+
+
+        $teams = DB::table('equipes')->select('equipes.libelle', 'equipes.id', 'equipes.slug')
+                ->join("tournois_equipes", "tournois_equipes.EquipeId", "=", "equipes.id", 'inner')
+                ->where([['tournois_equipes.TournoiId', '=', $idTournoi->id],
+                        ['tournois_equipes.EtapeId','=', 4]])->get();
+
+        return $teams;
+
     }
 }

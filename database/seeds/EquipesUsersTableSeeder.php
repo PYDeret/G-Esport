@@ -20,7 +20,7 @@ class EquipesUsersTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'equipe_id' => 1,
+                'equipe_id' => 2,
                 'user_id' => 1,
             ),
             1 => 
@@ -28,6 +28,18 @@ class EquipesUsersTableSeeder extends Seeder
                 'id' => 2,
                 'equipe_id' => 1,
                 'user_id' => 2,
+            ),
+            1 => 
+            array (
+                'id' => 3,
+                'equipe_id' => 1,
+                'user_id' => 3,
+            ),
+            1 => 
+            array (
+                'id' => 4,
+                'equipe_id' => 2,
+                'user_id' => 4,
             ),
         ));
         

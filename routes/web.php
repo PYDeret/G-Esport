@@ -47,7 +47,15 @@ Route::get('tournoi/{slug}', function($slug){
 
     $checker = App::call('App\Http\Controllers\TournoiController@getUsr', ['tid' => $tournoi]);
 
-    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker') );
+    $pos1 = App::call('App\Http\Controllers\TournoiController@getPositionTeam1', ['tid' => $tournoi]);
+
+    $pos2 = App::call('App\Http\Controllers\TournoiController@getPositionTeam2', ['tid' => $tournoi]);
+
+    $pos3 = App::call('App\Http\Controllers\TournoiController@getPositionTeam3', ['tid' => $tournoi]);
+
+    $pos4 = App::call('App\Http\Controllers\TournoiController@getPositionTeam4', ['tid' => $tournoi]);
+
+    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4') );
 });
 
 Route::get('/equipes', function () {

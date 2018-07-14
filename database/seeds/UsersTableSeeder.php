@@ -45,6 +45,36 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => '2018-06-25 16:44:11',
             ),
         ));
+
+        \DB::table('users')->insert(array (
+            0 => 
+            array (
+                'id' => 3,
+                'role_id' => 2,
+                'name' => 'Pierre-Yves',
+                'email' => 'py@user.com',
+                'password' => bcrypt('user'),
+                'remember_token' => str_random(60),
+                'about' => "About user, you can change me whenever you want in your profile",
+                'created_at' => '2018-06-25 16:44:11',
+                'updated_at' => '2018-06-25 16:44:11',
+            ),
+        ));
+
+        \DB::table('users')->insert(array (
+            0 => 
+            array (
+                'id' => 4,
+                'role_id' => 2,
+                'name' => 'Paul',
+                'email' => 'paul@user.com',
+                'password' => bcrypt('user'),
+                'remember_token' => str_random(60),
+                'about' => "About user, you can change me whenever you want in your profile",
+                'created_at' => '2018-06-25 16:44:11',
+                'updated_at' => '2018-06-25 16:44:11',
+            ),
+        ));
         
         
         

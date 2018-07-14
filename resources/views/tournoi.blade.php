@@ -51,35 +51,40 @@
                     <p>
 
 
-                    <h4>Equipes inscrites : </h4>
+                    <h4 class="col-md-12">Equipes inscrites : </h4>
 
                     <?php $arr = array(); ?>
 
-                    @foreach($tournoi_equipe as $tournoi_equip)
 
-                        @foreach($equipes as $equipe)
-                            <?php
+                    <table class="table table-striped">
 
-                            if ($tournoi_equip->TournoiId == $tournoi->id && $tournoi_equip->EquipeId == $equipe->id){
-                            ?>
+                        @foreach($tournoi_equipe as $tournoi_equip)
 
-                                <ul>
-                                    <li> {{$equipe->libelle}} - {!!$equipe->description!!} </li>
-                                </ul>
+                            @foreach($equipes as $equipe)
+                                <?php
+
+                                if ($tournoi_equip->TournoiId == $tournoi->id && $tournoi_equip->EquipeId == $equipe->id){
+                                ?>
+
+                                    <tr>
+                                        <td> {!!$equipe->libelle!!} - {!!$equipe->description!!} </td>
+                                    <tr>
 
 
-                                <?php array_push($arr, $equipe->libelle); ?>
+                                    <?php array_push($arr, $equipe->libelle); ?>
 
+                                <?php } ?>
+
+                            @endforeach
+
+                            <?php if(empty($equipes)){ ?>
+                            
+                                <p>Aucune équipe inscrite pour le moment</p>
                             <?php } ?>
 
                         @endforeach
 
-                        <?php if(empty($equipes)){ ?>
-                        
-                            <p>Aucune équipe inscrite pour le moment</p>
-                        <?php } ?>
-
-                    @endforeach
+                    </table>
 
                 </div>
             </article>
@@ -163,23 +168,20 @@
             <div class="container_tournoi">
                 <div class="split split-one">
 
-                    @if(count($arr) > 15)
-
-
                         <div class="round round-one current">
-                                @foreach($arr as $key => $equipe)
+                                @foreach($pos1 as $key => $equipe)
                                     @if($key < 16)
                                         @if(($key+1) % 2 != 0)
                                             <ul class="matchup">
                                                 <li class="team team-top">
-                                                    <?= $equipe ?>
+                                                    <?= $equipe->libelle ?>
                                                 </li>
                                         @endif
 
                                         @if(($key+1) % 2 == 0)
 
                                                 <li class="team team-bottom">
-                                                    <?= $equipe ?>
+                                                    <?= $equipe->libelle ?>
                                                 </li>
                                             </ul>   
                                         @endif
@@ -187,25 +189,22 @@
                                 @endforeach  									
                         </div>
 
-                    @endif
-
-                    @if(count($arr) > 7)
 
                         <div class="round round-two">
 
-                                @foreach($arr as $key => $equipe)
+                                @foreach($pos2 as $key => $equipe)
                                     @if($key < 8)
                                         @if(($key+1) % 2 != 0)
                                             <ul class="matchup">
                                                 <li class="team team-top">
-                                                    <?= $equipe ?>
+                                                    <?= $equipe->libelle ?>
                                                 </li>
                                         @endif
 
                                         @if(($key+1) % 2 == 0)
 
                                                 <li class="team team-bottom">
-                                                    <?= $equipe ?>
+                                                    <?= $equipe->libelle ?>
                                                 </li>
                                             </ul>   
                                         @endif
@@ -214,70 +213,59 @@
 
                         </div>
 
-                    @endif
-
-                    @if(count($arr) > 3)
                     
                         <div class="round round-three">		
-                            @foreach($arr as $key => $equipe)
+                            @foreach($pos3 as $key => $equipe)
                                 @if($key < 4)
                                     @if(($key+1) % 2 != 0)
                                         <ul class="matchup">
                                             <li class="team team-top">
-                                                <?= $equipe ?>
+                                                <?= $equipe->libelle ?>
                                             </li>
                                     @endif
 
                                     @if(($key+1) % 2 == 0)
 
                                             <li class="team team-bottom">
-                                                <?= $equipe ?>
+                                                <?= $equipe->libelle ?>
                                             </li>
                                         </ul>   
                                     @endif
                                 @endif
                             @endforeach 	
                         </div>	
-
-                    @endif
-
-                </div> 
-
-                @if(count($arr) > 1)
+                    </div> 
             
                     <div class="champion">
                             <div class="final">
                                 <i class="fa fa-trophy"></i>
                                 <ul class="matchup championship">
 
-                                    @if(count($arr) > 1)
                                         
-                                        @foreach($arr as $key => $equipe)
+                                        @foreach($pos4 as $key => $equipe)
 
                                             @if($key < 2)
                                                 @if(($key+1) % 2 != 0)
                                                     <ul class="matchup">
                                                         <li class="team team-top">
-                                                            <?= $equipe ?>
+                                                            <?= $equipe->libelle ?>
                                                         </li>
                                                 @endif
 
                                                 @if(($key+1) % 2 == 0)
 
                                                         <li class="team team-bottom">
-                                                            <?= $equipe ?>
+                                                            <?= $equipe->libelle ?>
                                                         </li>
                                                     </ul>   
                                                 @endif
                                             @endif           
                                         @endforeach 
-                                    @endif
                                 </ul>
                             </div>	
                         </div>
                     </div>
 
-                @endif
 
             </div>
         </section>
