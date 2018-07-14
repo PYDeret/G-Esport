@@ -1,12 +1,11 @@
 $("input[name='equipe[]']").change(function() {
     console.log('in');
-    var checked = $('input[name=equipe]:checked');
+    var checked = $('input[name="equipe[]"]:checked');
 
     if(checked){
         if(checked.length == 1){
 
             if($(this).is(':checked')){
-                console.log('rapta');
                 $('input[name="equipe[]"]:not(:checked)').css('pointer-events','none');
                 $('input[name="equipe[]"]:not(:checked)').each(function(){
                     $('label[for="'+$(this).prop('id')+'"]').hide(1000);
@@ -17,7 +16,6 @@ $("input[name='equipe[]']").change(function() {
         if(checked.length == 0){
 
             if(!$(this).is(':checked')){
-                console.log('efzf');
                 $('input[name="equipe[]"]:not(:checked)').each(function(){
                     $('label[for="'+$(this).prop('id')+'"]').show(1000);
                 });

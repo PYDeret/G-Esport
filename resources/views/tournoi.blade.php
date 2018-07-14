@@ -90,7 +90,7 @@
             <div class="col-md-12 isotope">
     
     
-                <?php if(! Auth::guest()){ ?>
+                <?php if(! Auth::guest() && $checker != "false"){ ?>
     
                     <button
                             type="button"
@@ -137,6 +137,7 @@
                                     </div>
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id_tournoi" value="<?= $tournoi->id ?>">
+                                    <input type="hidden" name="slug" value="<?= $slug ?>">
                                 </form>
                             </div>
                             <div class="modal-footer">

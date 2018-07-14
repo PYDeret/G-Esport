@@ -44,7 +44,10 @@ Route::get('tournoi/{slug}', function($slug){
     $users = App\User::where('id', '!=', Auth::id())->get();
     $equipes_users = App\EquipesUsers::all();
 
-    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users') );
+
+    $checker = App::call('App\Http\Controllers\TournoiController@getUsr', ['tid' => $tournoi]);
+
+    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker') );
 });
 
 Route::get('/equipes', function () {
