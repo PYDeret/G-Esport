@@ -5,7 +5,7 @@
       <div class="youplay-user-navigation">
         <div class="container">
           <ul>
-            <li <?php if (strpos(url()->current(), 'profile') == false && strpos(url()->current(), 'messages') == false) {
+            <li <?php if (strpos(url()->current(), 'profile') == false && strpos(url()->current(), 'messages') == false && strpos(url()->current(), 'statistiques') == false && strpos(url()->current(), 'gestion_equipes') == false) {
                   echo 'class="active"';
               }?>>
               <a href="{{ route('users.edit', Auth::user()->id ) }}">Dernières activités</a>
@@ -26,7 +26,11 @@
             }?>>
               <a href="{{ route('users.statistiques', Auth::user()->id ) }}">Statistiques</a>
             </li>
-
+            <li <?php if (strpos(url()->current(), 'gestion_equipes') !== false) {
+                echo 'class="active"';
+            }?>>
+              <a href="{{ route('users.gestion_equipes', Auth::user()->id ) }}">Gestion de mes equipes</a>
+            </li>
 
 
             <?php endif; ?>

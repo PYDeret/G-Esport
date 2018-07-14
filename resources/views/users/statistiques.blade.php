@@ -10,7 +10,7 @@
             <div class="col-md-9">
 
                 <h3>Date d'inscription :</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped">
                 <tbody>
 
                 <tr>
@@ -22,7 +22,7 @@
                 </table>
 
                 <h3><?php echo count($stats->tournoisplay);?> Tournois participés :</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped ">
                     <tbody>
                     <tr>
                         <th>
@@ -37,7 +37,7 @@
                         <th>
                             Equipes inscrites
                         </th>
-                        <th>
+                        <th style="text-align: center">
                             Horaires
                         </th>
                     </tr>
@@ -87,7 +87,7 @@
 
 
                 <h3><span id="counter"></span> Tournois remportés :</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                     <tr>
                         <th>
@@ -101,13 +101,13 @@
                         </th>
                         <th>
                             Equipes inscrites
-                        </th>
-                        <th>
+                        </th >
+                        <th style="text-align: center">
                             Horaires
                         </th>
                     </tr>
 
-                    <?php $i=0;?>
+                    <?php $i=0; ?>
 
                     @foreach ($stats->tournoisplay as $key => $value)
 
@@ -115,8 +115,7 @@
 
 
                             @if( $value->EquipeWin_id == $values->id )
-
-                                <tr>
+                         <tr>
                         <td id="libstats">
                             <p> {{ $value->libelle }} </p>
                         </td>
@@ -162,20 +161,21 @@
                         </td>
                     </tr>
 
+
+                         <?php $i++; ?>
+                            @endif
+
+
+                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
 
-                            <?php $i++; ?>
-                        @endif
-
-
-                     @endforeach
-                @endforeach
 
                 <input type="hidden" id="count" value="<?= $i; ?>"/>
 
                 <h3>Mes equipes (<?php echo count($stats->inteam);?>):</h3>
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <tbody>
                     <tr>
                         <th>
@@ -191,6 +191,9 @@
                             Tournois joués
                         </th>
                         <th>
+                            Tournois remportés
+                        </th>
+                        <th style="text-align: center">
                             Horaires
                         </th>
                     </tr>
@@ -258,6 +261,19 @@
                                 @endforeach
                             @endforeach
 
+
+                        </td>
+
+                        <td>
+                            @foreach ($stats->tournoisplay as $key => $values)
+                            @if( $values->EquipeWin_id == $value->id )
+
+
+                                    <p><img src="{{ Voyager::image( $values->image ) }}" id="avataruser" alt="avatar"> {{$values->libelle}}
+
+
+                                @endif
+                                @endforeach
 
                         </td>
                         <td id="date">
