@@ -1,6 +1,6 @@
 #bracket {overflow:hidden;background-color: #e1e1e1;background-color:rgba(225,225,225,0.9);padding-top: 20px;font-size: 12px;padding: 40px 0;}
 .container_tournoi {max-width: 1100px;margin: 0 auto;display:block;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: -webkit-flex;display: flex;-webkit-flex-direction:row;flex-direction: row;}
-.split {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;width: 42%;-webkit-flex-direction:row;-moz-flex-direction:row;flex-direction:row;}
+.split {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;width: 100%;-webkit-flex-direction:row;-moz-flex-direction:row;flex-direction:row;}
 .champion {float:left;display:block;width: 16%;-webkit-flex-direction:row;flex-direction:row;-webkit-align-self:center;align-self:center;margin-top: -15px;text-align: center;padding: 230px 0\9;} 
 .champion i {color: #a0a6a8; font-size: 45px;padding: 10px 0; }
 .round {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;width:95%;width:30.8333%\9;}
@@ -10,7 +10,11 @@
 .score {font-size: 11px;text-transform: uppercase;float: right;color: #2C7399;font-weight: bold;font-family: 'Roboto Condensed', sans-serif;position: absolute;right: 5px;}
 .team {padding: 0 5px;margin: 3px 0;height: 25px; line-height: 25px;white-space: nowrap; overflow: hidden;position: relative;}
 .round-two .matchup {margin:0; height: 60px;padding: 50px 0;}
-.round-three .matchup {margin:0; height: 60px; padding: 130px 0;}
+.round-three .matchup {
+    margin: 0;
+    height: 60px;
+    padding: 100px 0;
+}
 .round-details {font-family: 'Roboto Condensed', sans-serif; font-size: 13px; color: #2C7399;text-transform: uppercase;text-align: center;height: 40px;}
 .champion li, .round li {background-color: #fff;box-shadow: none; opacity: 0.45;}
 .current li {opacity: 1;}
@@ -19,7 +23,8 @@
 .share .container_tournoi {margin: 0 auto; text-align: center;}
 .share-icon {font-size: 24px; color: #fff;padding: 25px;}
 .share-wrap {max-width: 1100px; text-align: center; margin: 60px auto;}
-.final {margin: 4.5em 0;}
+.final {    position: relative;
+  top: -50px;}
 
 @-webkit-keyframes pulse {
   0% {
@@ -65,7 +70,7 @@
 
 
 @media screen and (min-width: 981px) and (max-width: 1099px) {
-  .container {margin: 0 1%;}
+  .container_tournoi {margin: 0 1%;}
   .champion {width: 14%;}
   .split {width:43%; }
   .split-one .vote-box {margin-left: 138px;}
@@ -75,7 +80,7 @@
 }
 
 @media screen and (max-width: 980px) {
-  .container {-webkit-flex-direction:column;-moz-flex-direction:column;flex-direction:column;}
+  .container_tournoi {-webkit-flex-direction:column;-moz-flex-direction:column;flex-direction:column;}
   .split, .champion {width: 90%;margin: 35px 5%;}
   .champion {-webkit-box-ordinal-group:3;-moz-box-ordinal-group:3;-ms-flex-order:3;-webkit-order:3;order:3;}
   .split {border-bottom: 1px solid #b6b6b6; padding-bottom: 20px;}
