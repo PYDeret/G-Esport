@@ -166,25 +166,21 @@ class UserController extends Controller
 
         $id = $request->input('id');
 
-
+        DB::table('tournois_equipes')->where('tournois_equipes.EquipeId', '=', $id)->delete();
         DB::table('equipes_users')->where('equipes_users.equipe_id', '=', $id)->delete();
 
         DB::table('equipes')->where('equipes.id', '=', $id)->delete();
 
         $user = Auth::user();
 
-
         $mesEquipes = new \stdClass();
 
-
         $mesEquipes->myteams = $this->getMyteams($user->id);
-
+        $mesEquipes->tournoisplay = $this->getTournois($user->id);
 
         return view('users.gestion_equipes', compact('mesEquipes','user'));
-
-
+        
     }
-
 
 
     public function statistiques(User $user){
