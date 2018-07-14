@@ -243,38 +243,41 @@
 
                 </div> 
 
+                @if(count($arr) > 1)
             
-                <div class="champion">
-                        <div class="final">
-                            <i class="fa fa-trophy"></i>
-                            <ul class="matchup championship">
+                    <div class="champion">
+                            <div class="final">
+                                <i class="fa fa-trophy"></i>
+                                <ul class="matchup championship">
 
-                                @if(count($arr) > 1)
-                                    
-                                    @foreach($arr as $key => $equipe)
+                                    @if(count($arr) > 1)
+                                        
+                                        @foreach($arr as $key => $equipe)
 
-                                        @if($key < 2)
-                                            @if(($key+1) % 2 != 0)
-                                                <ul class="matchup">
-                                                    <li class="team team-top">
-                                                        <?= $equipe ?>
-                                                    </li>
-                                            @endif
+                                            @if($key < 2)
+                                                @if(($key+1) % 2 != 0)
+                                                    <ul class="matchup">
+                                                        <li class="team team-top">
+                                                            <?= $equipe ?>
+                                                        </li>
+                                                @endif
 
-                                            @if(($key+1) % 2 == 0)
+                                                @if(($key+1) % 2 == 0)
 
-                                                    <li class="team team-bottom">
-                                                        <?= $equipe ?>
-                                                    </li>
-                                                </ul>   
-                                            @endif
-                                        @endif           
-                                    @endforeach 
-                                @endif
-                            </ul>
-                        </div>	
+                                                        <li class="team team-bottom">
+                                                            <?= $equipe ?>
+                                                        </li>
+                                                    </ul>   
+                                                @endif
+                                            @endif           
+                                        @endforeach 
+                                    @endif
+                                </ul>
+                            </div>	
+                        </div>
                     </div>
-                </div>
+
+                @endif
 
             </div>
         </section>
