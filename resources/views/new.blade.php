@@ -50,23 +50,27 @@
 		@endforeach
 	</section>
 
-	<div class="h2"></div>
-	<section class="youplay-banner youplay-banner-parallax small">
-		<div class="image" style="background-image: url('/images/banner-broken-age.jpg');">
-		</div>
+	<?php if(!empty($nextTournament)): ?>
 
-		<div class="info container align-center">
-			<div>
-				<h2>Prochain tournoi</h2>
 
-				<div class="countdown h2" data-end="2018/10/10"></div>
-
-				<br>
-				<br>
-				<a class="btn btn-lg" href="#!">S'inscrire</a>
+		<section class="youplay-banner youplay-banner-parallax small">
+			<div class="image" style="background-image: url('uploads/<?= $nextTournament->image ?>');">
 			</div>
-		</div>
-	</section>
+
+			<div class="info container align-center">
+				<div>
+					<h2>Prochain tournoi</h2>
+
+					<div class="countdown h2" data-end="<?= $nextTournament->DateDebut ?>"></div>
+
+					<br>
+					<br>
+					<a class="btn btn-lg" href="/tournoi/<?= $nextTournament->slug ?>">S'inscrire</a>
+				</div>
+			</div>
+		</section>
+
+	<?php endif; ?>
 
 
 	<h2 class="container h1">Jeux du moment</h2>

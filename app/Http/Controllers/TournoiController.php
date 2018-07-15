@@ -193,4 +193,30 @@ class TournoiController extends Controller
         return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4', 'mesTeam') );
 
     }
+
+    public function getNextTournament(){
+
+        $tournoi = DB::table('tournois')
+                ->orderBy('DateDebut', 'desc')
+                ->orderBy('HeureDebut', 'desc')
+                ->where('DateDebut', '>', date('Y-m-d'))
+                ->first();
+
+        if(!empty($tournoi)){
+
+            $tournoi->DateDebut = $this->changeDate($tournoi->DateDebut);
+
+            return $tournoi;
+        }
+
+        return null;
+        
+    }
+
+    public function changeDate($date){
+
+        $date = explode('-', $date);
+
+        return $date[0].'/'.$date[1].'/'.$date[2];
+    }
 }

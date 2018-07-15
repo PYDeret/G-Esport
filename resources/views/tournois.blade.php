@@ -15,22 +15,27 @@
         </div>
     </div>
 
-    <section class="youplay-banner youplay-banner-parallax small">
-        <div class="image" style="background-image: url('/images/banner-broken-age.jpg');">
-        </div>
+    <?php if(!empty($nextTournament)): ?>
 
-        <div class="info container align-center">
-            <div>
-                <h2>Prochain tournois</h2>
 
-                <div class="countdown h2" data-end="2018/10/10"></div>
+		<section class="youplay-banner youplay-banner-parallax small">
+			<div class="image" style="background-image: url('uploads/<?= $nextTournament->image ?>');">
+			</div>
 
-                <br>
-                <br>
-                <a class="btn btn-lg" href="#!">S'inscrire</a>
-            </div>
-        </div>
-    </section>
+			<div class="info container align-center">
+				<div>
+					<h2>Prochain tournoi</h2>
+
+					<div class="countdown h2" data-end="<?= $nextTournament->DateDebut ?>"></div>
+
+					<br>
+					<br>
+					<a class="btn btn-lg" href="/tournoi/<?= $nextTournament->slug ?>">S'inscrire</a>
+				</div>
+			</div>
+		</section>
+
+	<?php endif; ?>
 
 
     <div class="container youplay-store store-grid">

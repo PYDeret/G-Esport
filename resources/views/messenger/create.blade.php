@@ -12,18 +12,17 @@
 
           <form action="{{ route('users.messages.store', Auth::user()->id ) }}" method="post">
           {{ csrf_field() }}
-            <div class="youplay-input">
-              <!--<input type="text" placeholder="Send To" name="message-to">-->
+           
                 @if($users->count() > 0)
-                    <div class="checkbox">
+                    <select name="recipients" style="border: none;background-color: rgba(60,7,50,.1);border-radius: unset;height: 35px;margin-bottom: 20px;width: 100%;">
                         @foreach($users as $user)
-                            <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                                                    value="{{ $user->id }}"
-                                                                    <?php if(!empty($recipient) && $recipient == $user->id){ echo "checked"; }?>>{!!$user->name!!}</label>
+                            <option value="{{ $user->id }}" <?php if(!empty($recipient) && $recipient == $user->id){ echo "selected"; }?>>
+                                {{ $user->name }}
+                            </option>
                         @endforeach
-                    </div>
+                    </select>
                 @endif
-            </div>
+              
             <input type="hidden" value="{{Auth::user()->id}}" name="idUsr" />
             <div class="youplay-input">
               <input type="text" placeholder="Subject" name="subject">

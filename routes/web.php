@@ -35,7 +35,8 @@ Route::get('page/{slug}', function($slug){
 });
 Route::get('/tournois', function () {
     $tournois = App\Tournoi::all();
-    return view('tournois', compact('tournois'));
+    $nextTournament = App::call('App\Http\Controllers\TournoiController@getNextTournament');
+    return view('tournois', compact('tournois', 'nextTournament'));
 });
 Route::get('tournoi/{slug}', function($slug){
     $tournoi = App\Tournoi::where('slug', '=', $slug)->firstOrFail();
@@ -90,7 +91,10 @@ Route::get('jeux_in/{slug}', function($slug){
 Route::get('/home', function(){
     $news = App\News::all();
     $jeux = App\Jeu::all();
-    return view('new', compact('news', 'jeux'));
+
+    $nextTournament = App::call('App\Http\Controllers\TournoiController@getNextTournament');
+
+    return view('new', compact('news', 'jeux', 'nextTournament'));
 });
 
 Auth::routes();
