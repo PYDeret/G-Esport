@@ -102,12 +102,38 @@
                     <div class="item col-lg-12 col-md-12 col-xs-12">
                         @foreach($equipes as $equipe)
 
+                            @foreach($equipes_users as $equipes_user)
+                                @foreach($usersco as $userco)
+
+                            <?php
+
+                                if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id == $userco->id){
+
+                                        $in="present";
+                                    }
+                                    else if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id != $userco->id){
+
+                                     $in = "a";
+                                    }
+
+                             /*       if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id != $userco->id){
+
+                                        $in="Membres";
+                                    }*/
+
+
+
+                            ?>
+
+                            @endforeach
+                            @endforeach
+
                         <div class="col-lg-4 col-md-4" >
 
                             <a href="/equipe/{{ $equipe->slug }}" class="angled-img">
                             <div class="img img-offset">
                                 <img src="/images/teamq.png" alt="" style="width: 20%;">
-
+                                <div class="badge show bg-default"><?=$in?></div>
                             </div>
                             <div class="bottom-info">
                                 <h4>{{ $equipe->libelle }}</h4>
@@ -130,7 +156,6 @@
                                                     <?php
                                                 }
                                                     ?>
-
                                         @endforeach
                                     @endforeach
                                 </div>
@@ -151,3 +176,13 @@
 
 
 @include('layouts.footer')
+
+
+<style>
+
+    .angled-img .badge{
+
+        right:0;
+        left:auto;
+    }
+</style>
