@@ -112,6 +112,9 @@
                             <div class="bottom-info">
                                 <h4>{{ $equipe->libelle }}</h4>
                                 <div class="row">
+                                    {!! $equipe->description !!}
+                                </div>
+                                <div class="row">
                                     <p> Membres :</p>
                                     @foreach($equipes_users as $equipes_user)
                                         @foreach($users as $user)
@@ -131,9 +134,7 @@
                                         @endforeach
                                     @endforeach
                                 </div>
-                                <div class="row">
-                                    {!! $equipe->description !!}
-                                </div>
+
                             </div>
                             </a>
 
