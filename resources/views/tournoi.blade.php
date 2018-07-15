@@ -96,7 +96,7 @@
             <!-- Games List -->
             <div class="col-md-12 isotope">
     
-                <?php if(! Auth::guest() && $checker != "false"){ ?>
+                <?php if(! Auth::guest() && $checker != "false" && $tournoi->DateDebut > date('Y-m-d')){ ?>
     
                     <button
                             type="button"
@@ -123,20 +123,21 @@
                         
                     </form>
 
-                    <?php if(empty($tournoi->EquipeWin_id)): ?>
+                    <?php $arrayTeams = array(); ?>
+
+                    @foreach($mesTeam as $uneTeam)
+                        <?php array_push($arrayTeams, $uneTeam->equipe_id); ?>
+                    @endforeach  
+
+
+                    <?php if(empty($tournoi->EquipeWin_id) && $checker != "true"): ?>
                         <button
                                 type="button"
                                 class="btn btn-primary btn-lg"
                                 id="btn_certif">
                             Je certifie avoir gagné la manche
                         </button>
-                    <?php endif; ?>
-    
-                    <?php $arrayTeams = array(); ?>
-
-                    @foreach($mesTeam as $uneTeam)
-                        <?php array_push($arrayTeams, $uneTeam->equipe_id); ?>
-                    @endforeach  
+                    <?php endif; ?>           
                     
                 <br><br>
     

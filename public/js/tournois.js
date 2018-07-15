@@ -8,7 +8,7 @@ $("input[name='equipe[]']").change(function() {
             if($(this).is(':checked')){
                 $('input[name="equipe[]"]:not(:checked)').css('pointer-events','none');
                 $('input[name="equipe[]"]:not(:checked)').each(function(){
-                    $('label[for="'+$(this).prop('id')+'"]').hide(1000);
+                    $('label[for="'+$(this).prop('id')+'"]').hide();
                 });
             }   
         }
@@ -17,7 +17,7 @@ $("input[name='equipe[]']").change(function() {
 
             if(!$(this).is(':checked')){
                 $('input[name="equipe[]"]:not(:checked)').each(function(){
-                    $('label[for="'+$(this).prop('id')+'"]').show(1000);
+                    $('label[for="'+$(this).prop('id')+'"]').show();
                 });
             }  
         }  
@@ -35,4 +35,13 @@ $('#btn_certif').on('click', function(){
     $('input[name=otherteam]').val(otherteam);
 
     document.getElementById('manche_res').submit();
-})
+});
+
+$(document).ready(function(){
+    var myteam = $('li[style*="background-color:cornflowerblue"]').children('input').val();
+    var otherteam = $('li[style*="background-color:cornflowerblue"]').parent().children('li:not([style*="background-color:cornflowerblue"])').children('input').val();
+    
+    if(otherteam == null || myteam == null){
+        $('#btn_certif').hide();
+    }
+});
