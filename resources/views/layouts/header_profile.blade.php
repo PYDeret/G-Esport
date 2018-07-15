@@ -43,7 +43,7 @@
           <div class="container youplay-user">
             <a href="#" class="angled-img image-popup">
               <div class="img">
-                <img src="{{ asset('uploads/<?php if(!empty($user[0]->avatar)): echo $user[0]->avatar; elseif(!empty(Auth::user()->avatar)): echo Auth::user()->avatar; endif;?><')}}" alt="">
+                <img src="{{ asset('uploads/<?php if(!empty($user[0]->avatar)): echo $user[0]->avatar; elseif(!empty(Auth::user()->avatar)): echo Auth::user()->avatar; endif;?>')}}" alt="">
               </div>
               <i class="fa fa-search-plus icon"></i>
             </a>
