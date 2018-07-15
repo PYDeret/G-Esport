@@ -50,8 +50,7 @@ Route::get('tournoi/{slug}', function($slug){
 Route::get('/equipes', function () {
     $equipes = App\Equipe::all();
     $participants = App\Participant::all();
-    $users = App\User::where('id', '!=', Auth::id())->get();
-    $usersco = App\User::where('id', '=', Auth::id())->get();
+    $users = App\User::all();
     $equipes_users = App\EquipesUsers::all();
     return view('equipes', compact('equipes','participants','users','usersco','equipes_users'));
 });

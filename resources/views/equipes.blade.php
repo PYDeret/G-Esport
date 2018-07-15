@@ -102,68 +102,48 @@
                     <div class="item col-lg-12 col-md-12 col-xs-12">
                         @foreach($equipes as $equipe)
 
-                            @foreach($equipes_users as $equipes_user)
-                                @foreach($usersco as $userco)
+                            <div class="col-lg-4 col-md-4" >
 
-                            <?php
+                                <?php 
+                                
+                                    $usr = App\User::where('id', '=', $equipe->userId)->first();
+                                    
+                                ?>
 
-                                if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id == $userco->id){
-
-                                        $in="present";
-                                    }
-                                    else if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id != $userco->id){
-
-                                     $in = "a";
-                                    }
-
-                             /*       if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id != $userco->id){
-
-                                        $in="Membres";
-                                    }*/
-
-
-
-                            ?>
-
-                            @endforeach
-                            @endforeach
-
-                        <div class="col-lg-4 col-md-4" >
-
-                            <a href="/equipe/{{ $equipe->slug }}" class="angled-img">
-                            <div class="img img-offset">
-                                <img src="/images/teamq.png" alt="" style="width: 20%;">
-                                <div class="badge show bg-default"><?=$in?></div>
-                            </div>
-                            <div class="bottom-info">
-                                <h4>{{ $equipe->libelle }}</h4>
-                                <div class="row">
-                                    {!! $equipe->description !!}
+                                <a href="/equipe/{{ $equipe->slug }}" class="angled-img">
+                                <div class="img img-offset">
+                                    <img src="/images/teamq.png" alt="" style="width: 20%;">
+                                    <div class="badge show bg-default"><?= $usr->name?></div>
                                 </div>
-                                <div class="row">
-                                    <p> Membres :</p>
-                                    @foreach($equipes_users as $equipes_user)
-                                        @foreach($users as $user)
-                                                <?php
-
-                                                if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id == $user->id)
-                                                {
-                                                    ?>
-                                                <li>
-                                                    {{ $user->name }}
-                                                </li>
-
+                                <div class="bottom-info">
+                                    <h4>{{ $equipe->libelle }}</h4>
+                                    <div class="row">
+                                        {!! $equipe->description !!}
+                                    </div>
+                                    <div class="row">
+                                        <p> Membres :</p>
+                                        @foreach($equipes_users as $equipes_user)
+                                            @foreach($users as $user)
                                                     <?php
-                                                }
-                                                    ?>
+
+                                                    if ($equipes_user->equipe_id == $equipe->id && $equipes_user->user_id == $user->id)
+                                                    {
+                                                        ?>
+                                                    <li>
+                                                        {{ $user->name }}
+                                                    </li>
+
+                                                        <?php
+                                                    }
+                                                        ?>
+                                            @endforeach
                                         @endforeach
-                                    @endforeach
+                                    </div>
+
                                 </div>
+                                </a>
 
                             </div>
-                            </a>
-
-                        </div>
                         @endforeach
 
                     </div>
