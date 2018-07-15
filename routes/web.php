@@ -59,13 +59,15 @@ Route::get('tournoi/{slug}', function($slug){
 Route::get('/equipes', function () {
     $equipes = App\Equipe::all();
     $participants = App\Participant::all();
-    $users = App\User::where('id', '!=', Auth::id())->get();
+    $users = App\User::all();
     $equipes_users = App\EquipesUsers::all();
-    return view('equipes', compact('equipes','participants','users','equipes_users'));
+    return view('equipes', compact('equipes','participants','users','usersco','equipes_users'));
 });
 Route::get('equipe/{slug}', function($slug){
     $equipe = App\Equipe::where('slug', '=', $slug)->firstOrFail();
-    return view('equipe', compact('equipe'));
+    $equipes_users = App\EquipesUsers::all();
+    $users = App\User::all();
+    return view('equipe', compact('equipe','users','equipes_users'));
 });
 
 Route::get('/news', function(){
