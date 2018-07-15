@@ -7,25 +7,19 @@
 
         <div class="social-icons">
           <div class="social-icon">
-            <a href="#!">
-              <i class="fa fa-facebook-square"></i>
-              <span>Facebook</span>
-            </a>
-          </div>
-          <div class="social-icon">
-            <a href="#!">
+            <a href="https://twitter.com/TeamGEsport1">
               <i class="fa fa-twitter-square"></i>
               <span>Twitter</span>
             </a>
           </div>
           <div class="social-icon">
-            <a href="#!">
+            <a href="https://www.twitch.tv/teamgesport">
               <i class="fa fa-twitch"></i>
               <span>Twitch</span>
             </a>
           </div>
           <div class="social-icon">
-            <a href="#!">
+            <a href="https://www.youtube.com/channel/UCgp2HPNtHk0zigk0MdgbONQ">
               <i class="fa fa-youtube-square"></i>
               <span>Youtube</span>
             </a>
