@@ -75,8 +75,6 @@ Have fun with or our platform and let the competition ignite the community!
 
 You can otherwise join our Slack by joining : 
 
-![alt text](https://www.google.fr/imgres?imgurl=https://a.slack-edge.com/bd852f/img/icons/icon_slack_hash_colored.svg&imgrefurl=https://slack.com/&h=800&w=800&tbnid=5-Aw067SVDcs1M:&q=slack&tbnh=186&tbnw=186&usg=__i-LNbPJLtAdgCLrL_dyge28lMvc%3D&vet=1&docid=5hESVVXeNtyWRM&itg=1&sa=X&ved=0ahUKEwiU-NKTyqPcAhUPWBoKHbpEAoEQ_B0IygEwFA)
-
 g-esport.slack.com
 
 The G-esport build team.
