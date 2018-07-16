@@ -36,7 +36,7 @@
 						<div class="description">
 							<p>
 
-								<?php $small = substr($uneNews->description , 0, 100); ?>
+								<?php $small = substr(strip_tags ($uneNews->description) , 0, 100); ?>
 								{!! 
 									$small.'...';
 								!!}
