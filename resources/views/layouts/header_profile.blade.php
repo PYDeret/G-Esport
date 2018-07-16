@@ -5,7 +5,7 @@
       <div class="youplay-user-navigation">
         <div class="container">
           <ul>
-            <li <?php if (strpos(url()->current(), 'profile') == false && strpos(url()->current(), 'messages') == false) {
+            <li <?php if (strpos(url()->current(), 'profile') == false && strpos(url()->current(), 'messages') == false && strpos(url()->current(), 'statistiques') == false && strpos(url()->current(), 'gestion_equipes') == false) {
                   echo 'class="active"';
               }?>>
               <a href="{{ route('users.edit', Auth::user()->id ) }}">Dernières activités</a>
@@ -21,6 +21,18 @@
               }?>>
               <a href="{{ route('users.messages', Auth::user()->id ) }}">Messages</a>
             </li>
+            <li <?php if (strpos(url()->current(), 'statistiques') !== false) {
+                echo 'class="active"';
+            }?>>
+              <a href="{{ route('users.statistiques', Auth::user()->id ) }}">Statistiques</a>
+            </li>
+            <li <?php if (strpos(url()->current(), 'gestion_equipes') !== false) {
+                echo 'class="active"';
+            }?>>
+              <a href="{{ route('users.gestion_equipes', Auth::user()->id ) }}">Gestion de mes equipes</a>
+            </li>
+
+
             <?php endif; ?>
           </ul>
         </div>
@@ -29,9 +41,9 @@
       <div class="info" style="max-height: 240px;">
         <div>
           <div class="container youplay-user">
-            <a href="{{ asset('images/user-photo.jpg')}}" class="angled-img image-popup">
+            <a href="#" class="angled-img image-popup">
               <div class="img">
-                <img src="{{ asset('images/user-photo.jpg')}}" alt="">
+                <img src="http://www.gesport.ovh/uploads/<?php if(!empty($user[0]->avatar)): echo $user[0]->avatar; elseif(!empty(Auth::user()->avatar)): echo Auth::user()->avatar; endif;?>" alt="">
               </div>
               <i class="fa fa-search-plus icon"></i>
             </a>

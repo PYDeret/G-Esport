@@ -16,6 +16,7 @@ class AddForeignKeysToTournoisEquipesTable extends Migration {
 		{
 			$table->foreign('TournoiId', 'FK_tournois_equipes')->references('id')->on('tournois')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 			$table->foreign('EquipeId', 'FK_tournois_equipes_equipe')->references('id')->on('equipes')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('EtapeId', 'FK_tournois_equipes_etape')->references('id')->on('etape')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -31,6 +32,7 @@ class AddForeignKeysToTournoisEquipesTable extends Migration {
 		{
 			$table->dropForeign('FK_tournois_equipes');
 			$table->dropForeign('FK_tournois_equipes_equipe');
+			$table->dropForeign('FK_tournois_equipes_etape');
 		});
 	}
 

@@ -46,12 +46,12 @@ So if you want to access to the **back office**, go to this **address**:
 
 On the other hand you can log into the **platform** as a **user** with the following credentials:
 
-- Username : user
+- Email : user@user.com
 - Password : user
 
 Or as an **administrator**:
 
-- Username : admin
+- Email : admin@admin.com
 - Password : admin
 
 Plus you can access to your **PhpMyAdmin** at this **address**:
@@ -67,9 +67,15 @@ Of course you can **change these values** in our back office, which we **strongl
 
 ## Contact
 
-You can contact us through **GitHub**
+You can contact us through **GitHub** or with this **Email** :
+
+gesportcontact@gmail.com
 
 Have fun with or our platform and let the competition ignite the community!
+
+You can otherwise join our Slack by joining : 
+
+g-esport.slack.com
 
 The G-esport build team.
 

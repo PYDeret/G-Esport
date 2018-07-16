@@ -35,20 +35,68 @@ Route::get('page/{slug}', function($slug){
 });
 Route::get('/tournois', function () {
     $tournois = App\Tournoi::all();
-    return view('tournois', compact('tournois'));
+    $nextTournament = App::call('App\Http\Controllers\TournoiController@getNextTournament');
+    return view('tournois', compact('tournois', 'nextTournament'));
 });
 Route::get('tournoi/{slug}', function($slug){
     $tournoi = App\Tournoi::where('slug', '=', $slug)->firstOrFail();
-    return view('tournoi', compact('tournoi'));
+    $tournoi_equipe = App\TournoisEquipe::all();
+    $equipes = App\Equipe::all();
+    $users = App\User::where('id', '!=', Auth::id())->get();
+    $equipes_users = App\EquipesUsers::all();
+
+    $checker = App::call('App\Http\Controllers\TournoiController@getUsr', ['tid' => $tournoi]);
+    $pos1 = App::call('App\Http\Controllers\TournoiController@getPositionTeam1', ['tid' => $tournoi]);
+    $pos2 = App::call('App\Http\Controllers\TournoiController@getPositionTeam2', ['tid' => $tournoi]);
+    $pos3 = App::call('App\Http\Controllers\TournoiController@getPositionTeam3', ['tid' => $tournoi]);
+    $pos4 = App::call('App\Http\Controllers\TournoiController@getPositionTeam4', ['tid' => $tournoi]);
+
+    $mesTeam = App\EquipesUsers::where('user_id', '=', Auth::id())->get();
+
+    return view('tournoi', compact('tournoi', 'equipes' ,'tournoi_equipe', 'users', 'equipes_users', 'slug', 'checker', 'pos1', 'pos2', 'pos3', 'pos4', 'mesTeam') );
 });
 
 Route::get('/equipes', function () {
     $equipes = App\Equipe::all();
-    return view('equipes', compact('equipes'));
+    $participants = App\Participant::all();
+    $users = App\User::all();
+    $equipes_users = App\EquipesUsers::all();
+    return view('equipes', compact('equipes','participants','users','usersco','equipes_users'));
 });
 Route::get('equipe/{slug}', function($slug){
     $equipe = App\Equipe::where('slug', '=', $slug)->firstOrFail();
-    return view('equipe', compact('equipe'));
+    $equipes_users = App\EquipesUsers::all();
+    $users = App\User::all();
+    return view('equipe', compact('equipe','users','equipes_users'));
+});
+
+Route::get('/news', function(){
+    $news = App\News::all();
+    return view('news', compact('news'));
+});
+
+Route::get('news_in/{slug}', function($slug){
+    $news = App\News::where('slug', '=', $slug)->firstOrFail();
+    return view('news_in', compact('news'));
+});
+
+Route::get('/jeux', function(){
+    $jeux = App\Jeu::all();
+    return view('jeux', compact('jeux'));
+});
+
+Route::get('jeux_in/{slug}', function($slug){
+    $jeux = App\Jeu::where('slug', '=', $slug)->firstOrFail();
+    return view('jeux_in', compact('jeux'));
+});
+
+Route::get('/home', function(){
+    $news = App\News::all();
+    $jeux = App\Jeu::all();
+
+    $nextTournament = App::call('App\Http\Controllers\TournoiController@getNextTournament');
+
+    return view('new', compact('news', 'jeux', 'nextTournament'));
 });
 
 Auth::routes();
@@ -59,10 +107,6 @@ Route::get('/', function () {
 
 Route::get('/doubleauth',  'UserController@doubleauth');
 Route::post('/verifDoubleAuth',  ['as' => 'users.doubleauthcheck', 'uses' => 'UserController@doubleauthCheck']);
-
-Route::get('/home',  'HomeController@index');
-Route::get('/news',  'NewsController@index');
-Route::get('/news/{news}',  'NewsController@news');
 
 Route::group(['prefix' => 'admin'], function () {
 	Voyager::routes();
@@ -82,14 +126,28 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('messages/{user}', ['as' => 'users.messages.store', 'uses' => 'MessagesController@store']);
     Route::get('messages/show/{id}', ['as' => 'users.messages.show', 'uses' => 'MessagesController@show']);
     Route::put('messages/show/{id}', ['as' => 'users.messages.update', 'uses' => 'MessagesController@update']);
+    Route::get('statistiques/{user}', ['as' => 'users.statistiques', 'uses' => 'UserController@statistiques']);
+    Route::get('gestion_equipes/{user}', ['as' => 'users.gestion_equipes', 'uses' => 'UserController@mesEquipes']);
+    Route::post('gestion_equipes', ['as' => 'users.deleteEquipe', 'uses' => 'UserController@DeleteEquipe']);
+
+
 });
 
 Route::get('/getMessages', ['as' => 'users.ajaxGet', 'uses' => 'MessagesController@ajaxGet']);
 
-Route::group(['prefix' => 'MobAPI'], function () {
+Route::group(['prefix' => 'MobAPI', 'middleware' => ['api', 'cors'],], function () {
     Route::post('/connect', 'APIAppliController@connect');
+    Route::post('/getName', 'APIAppliController@getName');
     Route::post('/getMsg', 'APIAppliController@getMsg');
+    Route::post('/getOtherUsers', 'APIAppliController@getOtherUsers');
+    Route::post('/sendMessage', 'APIAppliController@sendMessage');
+    Route::post('/setDoubleAuth', 'APIAppliController@setDoubleAuth');
 });
+
+Route::post('equipe/create',  ['as' => 'equipe.create', 'uses' => 'EquipeController@create']);
+Route::post('tournoi/join',  ['as' => 'tournoi.join', 'uses' => 'TournoiController@join']);
+Route::post('tournoi/avance',  ['as' => 'tournoi.avance', 'uses' => 'TournoiController@avance']);
+
 
 Route::get('/stream', function(\romanzipp\Twitch\Twitch $twitch){
     $userOrders = \App\Http\Controllers\StreamController::getStream('skumbsr', $twitch);

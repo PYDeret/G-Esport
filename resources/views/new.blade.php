@@ -9,7 +9,7 @@
 			<div>
 				<div class="container">
 					<h1>G-Esport</h1>
-					<em>G-Esport est une platforme compétitive qui propose des tournois en ligne.<br>Créer ton équipe et participe au prochain tournois !</em>
+					<em>G-Esport est une platforme compétitive qui propose des tournois en ligne.<br>Créer ton équipe et participe au prochain tournoi !</em>
 					<br>
 					<br>
 					<br>
@@ -19,154 +19,92 @@
 		</div>
 	</section>
 
-	<!--<div class="youplay-carousel" data-autoplay="5000">
-		<a class="angled-img" href="store-product-1.html">
-			<div class="img">
-				<img src="/images/lol.jpg" alt="">
-			</div>
-			<div class="over-info">
-				<div>
-					<div>
-						<h4>League of Legends</h4>
-					</div>
-				</div>
-			</div>
-		</a>
-		<a class="angled-img" href="#!">
-			<div class="img">
-				<img src="/images/fortnite.jpg" alt="">
-			</div>
-			<div class="over-info">
-				<div>
-					<div>
-						<h4>Fortnite</h4>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>-->
-
-
-
 	<h2 class="container h1">Dernières Actualités</h2>
 	<section class="youplay-news container">
-		<div class="news-one">
-			<div class="row vertical-gutter">
-				<div class="col-md-4">
-					<a href="/news/battle" class="angled-img">
-						<div class="img">
-							<img src="/images/battle.jpg" alt="">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-8">
-					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/battle.html">La bataille des Devs</a></h3>
-						<span class="date pull-right"><i class="fa fa-calendar"></i> 17/07</span>
-					</div>
-					<div class="description">
-						<p>
-							Pour fêter la réussite de G-esports les développeurs qui ont participés à la création de celle-ci l'inaugurons avec le premier tournois.
-						</p>
-					</div>
-					<a href="/news/battle" class="btn read-more pull-left">Voir plus</a>
-				</div>
-			</div>
-		</div>
+			@foreach($news as $uneNews)
 
-		<div class="news-one">
-			<div class="row vertical-gutter">
-				<div class="col-md-4">
-					<a href="/news/celebration" class="angled-img">
-						<div class="img">
-							<img src="/images/celebration.jpg" alt="">
+			<div class="news-one">
+				<div class="row vertical-gutter">
+					<div class="col-md-4">
+						<a href="/news_in/{{ $uneNews->slug }}" class="angled-img">
+							<div class="img">
+								<img src="{{ Voyager::image( $uneNews->img ) }}" alt="">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-8">
+						<div class="clearfix">
+							<h3 class="h2 pull-left m-0"><a href="/news_in/{{ $uneNews->slug }}">{!! $uneNews->titre !!}</a></h3>
+							<span class="date pull-right"><i class="fa fa-calendar"></i>{!! $uneNews->created_at !!}</span>
 						</div>
-					</a>
-				</div>
-				<div class="col-md-8">
-					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Création de la platforme</a></h3>
-						<span class="date pull-right"><i class="fa fa-calendar"></i> 16/07</span>
+						<div class="description">
+							<p>
+								<?php $small = substr(strip_tags ($uneNews->description) , 0, 100); ?>
+								{!! 
+									$small.'...';
+								!!}
+							</p>
+						</div>
+						<a href="/news_in/{{ $uneNews->slug }}" class="btn read-more pull-left">Voir plus</a>
 					</div>
-					<div class="description">
-						<p>
-							Après avoir travaillé pendant de nombreux jours, elle est enfin la, la seule et unique, G-esport !
-						</p>
-					</div>
-					<a href="/news/celebration" class="btn read-more pull-left">Voir plus</a>
 				</div>
 			</div>
-		</div>
+
+		@endforeach
 	</section>
 
-	<div class="h2"></div>
-	<section class="youplay-banner youplay-banner-parallax small">
-		<div class="image" style="background-image: url('/images/banner-broken-age.jpg');">
-		</div>
+	<?php if(!empty($nextTournament)): ?>
 
-		<div class="info container align-center">
-			<div>
-				<h2>Prochain tournoi</h2>
 
-				<div class="countdown h2" data-end="2018/10/10"></div>
-
-				<br>
-				<br>
-				<a class="btn btn-lg" href="#!">S'inscrire</a>
+		<section class="youplay-banner youplay-banner-parallax small">
+			<div class="image" style="background-image: url('uploads/<?= $nextTournament->image ?>');">
 			</div>
-		</div>
-	</section>
+
+			<div class="info container align-center">
+				<div>
+					<h2>Prochain tournoi</h2>
+
+					<div class="countdown h2" data-end="<?= $nextTournament->DateDebut ?>"></div>
+
+					<br>
+					<br>
+					<a class="btn btn-lg" href="/tournoi/<?= $nextTournament->slug ?>">S'inscrire</a>
+				</div>
+			</div>
+		</section>
+
+	<?php endif; ?>
 
 
 	<h2 class="container h1">Jeux du moment</h2>
 	<section class="youplay-news container">
-		<div class="news-one">
-			<div class="row vertical-gutter">
-				<div class="col-md-4">
-					<a href="/news/battle" class="angled-img">
-						<div class="img">
-							<img src="/images/lol.jpg" alt="">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-8">
-					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/battle.html">League of legends</a></h3>
-					<!--	<span class="date pull-right"><i class="fa fa-calendar"></i> 17/07</span>-->
-					</div>
-					<div class="description">
-						<p>
-							Des tournois 5 contre 5 , n'hésitez plus a jouer avec vos amis lors des tournois G-esport trépidants.
-						</p>
-					</div>
-					<a href="/news/battle" class="btn read-more pull-left">Voir plus</a>
-				</div>
-			</div>
-		</div>
+			@foreach($jeux as $unJeu)
 
-		<div class="news-one">
-			<div class="row vertical-gutter">
-				<div class="col-md-4">
-					<a href="/news/celebration" class="angled-img">
-						<div class="img">
-							<img src="/images/fortnite.jpg" alt="">
+			<div class="news-one">
+				<div class="row vertical-gutter">
+					<div class="col-md-4">
+						<a href="/jeux_in/{{ $unJeu->slug }}" class="angled-img">
+							<div class="img">
+								<img src="{{ Voyager::image( $unJeu->img ) }}" alt="">
+							</div>
+						</a>
+					</div>
+					<div class="col-md-8">
+						<div class="clearfix">
+							<h3 class="h2 pull-left m-0"><a href="/jeux_in/{{ $unJeu->slug }}">{!! $unJeu->libelle !!}</a></h3>
+							<span class="date pull-right"><i class="fa fa-calendar"></i>{!! $unJeu->created_at !!}</span>
 						</div>
-					</a>
-				</div>
-				<div class="col-md-8">
-					<div class="clearfix">
-						<h3 class="h2 pull-left m-0"><a href="/news/celebration">Fortnite</a></h3>
-						<!--<span class="date pull-right"><i class="fa fa-calendar"></i> 16/07</span>-->
+						<div class="description">
+							<p>
+								{!! $unJeu->description !!}
+							</p>
+						</div>
+						<a href="/jeux_in/{{ $unJeu->slug }}" class="btn read-more pull-left">Voir plus</a>
 					</div>
-					<div class="description">
-						<p>
-							Participez aux tournois Battle Royale sur fortnite grâce à la plateforme G-esport.
-						</p>
-					</div>
-					<a href="/news/celebration" class="btn read-more pull-left">Voir plus</a>
 				</div>
 			</div>
-		</div>
+
+		@endforeach
 	</section>
 
 	<section class="youplay-banner youplay-banner-parallax small mt-80">

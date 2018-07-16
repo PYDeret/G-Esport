@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call(JeusTableSeeder::class);
         //$this->call(ResultatsTableSeeder::class);
         $this->call(RecompensesTableSeeder::class);
+        $this->call(EquipesUsersTableSeeder::class);
+        $this->call(NewsTableSeeder::class);
+        $this->call(EtapeTableSeeder::class);
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

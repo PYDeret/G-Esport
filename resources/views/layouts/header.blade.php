@@ -35,12 +35,22 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/news">Actualités</a>
+          <li>
+            <a href="/news">Actualités</a>
           </li>
-          <li><a href="/tournois">Tournois</a>
+          <li>
+            <a href="/tournois">Tournois</a>
           </li>
-          <li><a href="/videos">Vidéos</a>
+          <li>
+            <a href="/equipes">Equipes</a>
           </li>
+          <li>
+            <a href="/jeux">Jeux proposés</a>
+          </li>
+          <li>
+            <a href="/stream">Vidéos</a>
+          </li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

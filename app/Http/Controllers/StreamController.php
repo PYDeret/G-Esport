@@ -24,23 +24,9 @@ class StreamController extends Controller{
 
         if ($userResult->success()) {
 
-            $result = '<iframe
-                    src="http://player.twitch.tv/?channel='.$streamName .'"
-                    height="720"
-                    width="1280"
-                    frameborder="0"
-                    scrolling="no"
-                    allowfullscreen="true">
-                </iframe>
-                <iframe frameborder="0"
-                    scrolling="no"
-                    id="chat_embed"
-                    src="http://www.twitch.tv/embed/'.$streamName.'/chat"
-                    height="500"
-                    width="350">
-                </iframe>';
+            $result = '';
 
-            return $result;
+            return view('/stream', compact('streamName'));
         }
     }
 }

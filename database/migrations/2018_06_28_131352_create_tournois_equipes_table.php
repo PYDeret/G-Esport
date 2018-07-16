@@ -17,6 +17,7 @@ class CreateTournoisEquipesTable extends Migration {
 			$table->increments('id');
 			$table->integer('TournoiId')->unsigned()->nullable()->index('TournoiId');
 			$table->integer('EquipeId')->unsigned()->nullable()->index('EquipeId');
+			$table->integer('EtapeId')->unsigned()->nullable()->index('EtapeId');
 			$table->timestamps();
 		});
 	}

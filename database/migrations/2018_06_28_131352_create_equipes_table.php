@@ -18,7 +18,7 @@ class CreateEquipesTable extends Migration {
 			$table->string('libelle');
 			$table->string('description');
 			$table->string('slug');
-			$table->integer('ParticipantId')->unsigned()->index('FK_equipes_participants');
+			$table->integer('userId')->unsigned()->index('FK_equipes_userss');
 			$table->timestamps();
 		});
 	}
