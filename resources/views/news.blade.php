@@ -35,7 +35,11 @@
 						</div>
 						<div class="description">
 							<p>
-								{!! $uneNews->description !!}
+
+								<?php $small = substr($uneNews->description , 0, 100); ?>
+								{!! 
+									$small.'...';
+								!!}
 							</p>
 						</div>
 						<a href="/news_in/{{ $uneNews->slug }}" class="btn read-more pull-left">Voir plus</a>
