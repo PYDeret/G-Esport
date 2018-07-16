@@ -9,7 +9,7 @@ class LeagueController extends Controller{
 
     private $url = "https://euw1.api.riotgames.com";
 
-    private $api_key = 'api_key=RGAPI-a86f8b8c-c031-44c4-8672-2655352bfbb9';
+    private $api_key = 'api_key=RGAPI-9f3021da-4096-4a9f-95f3-f5c82f47ac16';
 
     private $client;
 
